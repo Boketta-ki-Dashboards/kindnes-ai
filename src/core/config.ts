@@ -47,6 +47,16 @@ export const PipelineConfigSchema = z.object({
   }),
   scoring: z.object({
     threshold: z.number().default(75),
+    /** Paid, therefore OFF by default – see src/scoring/vision-review.ts */
+    visionReview: z
+      .object({
+        enabled: z.boolean().default(false),
+        model: z.string().default('claude-opus-5-5'),
+        frames: z.number().int().min(4).max(24).default(12),
+        effort: z.enum(['low', 'medium', 'high']).default('medium'),
+        maxPerRun: z.number().int().default(10),
+      })
+      .default({enabled: false, model: 'claude-opus-5-5', frames: 12, effort: 'medium', maxPerRun: 10}),
   }),
   discovery: z.object({
     maxResultsPerQuery: z.number().int().default(12),

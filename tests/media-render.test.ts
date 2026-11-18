@@ -1,6 +1,7 @@
 import {describe, expect, it, beforeAll} from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import {dHashDistance, makeProxy, mediaInfo, videoDHash} from '../src/media/ffmpeg';
 import {findInInbox, describeMedia} from '../src/acquisition/acquire';
 import {loadAssetsConfig, loadMusicConfig, loadPipelineConfig} from '../src/core/config';
@@ -27,11 +28,16 @@ describe('file detection & media metadata (synthetic TEST media)', () => {
   });
   it('perceptual hash: identical file -> distance 0, different content -> large distance', () => {
     const a = videoDHash(vid, 4);
-    const other = syntheticVideo('other', {seconds: 4, width: 640, height: 360, freq: 880});
+    const other = syntheticVideo('other-smptebars', {seconds: 4, width: 640, height: 360, freq: 880, source: 'smptehdbars'});
+    expect(a.length).toBe(128);
     expect(dHashDistance(a, videoDHash(vid, 4))).toBe(0);
     const desc = describeMedia(other);
     expect(desc.sha256).toMatch(/^[0-9a-f]{64}$/);
-    expect(a.length).toBe(128);
+    expect(dHashDistance(a, desc.dHash!)).toBeGreaterThan(60); // 512-bit hash, different picture
+    // a re-encoded copy of the same picture stays close (re-upload detection)
+    const reenc = vid.replace('.mp4', '_reencoded.mp4');
+    spawnSync('ffmpeg', ['-nostdin', '-v', 'error', '-y', '-i', vid, '-vf', 'scale=480:270', '-c:v', 'libx264', '-crf', '30', reenc]);
+    expect(dHashDistance(a, videoDHash(reenc, 4))).toBeLessThanOrEqual(40);
   });
   it('finds user-provided files in the inbox by candidate id', () => {
     const dir = tmpDir();

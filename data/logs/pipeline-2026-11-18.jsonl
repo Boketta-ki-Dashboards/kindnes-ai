@@ -71,3 +71,100 @@
 {"at":"2026-11-18T18:28:14.752Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B: 80%"}
 {"at":"2026-11-18T18:28:28.261Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B: 90%"}
 {"at":"2026-11-18T18:28:34.208Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B: 100%"}
+{"at":"2026-11-18T18:30:24.644Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T18:30:24.892Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T18:30:27.868Z","level":"info","scope":"render","msg":"render outro-preview-A: 0%"}
+{"at":"2026-11-18T18:30:30.334Z","level":"info","scope":"render","msg":"render outro-preview-A: 10%"}
+{"at":"2026-11-18T18:30:35.613Z","level":"info","scope":"render","msg":"render outro-preview-A: 20%"}
+{"at":"2026-11-18T18:30:40.743Z","level":"info","scope":"render","msg":"render outro-preview-A: 30%"}
+{"at":"2026-11-18T18:30:47.113Z","level":"info","scope":"render","msg":"render outro-preview-A: 40%"}
+{"at":"2026-11-18T18:30:53.818Z","level":"info","scope":"render","msg":"render outro-preview-A: 50%"}
+{"at":"2026-11-18T18:31:00.039Z","level":"info","scope":"render","msg":"render outro-preview-A: 60%"}
+{"at":"2026-11-18T18:31:06.396Z","level":"info","scope":"render","msg":"render outro-preview-A: 70%"}
+{"at":"2026-11-18T18:31:12.475Z","level":"info","scope":"render","msg":"render outro-preview-A: 80%"}
+{"at":"2026-11-18T18:31:18.849Z","level":"info","scope":"render","msg":"render outro-preview-A: 90%"}
+{"at":"2026-11-18T18:31:22.607Z","level":"info","scope":"render","msg":"render outro-preview-A: 100%"}
+{"at":"2026-11-18T18:31:28.812Z","level":"info","scope":"render","msg":"fit-blur proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T18:31:28.812Z","level":"info","scope":"render","msg":"fit-blur proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T18:31:29.098Z","level":"info","scope":"render","msg":"render outro-preview-B: 0%"}
+{"at":"2026-11-18T18:31:31.481Z","level":"info","scope":"render","msg":"render outro-preview-B: 10%"}
+{"at":"2026-11-18T18:31:37.437Z","level":"info","scope":"render","msg":"render outro-preview-B: 20%"}
+{"at":"2026-11-18T18:31:42.748Z","level":"info","scope":"render","msg":"render outro-preview-B: 30%"}
+{"at":"2026-11-18T18:31:49.636Z","level":"info","scope":"render","msg":"render outro-preview-B: 40%"}
+{"at":"2026-11-18T18:31:55.784Z","level":"info","scope":"render","msg":"render outro-preview-B: 50%"}
+{"at":"2026-11-18T18:32:01.900Z","level":"info","scope":"render","msg":"render outro-preview-B: 60%"}
+{"at":"2026-11-18T18:32:07.968Z","level":"info","scope":"render","msg":"render outro-preview-B: 70%"}
+{"at":"2026-11-18T18:32:14.932Z","level":"info","scope":"render","msg":"render outro-preview-B: 80%"}
+{"at":"2026-11-18T18:32:21.438Z","level":"info","scope":"render","msg":"render outro-preview-B: 90%"}
+{"at":"2026-11-18T18:32:25.467Z","level":"info","scope":"render","msg":"render outro-preview-B: 100%"}
+{"at":"2026-11-18T18:32:31.607Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T18:32:31.608Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T18:32:31.898Z","level":"info","scope":"render","msg":"render outro-preview-C: 0%"}
+{"at":"2026-11-18T18:32:34.212Z","level":"info","scope":"render","msg":"render outro-preview-C: 10%"}
+{"at":"2026-11-18T18:32:39.083Z","level":"info","scope":"render","msg":"render outro-preview-C: 20%"}
+{"at":"2026-11-18T18:32:43.634Z","level":"info","scope":"render","msg":"render outro-preview-C: 30%"}
+{"at":"2026-11-18T18:32:49.339Z","level":"info","scope":"render","msg":"render outro-preview-C: 40%"}
+{"at":"2026-11-18T18:32:54.594Z","level":"info","scope":"render","msg":"render outro-preview-C: 50%"}
+{"at":"2026-11-18T18:33:00.033Z","level":"info","scope":"render","msg":"render outro-preview-C: 60%"}
+{"at":"2026-11-18T18:33:06.004Z","level":"info","scope":"render","msg":"render outro-preview-C: 70%"}
+{"at":"2026-11-18T18:33:12.011Z","level":"info","scope":"render","msg":"render outro-preview-C: 80%"}
+{"at":"2026-11-18T18:33:17.631Z","level":"info","scope":"render","msg":"render outro-preview-C: 90%"}
+{"at":"2026-11-18T18:33:20.559Z","level":"info","scope":"render","msg":"render outro-preview-C: 100%"}
+{"at":"2026-11-18T18:33:26.383Z","level":"info","scope":"render","msg":"fit-blur proxy assets/outro/edits/edit-c_kindness-definition_dbl28pno.mov"}
+{"at":"2026-11-18T18:33:33.046Z","level":"info","scope":"render","msg":"render outro-preview-D: 0%"}
+{"at":"2026-11-18T18:33:35.460Z","level":"info","scope":"render","msg":"render outro-preview-D: 10%"}
+{"at":"2026-11-18T18:33:39.916Z","level":"info","scope":"render","msg":"render outro-preview-D: 20%"}
+{"at":"2026-11-18T18:33:43.970Z","level":"info","scope":"render","msg":"render outro-preview-D: 30%"}
+{"at":"2026-11-18T18:33:49.299Z","level":"info","scope":"render","msg":"render outro-preview-D: 40%"}
+{"at":"2026-11-18T18:33:54.785Z","level":"info","scope":"render","msg":"render outro-preview-D: 50%"}
+{"at":"2026-11-18T18:34:00.115Z","level":"info","scope":"render","msg":"render outro-preview-D: 60%"}
+{"at":"2026-11-18T18:34:05.467Z","level":"info","scope":"render","msg":"render outro-preview-D: 70%"}
+{"at":"2026-11-18T18:34:10.471Z","level":"info","scope":"render","msg":"render outro-preview-D: 80%"}
+{"at":"2026-11-18T18:34:15.422Z","level":"info","scope":"render","msg":"render outro-preview-D: 90%"}
+{"at":"2026-11-18T18:34:17.402Z","level":"info","scope":"render","msg":"render outro-preview-D: 100%"}
+{"at":"2026-11-18T18:35:27.393Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T18:35:27.669Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T18:35:30.516Z","level":"info","scope":"render","msg":"render outro-preview-A: 0%"}
+{"at":"2026-11-18T18:35:33.008Z","level":"info","scope":"render","msg":"render outro-preview-A: 10%"}
+{"at":"2026-11-18T18:35:37.955Z","level":"info","scope":"render","msg":"render outro-preview-A: 20%"}
+{"at":"2026-11-18T18:35:42.311Z","level":"info","scope":"render","msg":"render outro-preview-A: 30%"}
+{"at":"2026-11-18T18:35:47.034Z","level":"info","scope":"render","msg":"render outro-preview-A: 40%"}
+{"at":"2026-11-18T18:35:52.319Z","level":"info","scope":"render","msg":"render outro-preview-A: 50%"}
+{"at":"2026-11-18T18:35:57.673Z","level":"info","scope":"render","msg":"render outro-preview-A: 60%"}
+{"at":"2026-11-18T18:36:03.006Z","level":"info","scope":"render","msg":"render outro-preview-A: 70%"}
+{"at":"2026-11-18T18:36:08.482Z","level":"info","scope":"render","msg":"render outro-preview-A: 80%"}
+{"at":"2026-11-18T18:36:13.490Z","level":"info","scope":"render","msg":"render outro-preview-A: 90%"}
+{"at":"2026-11-18T18:36:16.232Z","level":"info","scope":"render","msg":"render outro-preview-A: 100%"}
+{"at":"2026-11-18T18:36:22.373Z","level":"info","scope":"render","msg":"fit-blur proxy assets/outro/edits/edit-c_kindness-definition_dbl28pno.mov"}
+{"at":"2026-11-18T18:36:22.695Z","level":"info","scope":"render","msg":"render outro-preview-D: 0%"}
+{"at":"2026-11-18T18:36:25.021Z","level":"info","scope":"render","msg":"render outro-preview-D: 10%"}
+{"at":"2026-11-18T18:36:29.643Z","level":"info","scope":"render","msg":"render outro-preview-D: 20%"}
+{"at":"2026-11-18T18:36:33.903Z","level":"info","scope":"render","msg":"render outro-preview-D: 30%"}
+{"at":"2026-11-18T18:36:39.101Z","level":"info","scope":"render","msg":"render outro-preview-D: 40%"}
+{"at":"2026-11-18T18:36:44.121Z","level":"info","scope":"render","msg":"render outro-preview-D: 50%"}
+{"at":"2026-11-18T18:36:50.421Z","level":"info","scope":"render","msg":"render outro-preview-D: 60%"}
+{"at":"2026-11-18T18:36:55.849Z","level":"info","scope":"render","msg":"render outro-preview-D: 70%"}
+{"at":"2026-11-18T18:37:00.767Z","level":"info","scope":"render","msg":"render outro-preview-D: 80%"}
+{"at":"2026-11-18T18:37:05.718Z","level":"info","scope":"render","msg":"render outro-preview-D: 90%"}
+{"at":"2026-11-18T18:37:07.527Z","level":"info","scope":"render","msg":"render outro-preview-D: 100%"}
+{"at":"2026-11-18T18:37:14.182Z","level":"info","scope":"render","msg":"fit-blur proxy media/test-inputs/TEST-INPUT_ref04-story_dog-guides-blind-cat.mp4"}
+{"at":"2026-11-18T18:37:14.183Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T18:37:14.452Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T18:37:18.628Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 0%"}
+{"at":"2026-11-18T18:37:29.751Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 10%"}
+{"at":"2026-11-18T18:37:32.520Z","level":"info","scope":"pipeline","msg":"a: 2 hits, 1 new, 0 duplicates, 1 filtered"}
+{"at":"2026-11-18T18:37:32.521Z","level":"info","scope":"pipeline","msg":"b: 2 hits, 1 new, 1 duplicates, 0 filtered"}
+{"at":"2026-11-18T18:37:32.521Z","level":"info","scope":"pipeline","msg":"a: 2 hits, 0 new, 1 duplicates, 1 filtered"}
+{"at":"2026-11-18T18:37:32.521Z","level":"info","scope":"pipeline","msg":"b: 2 hits, 0 new, 2 duplicates, 0 filtered"}
+{"at":"2026-11-18T18:37:32.523Z","level":"warn","scope":"pipeline","msg":"blocked blocked: HTTP 403"}
+{"at":"2026-11-18T18:37:32.523Z","level":"info","scope":"pipeline","msg":"blocked: 0 hits, 0 new, 0 duplicates, 0 filtered (BLOCKED)"}
+{"at":"2026-11-18T18:37:32.525Z","level":"info","scope":"pipeline","msg":"a: 2 hits, 2 new, 0 duplicates, 0 filtered"}
+{"at":"2026-11-18T18:37:39.766Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 20%"}
+{"at":"2026-11-18T18:37:49.975Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 30%"}
+{"at":"2026-11-18T18:38:00.049Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 40%"}
+{"at":"2026-11-18T18:38:09.563Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 50%"}
+{"at":"2026-11-18T18:38:20.475Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 60%"}
+{"at":"2026-11-18T18:38:29.999Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 70%"}
+{"at":"2026-11-18T18:38:40.274Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 80%"}
+{"at":"2026-11-18T18:38:50.228Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 90%"}
+{"at":"2026-11-18T18:38:55.683Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 100%"}

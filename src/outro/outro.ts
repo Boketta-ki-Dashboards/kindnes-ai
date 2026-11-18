@@ -59,6 +59,9 @@ export function shotCandidates(source: OutroSource, analysis: VideoAnalysis, fra
         }
       }
       if (b - a < 0.35) continue;
+      // near-black shots read as black frames on a phone (and fail QC) – skip them
+      const secs = analysis.perSecond.brightness.slice(Math.floor(a), Math.max(Math.floor(a) + 1, Math.ceil(b)));
+      if (s.meanBrightness < 0.16 || (secs.length && Math.min(...secs) < 0.1)) continue;
       // Prefer bright-but-not-blown, warm, calm-ish shots; longer shots give more choice.
       const bright = 1 - Math.min(1, Math.abs(s.meanBrightness - 0.5) / 0.4);
       const warm = Math.max(0, Math.min(1, s.warmth / 0.25));
@@ -220,4 +223,9 @@ function orderForArc(chosen: ShotCandidate[], sourceOrder: string[]): ShotCandid
     const sb = sourceOrder.indexOf(b.sourceId);
     return sa !== sb ? sa - sb : a.start - b.start;
   });
+}
+
+/** Finished third-party edits already carry their own text overlays – no extra caption on top. */
+export function variantHasOwnText(assets: AssetsConfig, sourceIds: string[]): boolean {
+  return sourceIds.some((id) => assets.outroSources.find((s) => s.id === id)?.role === 'style-reference');
 }

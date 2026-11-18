@@ -55,6 +55,7 @@ const HELP = `Kindness AI – commands (npm run kai -- <command>)
   import-url <url> [--title T]   Add a TikTok/YouTube/... link as candidate (metadata via oEmbed)
   acquire <id>                   Get the media file (inbox / free-licensed download)
   analyze <id> [--force]         Content analysis of the media file + re-score
+  review <id>                    OPTIONAL paid vision review (Claude API, off by default)
 
   select|favorite|unfavorite|reject|archive|restore <id>
   set <id> --highlight SEC --hook "text" --variant B --in SEC --out SEC --transition flash --story-audio 0.3
@@ -65,6 +66,7 @@ const HELP = `Kindness AI – commands (npm run kai -- <command>)
   run [--no-discover] [--produce-selected]   Automated run: discover -> score -> (produce selected)
   dashboard [--port 4173]        Local candidate dashboard (http://localhost:4173)
   dashboard:build                Static dashboard snapshot -> dashboard-dist/index.html
+  apply-selection <file.json>    Apply decisions exported from the static snapshot
 `;
 
 async function ensureBeatmap(force = false): Promise<BeatMap> {
@@ -238,6 +240,25 @@ async function main(): Promise<void> {
       printCandidate(c);
       return;
     }
+    case 'review': {
+      const cfg = loadPipelineConfig();
+      const vr = cfg.scoring.visionReview;
+      if (!vr.enabled) {
+        console.log('Vision review is disabled (paid Claude API). Enable scoring.visionReview.enabled in config/pipeline.json and provide ANTHROPIC_API_KEY.');
+        process.exitCode = 1;
+        return;
+      }
+      const s = store();
+      const c = s.require(pos[0]);
+      if (!c.media.local) await P.acquire(s, cfg, c);
+      const a = c.contentAnalysisPath ? readJson<any>(abs(c.contentAnalysisPath)) : await P.analyzeContent(s, cfg, c);
+      const {visionReview} = await import('./scoring/vision-review.js');
+      const r = await visionReview(c, a, vr);
+      console.log(`review by ${r.reviewer}: ${JSON.stringify(r.scores)}`);
+      P.scoreCandidates(s, cfg, [c.id]);
+      printCandidate(s.require(c.id));
+      return;
+    }
     case 'select': {
       const s = store();
       P.select(s, s.require(pos[0]));
@@ -334,6 +355,23 @@ async function main(): Promise<void> {
     case 'dashboard': {
       const {startDashboard} = await import('./dashboard/server.js');
       await startDashboard(Number(flags.port ?? 4173));
+      return;
+    }
+    case 'apply-selection': {
+      // decisions made in the static dashboard snapshot ("Auswahl exportieren")
+      const sel = readJson<{actions: Record<string, {favorite?: boolean; state?: string}>}>(abs(pos[0]));
+      const s = store();
+      for (const [id, a] of Object.entries(sel.actions)) {
+        const c = s.get(id);
+        if (!c) continue;
+        if (a.favorite !== undefined) P.setStatus(s, c, a.favorite ? 'favorite' : 'unfavorite');
+        if (a.state === 'SELECTED') P.select(s, c, 'selected in dashboard snapshot');
+        else if (a.state === 'REJECTED') P.setStatus(s, c, 'reject');
+        else if (a.state === 'ARCHIVED') P.setStatus(s, c, 'archive');
+        else if (a.state === 'SHORTLISTED' && ['ARCHIVED', 'REJECTED'].includes(c.state)) P.setStatus(s, c, 'restore');
+        else if (a.state === 'APPROVED' && c.state === 'REVIEW') P.approve(s, c);
+        console.log(`${id}: ${c.state}${c.favorite ? ' ★' : ''}`);
+      }
       return;
     }
     case 'dashboard:build': {

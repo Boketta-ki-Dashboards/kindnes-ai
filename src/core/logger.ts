@@ -15,7 +15,7 @@ export interface LogEntry {
 }
 
 let quiet = process.env.KAI_QUIET === '1';
-let logDir = PATHS.logs;
+let logDir = process.env.KAI_LOG_DIR ?? PATHS.logs;
 
 export function setQuiet(q: boolean): void {
   quiet = q;

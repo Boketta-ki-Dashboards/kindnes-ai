@@ -56,11 +56,11 @@ function applyHit(store: CandidateStore, hit: SearchHit, query: string): {added:
 }
 
 /** Step 1+2: search all enabled platforms with the next batch of rotating queries. */
-export async function discover(store: CandidateStore, cfg: PipelineConfig, opts: {queries?: string[]; adapters?: string[]; limit?: number} = {}): Promise<DiscoverReport> {
+export async function discover(store: CandidateStore, cfg: PipelineConfig, opts: {queries?: string[]; adapters?: string[]; limit?: number; adapterList?: SearchAdapter[]} = {}): Promise<DiscoverReport> {
   const queries = opts.queries ?? nextQueries(cfg.discovery.queriesPerRun);
   const limit = opts.limit ?? cfg.discovery.maxResultsPerQuery;
   const report: DiscoverReport = {queries, perAdapter: {}, added: []};
-  for (const adapter of adaptersFor(cfg, opts.adapters)) {
+  for (const adapter of opts.adapterList ?? adaptersFor(cfg, opts.adapters)) {
     const r = (report.perAdapter[adapter.name] = {hits: 0, added: 0, duplicates: 0, filtered: 0} as DiscoverReport['perAdapter'][string]);
     for (const q of queries) {
       try {
@@ -114,6 +114,13 @@ export function scoreCandidates(store: CandidateStore, cfg: PipelineConfig, ids?
   let archived = 0;
   const targets = store.all().filter((c) => (ids ? ids.includes(c.id) : ['METADATA_ANALYZED', 'CONTENT_ANALYZED', 'SCORED', 'SHORTLISTED', 'ARCHIVED'].includes(c.state)));
   for (const c of targets) {
+    // selected / in production / done: refresh the score only, never move the candidate back
+    if (['SELECTED', 'REJECTED', 'EXPORTED'].includes(c.state) || isAtLeast(c.state, 'EDITING') || ['MEDIA_UNAVAILABLE', 'RENDER_FAILED', 'QC_FAILED', 'ANALYSIS_FAILED'].includes(c.state)) {
+      c.score = bestScore(c, ctx, loadAnalysis(c));
+      c.updatedAt = nowIso();
+      scored++;
+      continue;
+    }
     if (c.state === 'ARCHIVED' && c.history.at(-1)?.note?.startsWith('manual')) continue; // respect manual archive
     const s = bestScore(c, ctx, loadAnalysis(c));
     c.score = s;

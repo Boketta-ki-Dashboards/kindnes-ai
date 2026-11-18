@@ -1,7 +1,7 @@
 {
   "schema": "kindness-ai/candidates",
   "version": 1,
-  "updatedAt": "2026-11-18T18:28:43.201Z",
+  "updatedAt": "2026-11-18T18:39:04.863Z",
   "candidates": [
     {
       "id": "yt_V0Kx0Ne3D4w",
@@ -30331,7 +30331,7 @@
       "query": "humanity restored",
       "categories": [],
       "discoveredAt": "2026-11-18T18:24:18.466Z",
-      "updatedAt": "2026-11-18T18:25:48.485Z",
+      "updatedAt": "2026-11-18T18:31:24.757Z",
       "state": "ARCHIVED",
       "history": [
         {
@@ -30369,49 +30369,89 @@
           "from": "SCORED",
           "to": "ARCHIVED",
           "note": "auto: score 57 < 75"
+        },
+        {
+          "at": "2026-11-18T18:31:24.753Z",
+          "from": "ARCHIVED",
+          "to": "SCORED",
+          "note": "resume for content analysis"
+        },
+        {
+          "at": "2026-11-18T18:31:24.753Z",
+          "from": "SCORED",
+          "to": "CONTENT_ANALYZED",
+          "note": "1214x2160, 30.024s, 33 cuts"
+        },
+        {
+          "at": "2026-11-18T18:31:24.757Z",
+          "from": "CONTENT_ANALYZED",
+          "to": "SCORED",
+          "note": "53.8 pts (CONTENT_SIGNALS)"
+        },
+        {
+          "at": "2026-11-18T18:31:24.757Z",
+          "from": "SCORED",
+          "to": "ARCHIVED",
+          "note": "auto: score 53.8 < 75"
         }
       ],
       "media": {
-        "status": "downloadable",
-        "reason": "Free license (CC BY-SA 4.0) – attribution required."
+        "status": "available",
+        "local": {
+          "path": "media/downloads/wm_Kin_Wikipedia_25_30__Humanity_9x16_webm.webm",
+          "durationSec": 30.024,
+          "width": 1214,
+          "height": 2160,
+          "fps": 24,
+          "videoCodec": "av1",
+          "audioCodec": "opus",
+          "sizeBytes": 12624190,
+          "sha256": "cedd045818d58c44618c2da6862e194d467af7bf72fff4dc158c4b0fce1b199d",
+          "dHash": "0000808696c0000080c000e0c00000526332cc8fe8b97179327a6ad6c6329ee74e4674564c4c464600283064a69aa2e2000070aa98700000000000acd4000000"
+        },
+        "reason": "via wikimedia"
       },
       "favorite": false,
       "isCompilation": false,
       "titleFingerprint": "9x16 humanity kin wikipedia",
       "mediaUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Kin_Wikipedia_25_30%22_Humanity_9x16.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "score": {
-        "total": 57,
+        "total": 53.8,
         "emotional": {
           "points": 13,
           "max": 35,
           "reasons": [
             "1 kindness keyword group(s)",
             "no view count – neutral",
-            "metadata only – emotional impact NOT verified on the video"
+            "content signals only – emotional meaning not judged by a reviewer yet"
           ]
         },
         "clarity": {
-          "points": 21,
+          "points": 17,
           "max": 25,
           "reasons": [
-            "30 s – ideal single-story length",
             "descriptive title",
-            "has description"
+            "has description",
+            "66 cuts/min – fragmented"
           ]
         },
         "dropPotential": {
-          "points": 8,
+          "points": 9.4,
           "max": 20,
           "reasons": [
-            "length fits a story before the 48 s drop"
+            "length fits a story before the 48 s drop",
+            "measured peak at 19.5 s (65 %), strength +2.6",
+            "peak in the second half – good build-up"
           ]
         },
         "visualQuality": {
-          "points": 9,
+          "points": 8.4,
           "max": 10,
           "reasons": [
-            "1214x2160 (reported)",
-            "vertical – fits 9:16"
+            "measured 1214x2160 @ 24 fps",
+            "detail/sharpness 0.056 → +1.9",
+            "stability (motion jitter 0.050) → +0",
+            "vertical source"
           ]
         },
         "originality": {
@@ -30419,12 +30459,13 @@
           "max": 10,
           "reasons": []
         },
-        "analysisLevel": "METADATA_ONLY",
-        "provisional": true,
-        "scoredAt": "2026-11-18T18:25:48.485Z",
-        "scorer": "metadata-heuristic-v1",
+        "analysisLevel": "CONTENT_SIGNALS",
+        "provisional": false,
+        "scoredAt": "2026-11-18T18:31:24.757Z",
+        "scorer": "content-signals-v1",
         "qualifies": false
-      }
+      },
+      "contentAnalysisPath": "data/analysis/candidates/wm_Kin_Wikipedia_25_30__Humanity_9x16_webm.video.json"
     },
     {
       "id": "wm_Kin_Wikipedia_25_Anthem_30__Humanity_16x9_webm",
@@ -31263,7 +31304,7 @@
         "sports"
       ],
       "discoveredAt": "2026-11-18T18:24:20.806Z",
-      "updatedAt": "2026-11-18T18:25:48.488Z",
+      "updatedAt": "2026-11-18T18:32:10.336Z",
       "state": "ARCHIVED",
       "history": [
         {
@@ -31301,66 +31342,113 @@
           "from": "SCORED",
           "to": "ARCHIVED",
           "note": "auto: score 63.5 < 75"
+        },
+        {
+          "at": "2026-11-18T18:30:53.236Z",
+          "from": "ARCHIVED",
+          "to": "SCORED",
+          "note": "resume for content analysis"
+        },
+        {
+          "at": "2026-11-18T18:30:53.236Z",
+          "from": "SCORED",
+          "to": "CONTENT_ANALYZED",
+          "note": "1920x1080, 62.708s, 6 cuts"
+        },
+        {
+          "at": "2026-11-18T18:30:53.241Z",
+          "from": "CONTENT_ANALYZED",
+          "to": "SCORED",
+          "note": "70.3 pts (CONTENT_SIGNALS)"
+        },
+        {
+          "at": "2026-11-18T18:30:53.241Z",
+          "from": "SCORED",
+          "to": "ARCHIVED",
+          "note": "auto: score 70.3 < 75"
+        },
+        {
+          "at": "2026-11-18T18:32:10.336Z",
+          "from": "ARCHIVED",
+          "to": "SCORED",
+          "note": "19 pts (CONTENT_REVIEWED)"
+        },
+        {
+          "at": "2026-11-18T18:32:10.336Z",
+          "from": "SCORED",
+          "to": "ARCHIVED",
+          "note": "auto: score 19 < 75"
         }
       ],
       "media": {
-        "status": "downloadable",
-        "reason": "Free license (Public domain) – attribution required."
+        "status": "available",
+        "local": {
+          "path": "media/downloads/wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm.webm",
+          "durationSec": 62.708,
+          "width": 1920,
+          "height": 1080,
+          "fps": 23.976023976023978,
+          "videoCodec": "vp9",
+          "audioCodec": "opus",
+          "sizeBytes": 8812282,
+          "sha256": "56cd327e9686cce23ba65b618dfe2ed29922532e70ecfec6bd2d98dd3015d4da",
+          "dHash": "04040404060606c68989890d151d91b98889898c9d150d1d52498d888d950d1d52498d885d150d1d524b8d885d150d1d098d0d0c1e161616098d0d0c1e161616"
+        },
+        "reason": "via wikimedia"
       },
       "favorite": false,
       "isCompilation": false,
       "titleFingerprint": "bad interception programs sportsmanship youth",
       "mediaUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "score": {
-        "total": 63.5,
+        "total": 19,
         "emotional": {
-          "points": 13,
+          "points": 2,
           "max": 35,
           "reasons": [
-            "1 kindness keyword group(s)",
-            "no view count – neutral",
-            "metadata only – emotional impact NOT verified on the video"
+            "CDC teacher-training clip (dating-violence prevention); a teacher talks to a class – no act of kindness, no emotional peak",
+            "reviewed by claude-code-session (30-frame contact sheet of the downloaded file + Wikimedia description)"
           ]
         },
         "clarity": {
-          "points": 25,
+          "points": 6,
           "max": 25,
           "reasons": [
-            "63 s – ideal single-story length",
-            "clear subject (sports) + action",
-            "descriptive title",
-            "has description"
+            "staged classroom scene with multiple-choice text overlays; needs the training context to be understood",
+            "reviewed by claude-code-session (30-frame contact sheet of the downloaded file + Wikimedia description)"
           ]
         },
         "dropPotential": {
-          "points": 10,
+          "points": 2,
           "max": 20,
           "reasons": [
-            "length fits a story before the 48 s drop",
-            "category with clear climax moments"
+            "no climax moment that could carry the drop",
+            "reviewed by claude-code-session (30-frame contact sheet of the downloaded file + Wikimedia description)"
           ]
         },
         "visualQuality": {
-          "points": 7.5,
+          "points": 7,
           "max": 10,
           "reasons": [
-            "1920x1080 (reported)",
-            "landscape – needs fit/crop"
+            "clean 1920x1080 studio footage, but large text overlays from 23-42 s and landscape framing",
+            "reviewed by claude-code-session (30-frame contact sheet of the downloaded file + Wikimedia description)"
           ]
         },
         "originality": {
-          "points": 8,
+          "points": 2,
           "max": 10,
           "reasons": [
-            "category not produced yet: sports"
+            "off-topic for Kindness AI",
+            "reviewed by claude-code-session (30-frame contact sheet of the downloaded file + Wikimedia description)"
           ]
         },
-        "analysisLevel": "METADATA_ONLY",
-        "provisional": true,
-        "scoredAt": "2026-11-18T18:25:48.488Z",
-        "scorer": "metadata-heuristic-v1",
+        "analysisLevel": "CONTENT_REVIEWED",
+        "provisional": false,
+        "scoredAt": "2026-11-18T18:32:10.336Z",
+        "scorer": "review:claude-code-session",
         "qualifies": false
-      }
+      },
+      "contentAnalysisPath": "data/analysis/candidates/wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm.video.json"
     },
     {
       "id": "wm_Basket_Fever_-_Trailer_webm",
@@ -32637,7 +32725,7 @@
         "disability"
       ],
       "discoveredAt": "2026-11-18T18:25:49.802Z",
-      "updatedAt": "2026-11-18T18:28:43.201Z",
+      "updatedAt": "2026-11-18T18:39:04.863Z",
       "state": "REVIEW",
       "history": [
         {
@@ -32716,6 +32804,36 @@
           "from": "QUALITY_CHECKED",
           "to": "REVIEW",
           "note": "waiting for your approval"
+        },
+        {
+          "at": "2026-11-18T18:37:14.154Z",
+          "from": "REVIEW",
+          "to": "SELECTED",
+          "note": "start production"
+        },
+        {
+          "at": "2026-11-18T18:37:14.169Z",
+          "from": "SELECTED",
+          "to": "EDITING",
+          "note": "2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A"
+        },
+        {
+          "at": "2026-11-18T18:38:57.629Z",
+          "from": "EDITING",
+          "to": "RENDERED",
+          "note": "output/2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A/final.mp4"
+        },
+        {
+          "at": "2026-11-18T18:39:04.863Z",
+          "from": "RENDERED",
+          "to": "QUALITY_CHECKED",
+          "note": "11/11 checks passed"
+        },
+        {
+          "at": "2026-11-18T18:39:04.863Z",
+          "from": "QUALITY_CHECKED",
+          "to": "REVIEW",
+          "note": "waiting for your approval"
         }
       ],
       "media": {
@@ -32743,58 +32861,55 @@
         "storyAudioGain": 0
       },
       "score": {
-        "total": 59.2,
+        "total": 70,
         "emotional": {
-          "points": 13,
+          "points": 27,
           "max": 35,
           "reasons": [
-            "no view count – neutral",
-            "audible reaction at the peak (loudness rise)",
-            "content signals only – emotional meaning not judged by a reviewer yet"
+            "a dog repeatedly walks beside and nudges a cat; the close-up reveals the cat's clouded, blind eyes – strong 'aww' reveal, but no human reaction shot",
+            "reviewed by claude-code-session (30-frame contact sheets of the reference and the rendered test edit)"
           ]
         },
         "clarity": {
-          "points": 19,
+          "points": 21,
           "max": 25,
           "reasons": [
-            "descriptive title"
+            "understandable without text once the blind eyes are shown; the reveal comes late, a hook text helps",
+            "reviewed by claude-code-session (30-frame contact sheets of the reference and the rendered test edit)"
           ]
         },
         "dropPotential": {
-          "points": 13.1,
+          "points": 15,
           "max": 20,
           "reasons": [
-            "length fits a story before the 48 s drop",
-            "category with clear climax moments",
-            "measured peak at 14.5 s (76 %), strength +5.1",
-            "peak in the second half – good build-up"
+            "the eye close-up (≈14-17 s) is a clear peak to cut on",
+            "reviewed by claude-code-session (30-frame contact sheets of the reference and the rendered test edit)"
           ]
         },
         "visualQuality": {
-          "points": 6.1,
+          "points": 4,
           "max": 10,
           "reasons": [
-            "measured 574x616 @ 30 fps",
-            "detail/sharpness 0.047 → +1.6",
-            "stability (motion jitter 0.012) → +1.5",
-            "landscape source (fit with blurred background)"
+            "only 574x616 after removing the TikTok frame, TikTok watermark visible, handheld",
+            "reviewed by claude-code-session (30-frame contact sheets of the reference and the rendered test edit)"
           ]
         },
         "originality": {
-          "points": 8,
+          "points": 3,
           "max": 10,
           "reasons": [
-            "category not produced yet: animals, disability"
+            "already used in reference edit ref-04 – test material only, not for publishing",
+            "reviewed by claude-code-session (30-frame contact sheets of the reference and the rendered test edit)"
           ]
         },
-        "analysisLevel": "CONTENT_SIGNALS",
+        "analysisLevel": "CONTENT_REVIEWED",
         "provisional": false,
-        "scoredAt": "2026-11-18T18:26:02.682Z",
-        "scorer": "content-signals-v1",
+        "scoredAt": "2026-11-18T18:32:25.512Z",
+        "scorer": "review:claude-code-session",
         "qualifies": false
       },
       "contentAnalysisPath": "data/analysis/candidates/local_test-input_ref04-story_dog-guides-blind-cat.video.json",
-      "jobId": "2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B"
+      "jobId": "2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A"
     }
   ]
 }

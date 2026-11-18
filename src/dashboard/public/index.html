@@ -90,6 +90,7 @@ video { width: 100%; border-radius: 10px; background: #000; max-height: 520px; }
   </select>
   <label class="chk"><input type="checkbox" id="favOnly"> nur Favoriten</label>
   <label class="chk"><input type="checkbox" id="hideRejected" checked> Abgelehnte ausblenden</label>
+  <button class="a" id="exportSel" style="display:none">Auswahl exportieren</button>
 </div></div>
 <div class="banner" id="banner"></div>
 <main id="grid"></main>
@@ -178,7 +179,7 @@ function card(c) {
     c.state === 'ARCHIVED' || c.state === 'REJECTED' ? btn('restore', 'Wiederherstellen') : (['SHORTLISTED', 'SCORED'].includes(c.state) ? btn('archive', 'Archivieren') : ''),
   ].join('');
   return `<article class="card">
-    <div class="thumb" style="background-image:url('${esc(c.thumbnailUrl || '')}')">
+    <div class="thumb" style="background-image:url('${esc(c.thumbnailUrl || (!STATIC && c.media?.local ? '/thumb/' + encodeURIComponent(c.id) + '.jpg' : ''))}')">
       <span class="score" style="background:${scoreColor(s?.total)}">${s ? Math.round(s.total) : '–'}</span>
       ${s ? `<span class="level">${LEVEL[s.analysisLevel] || s.analysisLevel}</span>` : ''}
       ${c.durationSec ? `<span class="dur">${fmtDur(c.durationSec)}</span>` : ''}
@@ -219,6 +220,17 @@ document.addEventListener('click', e => {
   if (b) act(b.dataset.id, b.dataset.act);
 });
 for (const id of ['q', 'cat', 'sort', 'favOnly', 'hideRejected']) document.getElementById(id).addEventListener('input', render);
+if (STATIC) {
+  const ex = document.getElementById('exportSel');
+  ex.style.display = '';
+  ex.addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify({schema: 'kindness-ai/selection', exportedAt: new Date().toISOString(), actions: local}, null, 2)], {type: 'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'kindness-selection.json';
+    a.click();
+  });
+}
 load().catch(err => { document.getElementById('sub').textContent = 'Daten konnten nicht geladen werden: ' + err.message; });
 </script>
 </body>

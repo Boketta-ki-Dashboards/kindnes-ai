@@ -3,7 +3,7 @@ import {effectiveDrop} from '../core/config.js';
 import {nowIso} from '../core/fsutil.js';
 import type {BeatMap} from '../music/beatmap.js';
 import {beatsBetween, computeSongWindow, maxStoryBeforeDrop, nearestBeat} from '../music/beatmap.js';
-import {planOutro, type VideoAnalysis} from '../outro/outro.js';
+import {planOutro, variantHasOwnText, type VideoAnalysis} from '../outro/outro.js';
 import type {EditPlan, Framing, StorySegment, TextOverlay} from './plan-types.js';
 
 export interface PlanOverrides {
@@ -214,7 +214,7 @@ export function buildEditPlan(input: PlanInput): EditPlan {
     texts.push({text: sub.text, start: round(st), end: round(Math.min(st + (sub.end - sub.start), seg.start + (seg.srcOut - seg.srcIn))), style: 'subtitle'});
   }
   const caption = ov.dropCaption === undefined ? (cfg.text.showDropCaption ? cfg.text.dropCaption : null) : ov.dropCaption;
-  if (caption && variant.overlay !== 'definition') {
+  if (caption && variant.overlay !== 'definition' && !variantHasOwnText(assets, variant.sources)) {
     texts.push({text: caption, start: round(storyDuration + 0.15), end: round(storyDuration + (win.outroEnd - win.drop)), style: 'drop-caption'});
   }
 

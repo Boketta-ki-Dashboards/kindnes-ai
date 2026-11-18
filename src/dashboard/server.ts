@@ -8,6 +8,7 @@ import {loadPipelineConfig} from '../core/config.js';
 import {CandidateStore} from '../core/store.js';
 import {RUBRIC} from '../scoring/rubric.js';
 import * as P from '../pipeline/pipeline.js';
+import {extractFrame} from '../media/ffmpeg.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const INDEX = path.join(HERE, 'public', 'index.html');
@@ -67,6 +68,17 @@ export async function startDashboard(port: number): Promise<void> {
         else if (action === 'approve') P.approve(store, c);
         else P.setStatus(store, c, action as 'favorite');
         return send(res, 200, {ok: true, state: c.state, favorite: c.favorite});
+      }
+      const th = url.pathname.match(/^\/thumb\/([^/]+)\.jpg$/);
+      if (req.method === 'GET' && th) {
+        const c = new CandidateStore().get(decodeURIComponent(th[1]));
+        if (!c?.media.local?.path) return send(res, 404, {error: 'no local media'});
+        const out = path.join(PATHS.cache, 'thumbs', `${c.id}.jpg`);
+        const done = () => send(res, 200, fs.readFileSync(out), 'image/jpeg');
+        if (fs.existsSync(out)) return done();
+        const at = Math.min(c.media.local.durationSec * 0.6, Math.max(0, c.media.local.durationSec - 0.5));
+        extractFrame(abs(c.media.local.path), at, out, 480).then(done, (e) => send(res, 500, {error: String(e)}));
+        return;
       }
       const vid = url.pathname.match(/^\/video\/(.+\.mp4)$/);
       if (req.method === 'GET' && vid) {

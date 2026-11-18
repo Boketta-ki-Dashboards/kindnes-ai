@@ -11,6 +11,16 @@
       "renderedAt": "2026-11-18T18:28:36.161Z",
       "status": "rendered",
       "output": "output/2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B/final.mp4"
+    },
+    {
+      "candidateId": "local_test-input_ref04-story_dog-guides-blind-cat",
+      "jobId": "2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A",
+      "mediaSha256": "ea6d95939ebf75be84a8451c0615ee1aa32c979bb1891dd84cf5326a6b5ef0b7",
+      "dHash": "ecfd58f9333d2d00fa7693f1e0f0f400e0f159e0d1f936008004194182070b00356ae6c5c6d3d200cd756d6cf8bc9c00f0f0705019385000ade4c489cd7c0600",
+      "titleFingerprint": "across blind cat dog guides path ref story test",
+      "renderedAt": "2026-11-18T18:38:57.629Z",
+      "status": "rendered",
+      "output": "output/2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A/final.mp4"
     }
   ]
 }

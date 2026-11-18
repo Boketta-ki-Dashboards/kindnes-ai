@@ -1,0 +1,13 @@
+{
+  "candidateId": "local_test-input_ref04-story_dog-guides-blind-cat",
+  "reviewer": "claude-code-session",
+  "reviewedAt": "2026-11-18T18:40:00Z",
+  "basis": "30-frame contact sheets of the reference and the rendered test edit",
+  "scores": {
+    "emotional": {"points": 27, "reasons": ["a dog repeatedly walks beside and nudges a cat; the close-up reveals the cat's clouded, blind eyes – strong 'aww' reveal, but no human reaction shot"]},
+    "clarity": {"points": 21, "reasons": ["understandable without text once the blind eyes are shown; the reveal comes late, a hook text helps"]},
+    "dropPotential": {"points": 15, "reasons": ["the eye close-up (≈14-17 s) is a clear peak to cut on"]},
+    "visualQuality": {"points": 4, "reasons": ["only 574x616 after removing the TikTok frame, TikTok watermark visible, handheld"]},
+    "originality": {"points": 3, "reasons": ["already used in reference edit ref-04 – test material only, not for publishing"]}
+  }
+}

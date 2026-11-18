@@ -15,14 +15,14 @@ export function tmpDir(prefix = 'kai-test-'): string {
 }
 
 /** Synthetic test video: colour bars + moving box + sine tone, labelled TEST. */
-export function syntheticVideo(name: string, opts: {seconds?: number; width?: number; height?: number; fps?: number; freq?: number} = {}): string {
-  const {seconds = 6, width = 640, height = 360, fps = 30, freq = 440} = opts;
+export function syntheticVideo(name: string, opts: {seconds?: number; width?: number; height?: number; fps?: number; freq?: number; source?: string} = {}): string {
+  const {seconds = 6, width = 640, height = 360, fps = 30, freq = 440, source = 'testsrc2'} = opts;
   fs.mkdirSync(TEST_MEDIA, {recursive: true});
   const out = path.join(TEST_MEDIA, `TEST_${name}_${width}x${height}_${seconds}s.mp4`);
   if (fs.existsSync(out)) return out;
   const r = spawnSync('ffmpeg', [
     '-nostdin', '-v', 'error', '-y',
-    '-f', 'lavfi', '-i', `testsrc2=size=${width}x${height}:rate=${fps}:duration=${seconds}`,
+    '-f', 'lavfi', '-i', `${source}=size=${width}x${height}:rate=${fps}:duration=${seconds}`,
     '-f', 'lavfi', '-i', `sine=frequency=${freq}:sample_rate=48000:duration=${seconds}`,
     '-vf', `drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='TEST MEDIA':x=20:y=20:fontsize=${Math.round(height / 10)}:fontcolor=white:box=1:boxcolor=black@0.6`,
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-shortest', out,

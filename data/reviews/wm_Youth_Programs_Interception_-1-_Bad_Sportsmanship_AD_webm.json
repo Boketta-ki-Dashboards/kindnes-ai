@@ -1,0 +1,13 @@
+{
+  "candidateId": "wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm",
+  "reviewer": "claude-code-session",
+  "reviewedAt": "2026-11-18T18:40:00Z",
+  "basis": "30-frame contact sheet of the downloaded file + Wikimedia description",
+  "scores": {
+    "emotional": {"points": 2, "reasons": ["CDC teacher-training clip (dating-violence prevention); a teacher talks to a class – no act of kindness, no emotional peak"]},
+    "clarity": {"points": 6, "reasons": ["staged classroom scene with multiple-choice text overlays; needs the training context to be understood"]},
+    "dropPotential": {"points": 2, "reasons": ["no climax moment that could carry the drop"]},
+    "visualQuality": {"points": 7, "reasons": ["clean 1920x1080 studio footage, but large text overlays from 23-42 s and landscape framing"]},
+    "originality": {"points": 2, "reasons": ["off-topic for Kindness AI"]}
+  }
+}

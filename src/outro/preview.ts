@@ -4,7 +4,7 @@ import {nowIso} from '../core/fsutil.js';
 import type {BeatMap} from '../music/beatmap.js';
 import {beatAfter, beatsBetween} from '../music/beatmap.js';
 import type {EditPlan} from '../edit/plan-types.js';
-import {planOutro, type VideoAnalysis} from './outro.js';
+import {planOutro, variantHasOwnText, type VideoAnalysis} from './outro.js';
 
 /**
  * Outro-only preview: `leadIn` seconds of music with a placeholder card (where the
@@ -85,7 +85,7 @@ export function buildOutroPreviewPlan(opts: {
       shots: shots.map((s) => ({...s, start: Number((s.start + lead).toFixed(3))})),
     },
     texts:
-      variant.overlay === 'definition' || !cfg.text.showDropCaption
+      variant.overlay === 'definition' || !cfg.text.showDropCaption || variantHasOwnText(assets, variant.sources)
         ? []
         : [{text: cfg.text.dropCaption, start: lead + 0.15, end: lead + (outroEnd - drop), style: 'drop-caption'}],
     warnings,

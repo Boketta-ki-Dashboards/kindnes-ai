@@ -6,6 +6,6 @@ export default defineConfig({
     testTimeout: 120_000,
     hookTimeout: 300_000,
     pool: 'forks',
-    env: {KAI_QUIET: '1'},
+    env: {KAI_QUIET: '1', KAI_LOG_DIR: '.cache/test-logs'},
   },
 });

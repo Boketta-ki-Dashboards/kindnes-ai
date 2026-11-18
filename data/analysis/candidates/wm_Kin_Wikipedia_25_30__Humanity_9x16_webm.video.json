@@ -1,0 +1,1137 @@
+{
+  "schema": "kindness-ai/video-analysis",
+  "path": "/home/user/kindnes-ai/media/downloads/wm_Kin_Wikipedia_25_30__Humanity_9x16_webm.webm",
+  "info": {
+    "width": 1214,
+    "height": 2160,
+    "fps": 24.0,
+    "codec": "av1",
+    "durationSec": 30.024,
+    "rotation": 0,
+    "pixFmt": "yuv420p",
+    "bitRate": 3363759
+  },
+  "cuts": [
+    {
+      "time": 0.465,
+      "score": 0.397
+    },
+    {
+      "time": 0.799,
+      "score": 0.508
+    },
+    {
+      "time": 1.09,
+      "score": 0.605
+    },
+    {
+      "time": 1.382,
+      "score": 0.623
+    },
+    {
+      "time": 2.09,
+      "score": 0.365
+    },
+    {
+      "time": 6.799,
+      "score": 0.924
+    },
+    {
+      "time": 7.549,
+      "score": 1.0
+    },
+    {
+      "time": 8.674,
+      "score": 1.0
+    },
+    {
+      "time": 9.382,
+      "score": 0.84
+    },
+    {
+      "time": 9.632,
+      "score": 0.651
+    },
+    {
+      "time": 9.882,
+      "score": 0.432
+    },
+    {
+      "time": 10.465,
+      "score": 0.343
+    },
+    {
+      "time": 10.674,
+      "score": 0.597
+    },
+    {
+      "time": 10.924,
+      "score": 0.576
+    },
+    {
+      "time": 11.257,
+      "score": 0.991
+    },
+    {
+      "time": 11.632,
+      "score": 1.0
+    },
+    {
+      "time": 12.632,
+      "score": 0.48
+    },
+    {
+      "time": 13.174,
+      "score": 0.302
+    },
+    {
+      "time": 13.882,
+      "score": 1.0
+    },
+    {
+      "time": 15.09,
+      "score": 0.428
+    },
+    {
+      "time": 16.34,
+      "score": 0.82
+    },
+    {
+      "time": 17.465,
+      "score": 0.319
+    },
+    {
+      "time": 18.924,
+      "score": 0.63
+    },
+    {
+      "time": 19.174,
+      "score": 0.38
+    },
+    {
+      "time": 19.382,
+      "score": 0.535
+    },
+    {
+      "time": 19.632,
+      "score": 0.403
+    },
+    {
+      "time": 19.882,
+      "score": 0.449
+    },
+    {
+      "time": 20.549,
+      "score": 0.39
+    },
+    {
+      "time": 20.799,
+      "score": 0.332
+    },
+    {
+      "time": 21.382,
+      "score": 0.308
+    },
+    {
+      "time": 22.382,
+      "score": 0.597
+    },
+    {
+      "time": 25.007,
+      "score": 0.38
+    },
+    {
+      "time": 25.34,
+      "score": 0.454
+    }
+  ],
+  "cutsPerMinute": 65.9,
+  "medianShotSec": 0.562,
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 0.465,
+      "duration": 0.465,
+      "meanMotion": 0.0119,
+      "meanBrightness": 0.944,
+      "focusX": 0.511,
+      "warmth": -0.003,
+      "cropFit": 1.0
+    },
+    {
+      "start": 0.465,
+      "end": 0.799,
+      "duration": 0.334,
+      "meanMotion": 0.1056,
+      "meanBrightness": 0.792,
+      "focusX": 0.497,
+      "warmth": -0.01,
+      "cropFit": 1.0
+    },
+    {
+      "start": 0.799,
+      "end": 1.09,
+      "duration": 0.291,
+      "meanMotion": 0.1669,
+      "meanBrightness": 0.76,
+      "focusX": 0.571,
+      "warmth": -0.008,
+      "cropFit": 1.0
+    },
+    {
+      "start": 1.09,
+      "end": 1.382,
+      "duration": 0.292,
+      "meanMotion": 0.1986,
+      "meanBrightness": 0.708,
+      "focusX": 0.502,
+      "warmth": -0.007,
+      "cropFit": 1.0
+    },
+    {
+      "start": 1.382,
+      "end": 2.09,
+      "duration": 0.708,
+      "meanMotion": 0.0756,
+      "meanBrightness": 0.816,
+      "focusX": 0.5,
+      "warmth": -0.001,
+      "cropFit": 1.0
+    },
+    {
+      "start": 2.09,
+      "end": 6.799,
+      "duration": 4.709,
+      "meanMotion": 0.0197,
+      "meanBrightness": 0.935,
+      "focusX": 0.465,
+      "warmth": -0.007,
+      "cropFit": 1.0
+    },
+    {
+      "start": 6.799,
+      "end": 7.549,
+      "duration": 0.75,
+      "meanMotion": 0.0726,
+      "meanBrightness": 0.424,
+      "focusX": 0.448,
+      "warmth": 0.083,
+      "cropFit": 1.0
+    },
+    {
+      "start": 7.549,
+      "end": 8.674,
+      "duration": 1.125,
+      "meanMotion": 0.1141,
+      "meanBrightness": 0.919,
+      "focusX": 0.486,
+      "warmth": -0.026,
+      "cropFit": 1.0
+    },
+    {
+      "start": 8.674,
+      "end": 9.382,
+      "duration": 0.708,
+      "meanMotion": 0.1398,
+      "meanBrightness": 0.274,
+      "focusX": 0.503,
+      "warmth": 0.025,
+      "cropFit": 1.0
+    },
+    {
+      "start": 9.382,
+      "end": 9.632,
+      "duration": 0.25,
+      "meanMotion": 0.2101,
+      "meanBrightness": 0.304,
+      "focusX": 0.503,
+      "warmth": 0.165,
+      "cropFit": 1.0
+    },
+    {
+      "start": 9.632,
+      "end": 9.882,
+      "duration": 0.25,
+      "meanMotion": 0.2815,
+      "meanBrightness": 0.457,
+      "focusX": 0.506,
+      "warmth": 0.212,
+      "cropFit": 1.0
+    },
+    {
+      "start": 9.882,
+      "end": 10.465,
+      "duration": 0.583,
+      "meanMotion": 0.1922,
+      "meanBrightness": 0.572,
+      "focusX": 0.521,
+      "warmth": 0.115,
+      "cropFit": 1.0
+    },
+    {
+      "start": 10.465,
+      "end": 10.674,
+      "duration": 0.209,
+      "meanMotion": 0.1888,
+      "meanBrightness": 0.695,
+      "focusX": 0.501,
+      "warmth": 0.076,
+      "cropFit": 1.0
+    },
+    {
+      "start": 10.674,
+      "end": 10.924,
+      "duration": 0.25,
+      "meanMotion": 0.0886,
+      "meanBrightness": 0.582,
+      "focusX": 0.458,
+      "warmth": 0.132,
+      "cropFit": 1.0
+    },
+    {
+      "start": 10.924,
+      "end": 11.257,
+      "duration": 0.333,
+      "meanMotion": 0.0837,
+      "meanBrightness": 0.516,
+      "focusX": 0.419,
+      "warmth": 0.396,
+      "cropFit": 1.0
+    },
+    {
+      "start": 11.257,
+      "end": 11.632,
+      "duration": 0.375,
+      "meanMotion": 0.113,
+      "meanBrightness": 0.807,
+      "focusX": 0.529,
+      "warmth": 0.061,
+      "cropFit": 1.0
+    },
+    {
+      "start": 11.632,
+      "end": 12.632,
+      "duration": 1.0,
+      "meanMotion": 0.1168,
+      "meanBrightness": 0.343,
+      "focusX": 0.497,
+      "warmth": 0.036,
+      "cropFit": 1.0
+    },
+    {
+      "start": 12.632,
+      "end": 13.174,
+      "duration": 0.542,
+      "meanMotion": 0.0746,
+      "meanBrightness": 0.278,
+      "focusX": 0.477,
+      "warmth": 0.062,
+      "cropFit": 1.0
+    },
+    {
+      "start": 13.174,
+      "end": 13.882,
+      "duration": 0.708,
+      "meanMotion": 0.0967,
+      "meanBrightness": 0.382,
+      "focusX": 0.491,
+      "warmth": 0.054,
+      "cropFit": 1.0
+    },
+    {
+      "start": 13.882,
+      "end": 15.09,
+      "duration": 1.208,
+      "meanMotion": 0.0486,
+      "meanBrightness": 0.772,
+      "focusX": 0.497,
+      "warmth": 0.019,
+      "cropFit": 1.0
+    },
+    {
+      "start": 15.09,
+      "end": 16.34,
+      "duration": 1.25,
+      "meanMotion": 0.0192,
+      "meanBrightness": 0.788,
+      "focusX": 0.503,
+      "warmth": 0.068,
+      "cropFit": 1.0
+    },
+    {
+      "start": 16.34,
+      "end": 17.465,
+      "duration": 1.125,
+      "meanMotion": 0.2083,
+      "meanBrightness": 0.665,
+      "focusX": 0.529,
+      "warmth": 0.017,
+      "cropFit": 1.0
+    },
+    {
+      "start": 17.465,
+      "end": 18.924,
+      "duration": 1.459,
+      "meanMotion": 0.1404,
+      "meanBrightness": 0.494,
+      "focusX": 0.464,
+      "warmth": -0.066,
+      "cropFit": 1.0
+    },
+    {
+      "start": 18.924,
+      "end": 19.174,
+      "duration": 0.25,
+      "meanMotion": 0.3544,
+      "meanBrightness": 0.466,
+      "focusX": 0.519,
+      "warmth": -0.127,
+      "cropFit": 1.0
+    },
+    {
+      "start": 19.174,
+      "end": 19.382,
+      "duration": 0.208,
+      "meanMotion": 0.2277,
+      "meanBrightness": 0.436,
+      "focusX": 0.548,
+      "warmth": -0.109,
+      "cropFit": 1.0
+    },
+    {
+      "start": 19.382,
+      "end": 19.632,
+      "duration": 0.25,
+      "meanMotion": 0.2574,
+      "meanBrightness": 0.479,
+      "focusX": 0.537,
+      "warmth": -0.207,
+      "cropFit": 1.0
+    },
+    {
+      "start": 19.632,
+      "end": 19.882,
+      "duration": 0.25,
+      "meanMotion": 0.166,
+      "meanBrightness": 0.433,
+      "focusX": 0.506,
+      "warmth": -0.1,
+      "cropFit": 1.0
+    },
+    {
+      "start": 19.882,
+      "end": 20.549,
+      "duration": 0.667,
+      "meanMotion": 0.2429,
+      "meanBrightness": 0.555,
+      "focusX": 0.553,
+      "warmth": -0.069,
+      "cropFit": 1.0
+    },
+    {
+      "start": 20.549,
+      "end": 20.799,
+      "duration": 0.25,
+      "meanMotion": 0.2322,
+      "meanBrightness": 0.58,
+      "focusX": 0.525,
+      "warmth": -0.305,
+      "cropFit": 1.0
+    },
+    {
+      "start": 20.799,
+      "end": 21.382,
+      "duration": 0.583,
+      "meanMotion": 0.175,
+      "meanBrightness": 0.822,
+      "focusX": 0.499,
+      "warmth": -0.033,
+      "cropFit": 1.0
+    },
+    {
+      "start": 21.382,
+      "end": 22.382,
+      "duration": 1.0,
+      "meanMotion": 0.0461,
+      "meanBrightness": 0.954,
+      "focusX": 0.467,
+      "warmth": 0.005,
+      "cropFit": 1.0
+    },
+    {
+      "start": 22.382,
+      "end": 25.007,
+      "duration": 2.625,
+      "meanMotion": 0.0762,
+      "meanBrightness": 0.907,
+      "focusX": 0.505,
+      "warmth": -0.029,
+      "cropFit": 1.0
+    },
+    {
+      "start": 25.007,
+      "end": 25.34,
+      "duration": 0.333,
+      "meanMotion": 0.1925,
+      "meanBrightness": 0.518,
+      "focusX": 0.49,
+      "warmth": -0.552,
+      "cropFit": 1.0
+    },
+    {
+      "start": 25.34,
+      "end": 30.024,
+      "duration": 4.684,
+      "meanMotion": 0.0332,
+      "meanBrightness": 0.831,
+      "focusX": 0.516,
+      "warmth": -0.17,
+      "cropFit": 1.0
+    }
+  ],
+  "blackSegments": [],
+  "perSecond": {
+    "motion": [
+      0.0865,
+      0.1125,
+      0.0207,
+      0.0089,
+      0.0109,
+      0.0182,
+      0.0776,
+      0.0969,
+      0.1402,
+      0.158,
+      0.1666,
+      0.1111,
+      0.0836,
+      0.1201,
+      0.0105,
+      0.0245,
+      0.144,
+      0.2,
+      0.1317,
+      0.2531,
+      0.2314,
+      0.0737,
+      0.0978,
+      0.0832,
+      0.0255,
+      0.1544,
+      0.0139,
+      0.041,
+      0.0046,
+      0.0,
+      0.0
+    ],
+    "brightness": [
+      0.8432,
+      0.7835,
+      0.9399,
+      0.9595,
+      0.9463,
+      0.9184,
+      0.8031,
+      0.6291,
+      0.6934,
+      0.3,
+      0.6397,
+      0.5637,
+      0.3162,
+      0.4183,
+      0.8029,
+      0.7895,
+      0.6639,
+      0.6055,
+      0.4706,
+      0.4851,
+      0.6182,
+      0.9351,
+      0.8917,
+      0.8916,
+      0.9584,
+      0.7244,
+      0.6343,
+      0.7573,
+      0.9742,
+      0.9712,
+      0.0
+    ],
+    "saturation": [
+      0.0558,
+      0.0843,
+      0.0112,
+      0.0223,
+      0.0354,
+      0.0427,
+      0.0912,
+      0.1921,
+      0.1737,
+      0.4686,
+      0.2565,
+      0.2848,
+      0.2682,
+      0.2549,
+      0.0556,
+      0.1026,
+      0.1117,
+      0.197,
+      0.3013,
+      0.3472,
+      0.286,
+      0.0386,
+      0.0436,
+      0.09,
+      0.0479,
+      0.4147,
+      0.5303,
+      0.3363,
+      0.0031,
+      0.0052,
+      0.0
+    ],
+    "warmth": [
+      -0.0068,
+      -0.0031,
+      -0.0015,
+      -0.0067,
+      -0.0116,
+      -0.0097,
+      0.0096,
+      0.0418,
+      -0.0099,
+      0.1482,
+      0.1178,
+      0.1169,
+      0.0479,
+      0.0508,
+      0.0162,
+      0.0613,
+      0.0377,
+      -0.0265,
+      -0.0935,
+      -0.1076,
+      -0.1335,
+      0.0178,
+      0.0111,
+      -0.053,
+      -0.0353,
+      -0.3108,
+      -0.3966,
+      -0.2516,
+      -0.0024,
+      -0.004,
+      0.0
+    ],
+    "focusX": [
+      0.5236,
+      0.5047,
+      0.4666,
+      0.446,
+      0.5008,
+      0.4938,
+      0.4495,
+      0.4571,
+      0.4762,
+      0.5114,
+      0.4896,
+      0.4851,
+      0.4848,
+      0.4875,
+      0.4979,
+      0.5155,
+      0.522,
+      0.4704,
+      0.4616,
+      0.5224,
+      0.5299,
+      0.4869,
+      0.4852,
+      0.5062,
+      0.4667,
+      0.5213,
+      0.5199,
+      0.5305,
+      0.4386,
+      0.4636,
+      0.0
+    ],
+    "sharpness": [
+      0.065,
+      0.0658,
+      0.0246,
+      0.0238,
+      0.0311,
+      0.0435,
+      0.0665,
+      0.0776,
+      0.0626,
+      0.0633,
+      0.0663,
+      0.0724,
+      0.1289,
+      0.1668,
+      0.0691,
+      0.0356,
+      0.048,
+      0.0735,
+      0.0728,
+      0.0691,
+      0.0544,
+      0.0398,
+      0.0436,
+      0.0454,
+      0.0168,
+      0.0327,
+      0.0724,
+      0.059,
+      0.0258,
+      0.0287,
+      0.0
+    ],
+    "cropFit": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.0
+    ]
+  },
+  "color": {
+    "meanBrightness": 0.731,
+    "meanSaturation": 0.172,
+    "meanWarmth": -0.026
+  },
+  "audio": {
+    "halfSecond": [
+      {
+        "t": 0.0,
+        "rmsDb": -11.18,
+        "onset": 3.024,
+        "flatness": 0.0657
+      },
+      {
+        "t": 0.5,
+        "rmsDb": -13.51,
+        "onset": 1.569,
+        "flatness": 0.0142
+      },
+      {
+        "t": 1.0,
+        "rmsDb": -15.89,
+        "onset": 1.283,
+        "flatness": 0.139
+      },
+      {
+        "t": 1.5,
+        "rmsDb": -13.22,
+        "onset": 2.682,
+        "flatness": 0.0102
+      },
+      {
+        "t": 2.0,
+        "rmsDb": -14.2,
+        "onset": 2.503,
+        "flatness": 0.0108
+      },
+      {
+        "t": 2.5,
+        "rmsDb": -18.92,
+        "onset": 1.937,
+        "flatness": 0.0305
+      },
+      {
+        "t": 3.0,
+        "rmsDb": -15.32,
+        "onset": 2.306,
+        "flatness": 0.0309
+      },
+      {
+        "t": 3.5,
+        "rmsDb": -11.15,
+        "onset": 2.13,
+        "flatness": 0.001
+      },
+      {
+        "t": 4.0,
+        "rmsDb": -13.92,
+        "onset": 2.391,
+        "flatness": 0.0156
+      },
+      {
+        "t": 4.5,
+        "rmsDb": -22.03,
+        "onset": 1.649,
+        "flatness": 0.0697
+      },
+      {
+        "t": 5.0,
+        "rmsDb": -12.64,
+        "onset": 2.212,
+        "flatness": 0.0048
+      },
+      {
+        "t": 5.5,
+        "rmsDb": -16.97,
+        "onset": 2.155,
+        "flatness": 0.0428
+      },
+      {
+        "t": 6.0,
+        "rmsDb": -18.36,
+        "onset": 1.936,
+        "flatness": 0.0895
+      },
+      {
+        "t": 6.5,
+        "rmsDb": -23.8,
+        "onset": 1.627,
+        "flatness": 0.1479
+      },
+      {
+        "t": 7.0,
+        "rmsDb": -13.49,
+        "onset": 2.828,
+        "flatness": 0.0561
+      },
+      {
+        "t": 7.5,
+        "rmsDb": -12.93,
+        "onset": 1.615,
+        "flatness": 0.0036
+      },
+      {
+        "t": 8.0,
+        "rmsDb": -10.76,
+        "onset": 2.141,
+        "flatness": 0.0124
+      },
+      {
+        "t": 8.5,
+        "rmsDb": -16.49,
+        "onset": 2.197,
+        "flatness": 0.0355
+      },
+      {
+        "t": 9.0,
+        "rmsDb": -14.74,
+        "onset": 1.755,
+        "flatness": 0.0164
+      },
+      {
+        "t": 9.5,
+        "rmsDb": -14.25,
+        "onset": 2.231,
+        "flatness": 0.0515
+      },
+      {
+        "t": 10.0,
+        "rmsDb": -12.29,
+        "onset": 2.251,
+        "flatness": 0.0076
+      },
+      {
+        "t": 10.5,
+        "rmsDb": -14.48,
+        "onset": 2.617,
+        "flatness": 0.0442
+      },
+      {
+        "t": 11.0,
+        "rmsDb": -21.05,
+        "onset": 2.676,
+        "flatness": 0.0538
+      },
+      {
+        "t": 11.5,
+        "rmsDb": -12.22,
+        "onset": 2.078,
+        "flatness": 0.0076
+      },
+      {
+        "t": 12.0,
+        "rmsDb": -13.35,
+        "onset": 1.582,
+        "flatness": 0.0044
+      },
+      {
+        "t": 12.5,
+        "rmsDb": -9.75,
+        "onset": 1.934,
+        "flatness": 0.0013
+      },
+      {
+        "t": 13.0,
+        "rmsDb": -15.61,
+        "onset": 1.879,
+        "flatness": 0.0819
+      },
+      {
+        "t": 13.5,
+        "rmsDb": -19.67,
+        "onset": 1.975,
+        "flatness": 0.0466
+      },
+      {
+        "t": 14.0,
+        "rmsDb": -11.01,
+        "onset": 1.679,
+        "flatness": 0.0053
+      },
+      {
+        "t": 14.5,
+        "rmsDb": -26.21,
+        "onset": 1.59,
+        "flatness": 0.1605
+      },
+      {
+        "t": 15.0,
+        "rmsDb": -16.64,
+        "onset": 1.945,
+        "flatness": 0.0091
+      },
+      {
+        "t": 15.5,
+        "rmsDb": -13.9,
+        "onset": 1.546,
+        "flatness": 0.0101
+      },
+      {
+        "t": 16.0,
+        "rmsDb": -16.55,
+        "onset": 1.751,
+        "flatness": 0.0102
+      },
+      {
+        "t": 16.5,
+        "rmsDb": -13.59,
+        "onset": 2.114,
+        "flatness": 0.0343
+      },
+      {
+        "t": 17.0,
+        "rmsDb": -13.44,
+        "onset": 1.322,
+        "flatness": 0.0312
+      },
+      {
+        "t": 17.5,
+        "rmsDb": -12.16,
+        "onset": 1.454,
+        "flatness": 0.0086
+      },
+      {
+        "t": 18.0,
+        "rmsDb": -16.2,
+        "onset": 2.073,
+        "flatness": 0.0132
+      },
+      {
+        "t": 18.5,
+        "rmsDb": -11.98,
+        "onset": 1.984,
+        "flatness": 0.0046
+      },
+      {
+        "t": 19.0,
+        "rmsDb": -14.2,
+        "onset": 1.734,
+        "flatness": 0.0212
+      },
+      {
+        "t": 19.5,
+        "rmsDb": -11.6,
+        "onset": 1.775,
+        "flatness": 0.0046
+      },
+      {
+        "t": 20.0,
+        "rmsDb": -16.84,
+        "onset": 1.572,
+        "flatness": 0.0251
+      },
+      {
+        "t": 20.5,
+        "rmsDb": -12.75,
+        "onset": 1.813,
+        "flatness": 0.0298
+      },
+      {
+        "t": 21.0,
+        "rmsDb": -11.0,
+        "onset": 1.573,
+        "flatness": 0.0041
+      },
+      {
+        "t": 21.5,
+        "rmsDb": -14.85,
+        "onset": 2.075,
+        "flatness": 0.0292
+      },
+      {
+        "t": 22.0,
+        "rmsDb": -14.66,
+        "onset": 1.781,
+        "flatness": 0.0479
+      },
+      {
+        "t": 22.5,
+        "rmsDb": -18.91,
+        "onset": 1.634,
+        "flatness": 0.0103
+      },
+      {
+        "t": 23.0,
+        "rmsDb": -9.97,
+        "onset": 2.423,
+        "flatness": 0.009
+      },
+      {
+        "t": 23.5,
+        "rmsDb": -15.04,
+        "onset": 1.708,
+        "flatness": 0.0064
+      },
+      {
+        "t": 24.0,
+        "rmsDb": -12.14,
+        "onset": 2.001,
+        "flatness": 0.003
+      },
+      {
+        "t": 24.5,
+        "rmsDb": -14.47,
+        "onset": 1.707,
+        "flatness": 0.0036
+      },
+      {
+        "t": 25.0,
+        "rmsDb": -16.72,
+        "onset": 1.869,
+        "flatness": 0.0346
+      },
+      {
+        "t": 25.5,
+        "rmsDb": -18.65,
+        "onset": 1.217,
+        "flatness": 0.01
+      },
+      {
+        "t": 26.0,
+        "rmsDb": -11.51,
+        "onset": 1.652,
+        "flatness": 0.0217
+      },
+      {
+        "t": 26.5,
+        "rmsDb": -14.49,
+        "onset": 1.799,
+        "flatness": 0.0094
+      },
+      {
+        "t": 27.0,
+        "rmsDb": -15.33,
+        "onset": 2.381,
+        "flatness": 0.0213
+      },
+      {
+        "t": 27.5,
+        "rmsDb": -23.15,
+        "onset": 2.643,
+        "flatness": 0.0366
+      },
+      {
+        "t": 28.0,
+        "rmsDb": -18.22,
+        "onset": 2.141,
+        "flatness": 0.0703
+      },
+      {
+        "t": 28.5,
+        "rmsDb": -20.1,
+        "onset": 2.164,
+        "flatness": 0.0011
+      },
+      {
+        "t": 29.0,
+        "rmsDb": -22.84,
+        "onset": 1.966,
+        "flatness": 0.0014
+      },
+      {
+        "t": 29.5,
+        "rmsDb": -45.02,
+        "onset": 0.033,
+        "flatness": 0.0002
+      },
+      {
+        "t": 30.0,
+        "rmsDb": -120.25,
+        "onset": 0.0,
+        "flatness": 0.1212
+      }
+    ],
+    "meanRmsDb": -14.74
+  },
+  "highlights": [
+    {
+      "time": 19.5,
+      "score": 1.669,
+      "features": {
+        "loudnessZ": 0.1,
+        "loudnessRiseZ": 0.06,
+        "motionZ": 2.37,
+        "cuts": 4,
+        "positionPrior": 0.95
+      }
+    },
+    {
+      "time": 23.5,
+      "score": 1.008,
+      "features": {
+        "loudnessZ": 0.12,
+        "loudnessRiseZ": 0.12,
+        "motionZ": -0.06,
+        "cuts": 0,
+        "positionPrior": 0.95
+      }
+    },
+    {
+      "time": 16.5,
+      "score": 0.942,
+      "features": {
+        "loudnessZ": -0.01,
+        "loudnessRiseZ": 0.11,
+        "motionZ": 0.81,
+        "cuts": 1,
+        "positionPrior": 0.71
+      }
+    }
+  ]
+}
