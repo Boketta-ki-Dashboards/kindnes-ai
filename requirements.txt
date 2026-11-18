@@ -1,0 +1,6 @@
+# Python analysis toolkit (python/kindness_analysis)
+numpy>=2.0
+librosa>=0.11
+soundfile>=0.12
+# metadata-only YouTube search (no downloads unless explicitly enabled in config)
+yt-dlp>=2025.1.1

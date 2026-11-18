@@ -1,0 +1,117 @@
+{
+  "schema": "kindness-ai/reference-summary",
+  "createdAt": "2026-11-18T18:27:05.028Z",
+  "references": [
+    {
+      "id": "ref-01_feed-screenrecording-multi-story",
+      "resolution": "720x1566",
+      "fps": 20,
+      "durationSec": 170.2,
+      "songOffsetSec": 1.324,
+      "songStartsAt": 10.31,
+      "songSimilarity": 0.95,
+      "transitionVideoSec": 150.3,
+      "transitionSongSec": 47.715,
+      "transitionMethod": "hard cut",
+      "nearestDownbeat": 48.216,
+      "storyDurationSec": 141.31,
+      "outroEndVideoSec": 35.949,
+      "outroDurationSec": -114.35,
+      "outroCutCount": 0,
+      "outroMedianCutIntervalSec": null,
+      "outroMedianCutIntervalBeats": null,
+      "outroMedianCutLeadBeforeBeatSec": null,
+      "storyCutsPerMinute": 27.9,
+      "color": {
+        "meanBrightness": 0.297,
+        "meanSaturation": 0.373,
+        "meanWarmth": 0.014
+      }
+    },
+    {
+      "id": "ref-02_street-vendor-tears",
+      "resolution": "900x1956",
+      "fps": 30,
+      "durationSec": 44.633,
+      "songOffsetSec": 18.762,
+      "songStartsAt": 18.762,
+      "songSimilarity": 0.961,
+      "transitionVideoSec": 29.333,
+      "transitionSongSec": 48.095,
+      "transitionMethod": "hard cut",
+      "nearestDownbeat": 48.216,
+      "storyDurationSec": 29.33,
+      "outroEndVideoSec": 38.944,
+      "outroDurationSec": 9.61,
+      "outroCutCount": 4,
+      "outroMedianCutIntervalSec": 0.9000000000000057,
+      "outroMedianCutIntervalBeats": 2.09,
+      "outroMedianCutLeadBeforeBeatSec": 0.001,
+      "storyCutsPerMinute": 0,
+      "color": {
+        "meanBrightness": 0.291,
+        "meanSaturation": 0.206,
+        "meanWarmth": 0.049
+      }
+    },
+    {
+      "id": "ref-03_football-rivals-old-friends_dbim1vvo",
+      "resolution": "576x576",
+      "fps": 30,
+      "durationSec": 61.267,
+      "songOffsetSec": 0.72,
+      "songStartsAt": 11.703,
+      "songSimilarity": 0.973,
+      "transitionVideoSec": 47.433,
+      "transitionSongSec": 48.153,
+      "transitionMethod": "hard cut",
+      "nearestDownbeat": 48.216,
+      "storyDurationSec": 36.45,
+      "outroEndVideoSec": 57.833,
+      "outroDurationSec": 10.4,
+      "outroCutCount": 17,
+      "outroMedianCutIntervalSec": 0.4339999999999975,
+      "outroMedianCutIntervalBeats": 1.01,
+      "outroMedianCutLeadBeforeBeatSec": 0.073,
+      "storyCutsPerMinute": 0,
+      "color": {
+        "meanBrightness": 0.224,
+        "meanSaturation": 0.396,
+        "meanWarmth": 0.15
+      }
+    },
+    {
+      "id": "ref-04_dog-guides-blind-cat_dbl28pno",
+      "resolution": "576x1024",
+      "fps": 30,
+      "durationSec": 34.133,
+      "songOffsetSec": 27.957,
+      "songStartsAt": 27.957,
+      "songSimilarity": 0.978,
+      "transitionVideoSec": 22,
+      "transitionSongSec": 49.957,
+      "transitionMethod": "colour jump (dissolve)",
+      "nearestDownbeat": 49.923,
+      "storyDurationSec": 22,
+      "outroEndVideoSec": 30.067,
+      "outroDurationSec": 8.07,
+      "outroCutCount": 0,
+      "outroMedianCutIntervalSec": null,
+      "outroMedianCutIntervalBeats": null,
+      "outroMedianCutLeadBeforeBeatSec": null,
+      "storyCutsPerMinute": 2.7,
+      "color": {
+        "meanBrightness": 0.206,
+        "meanSaturation": 0.283,
+        "meanWarmth": 0.079
+      }
+    }
+  ],
+  "consensus": {
+    "transitionSongSecMedian": 48.153,
+    "transitionSongSecRange": [
+      47.715,
+      49.957
+    ]
+  }
+}

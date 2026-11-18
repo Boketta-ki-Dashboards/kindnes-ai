@@ -1,0 +1,206 @@
+{
+  "windowSec": 3.0,
+  "stepSec": 1.0,
+  "threshold": 0.85,
+  "windows": [
+    {
+      "mediaTime": 0.0,
+      "songTime": 154.738,
+      "offset": 154.738,
+      "similarity": 0.225
+    },
+    {
+      "mediaTime": 0.998,
+      "songTime": 88.027,
+      "offset": 87.028,
+      "similarity": 0.22
+    },
+    {
+      "mediaTime": 1.997,
+      "songTime": 91.463,
+      "offset": 89.466,
+      "similarity": 0.137
+    },
+    {
+      "mediaTime": 2.995,
+      "songTime": 33.135,
+      "offset": 30.14,
+      "similarity": 0.201
+    },
+    {
+      "mediaTime": 3.994,
+      "songTime": 34.203,
+      "offset": 30.209,
+      "similarity": 0.181
+    },
+    {
+      "mediaTime": 4.992,
+      "songTime": 103.375,
+      "offset": 98.383,
+      "similarity": 0.175
+    },
+    {
+      "mediaTime": 5.991,
+      "songTime": 25.426,
+      "offset": 19.435,
+      "similarity": 0.165
+    },
+    {
+      "mediaTime": 6.989,
+      "songTime": 155.759,
+      "offset": 148.77,
+      "similarity": 0.221
+    },
+    {
+      "mediaTime": 7.988,
+      "songTime": 81.99,
+      "offset": 74.002,
+      "similarity": 0.202
+    },
+    {
+      "mediaTime": 8.986,
+      "songTime": 98.662,
+      "offset": 89.675,
+      "similarity": 0.164
+    },
+    {
+      "mediaTime": 9.985,
+      "songTime": 18.576,
+      "offset": 8.591,
+      "similarity": 0.184
+    },
+    {
+      "mediaTime": 10.983,
+      "songTime": 101.889,
+      "offset": 90.906,
+      "similarity": 0.197
+    },
+    {
+      "mediaTime": 11.981,
+      "songTime": 42.284,
+      "offset": 30.302,
+      "similarity": 0.182
+    },
+    {
+      "mediaTime": 12.98,
+      "songTime": 126.642,
+      "offset": 113.662,
+      "similarity": 0.176
+    },
+    {
+      "mediaTime": 13.978,
+      "songTime": 53.917,
+      "offset": 39.938,
+      "similarity": 0.142
+    },
+    {
+      "mediaTime": 14.977,
+      "songTime": 48.019,
+      "offset": 33.042,
+      "similarity": 0.161
+    },
+    {
+      "mediaTime": 15.975,
+      "songTime": 6.618,
+      "offset": -9.358,
+      "similarity": 0.144
+    },
+    {
+      "mediaTime": 16.974,
+      "songTime": 34.366,
+      "offset": 17.392,
+      "similarity": 0.167
+    },
+    {
+      "mediaTime": 17.972,
+      "songTime": 51.455,
+      "offset": 33.483,
+      "similarity": 0.14
+    },
+    {
+      "mediaTime": 18.971,
+      "songTime": 126.27,
+      "offset": 107.299,
+      "similarity": 0.217
+    },
+    {
+      "mediaTime": 19.969,
+      "songTime": 53.476,
+      "offset": 33.506,
+      "similarity": 0.172
+    },
+    {
+      "mediaTime": 20.968,
+      "songTime": 47.554,
+      "offset": 26.587,
+      "similarity": 0.144
+    },
+    {
+      "mediaTime": 21.966,
+      "songTime": 52.013,
+      "offset": 30.047,
+      "similarity": 0.147
+    },
+    {
+      "mediaTime": 22.965,
+      "songTime": 41.424,
+      "offset": 18.46,
+      "similarity": 0.13
+    },
+    {
+      "mediaTime": 23.963,
+      "songTime": 157.431,
+      "offset": 133.468,
+      "similarity": 0.148
+    },
+    {
+      "mediaTime": 24.961,
+      "songTime": 156.967,
+      "offset": 132.005,
+      "similarity": 0.149
+    },
+    {
+      "mediaTime": 25.96,
+      "songTime": 155.945,
+      "offset": 129.985,
+      "similarity": 0.24
+    },
+    {
+      "mediaTime": 26.958,
+      "songTime": 156.944,
+      "offset": 129.985,
+      "similarity": 0.338
+    },
+    {
+      "mediaTime": 27.957,
+      "songTime": 156.688,
+      "offset": 128.731,
+      "similarity": 0.372
+    },
+    {
+      "mediaTime": 28.955,
+      "songTime": 156.224,
+      "offset": 127.269,
+      "similarity": 0.488
+    },
+    {
+      "mediaTime": 29.954,
+      "songTime": 156.549,
+      "offset": 126.595,
+      "similarity": 0.703
+    },
+    {
+      "mediaTime": 30.952,
+      "songTime": 157.501,
+      "offset": 126.549,
+      "similarity": 0.67
+    },
+    {
+      "mediaTime": 31.951,
+      "songTime": 157.501,
+      "offset": 125.55,
+      "similarity": 0.257
+    }
+  ],
+  "segments": []
+}

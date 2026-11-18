@@ -1,0 +1,1089 @@
+{
+  "windowSec": 3.0,
+  "stepSec": 1.0,
+  "threshold": 0.85,
+  "windows": [
+    {
+      "mediaTime": 0.0,
+      "songTime": 20.016,
+      "offset": 20.016,
+      "similarity": 0.287
+    },
+    {
+      "mediaTime": 0.998,
+      "songTime": 2.345,
+      "offset": 1.347,
+      "similarity": 0.941
+    },
+    {
+      "mediaTime": 1.997,
+      "songTime": 3.344,
+      "offset": 1.347,
+      "similarity": 0.947
+    },
+    {
+      "mediaTime": 2.995,
+      "songTime": 4.342,
+      "offset": 1.347,
+      "similarity": 0.943
+    },
+    {
+      "mediaTime": 3.994,
+      "songTime": 67.059,
+      "offset": 63.065,
+      "similarity": 0.627
+    },
+    {
+      "mediaTime": 4.992,
+      "songTime": 6.339,
+      "offset": 1.347,
+      "similarity": 0.953
+    },
+    {
+      "mediaTime": 5.991,
+      "songTime": 7.338,
+      "offset": 1.347,
+      "similarity": 0.95
+    },
+    {
+      "mediaTime": 6.989,
+      "songTime": 8.336,
+      "offset": 1.347,
+      "similarity": 0.947
+    },
+    {
+      "mediaTime": 7.988,
+      "songTime": 71.053,
+      "offset": 63.065,
+      "similarity": 0.658
+    },
+    {
+      "mediaTime": 8.986,
+      "songTime": 10.333,
+      "offset": 1.347,
+      "similarity": 0.942
+    },
+    {
+      "mediaTime": 9.985,
+      "songTime": 11.331,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 10.983,
+      "songTime": 12.33,
+      "offset": 1.347,
+      "similarity": 0.959
+    },
+    {
+      "mediaTime": 11.981,
+      "songTime": 13.328,
+      "offset": 1.347,
+      "similarity": 0.952
+    },
+    {
+      "mediaTime": 12.98,
+      "songTime": 14.327,
+      "offset": 1.347,
+      "similarity": 0.928
+    },
+    {
+      "mediaTime": 13.978,
+      "songTime": 15.325,
+      "offset": 1.347,
+      "similarity": 0.942
+    },
+    {
+      "mediaTime": 14.977,
+      "songTime": 16.324,
+      "offset": 1.347,
+      "similarity": 0.95
+    },
+    {
+      "mediaTime": 15.975,
+      "songTime": 17.322,
+      "offset": 1.347,
+      "similarity": 0.958
+    },
+    {
+      "mediaTime": 16.974,
+      "songTime": 18.321,
+      "offset": 1.347,
+      "similarity": 0.958
+    },
+    {
+      "mediaTime": 17.972,
+      "songTime": 19.319,
+      "offset": 1.347,
+      "similarity": 0.964
+    },
+    {
+      "mediaTime": 18.971,
+      "songTime": 20.317,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 19.969,
+      "songTime": 21.316,
+      "offset": 1.347,
+      "similarity": 0.958
+    },
+    {
+      "mediaTime": 20.968,
+      "songTime": 22.314,
+      "offset": 1.347,
+      "similarity": 0.958
+    },
+    {
+      "mediaTime": 21.966,
+      "songTime": 23.313,
+      "offset": 1.347,
+      "similarity": 0.961
+    },
+    {
+      "mediaTime": 22.965,
+      "songTime": 24.311,
+      "offset": 1.347,
+      "similarity": 0.962
+    },
+    {
+      "mediaTime": 23.963,
+      "songTime": 25.31,
+      "offset": 1.347,
+      "similarity": 0.964
+    },
+    {
+      "mediaTime": 24.961,
+      "songTime": 26.308,
+      "offset": 1.347,
+      "similarity": 0.961
+    },
+    {
+      "mediaTime": 25.96,
+      "songTime": 27.307,
+      "offset": 1.347,
+      "similarity": 0.965
+    },
+    {
+      "mediaTime": 26.958,
+      "songTime": 28.305,
+      "offset": 1.347,
+      "similarity": 0.959
+    },
+    {
+      "mediaTime": 27.957,
+      "songTime": 29.304,
+      "offset": 1.347,
+      "similarity": 0.962
+    },
+    {
+      "mediaTime": 28.955,
+      "songTime": 30.302,
+      "offset": 1.347,
+      "similarity": 0.959
+    },
+    {
+      "mediaTime": 29.954,
+      "songTime": 31.3,
+      "offset": 1.347,
+      "similarity": 0.958
+    },
+    {
+      "mediaTime": 30.952,
+      "songTime": 32.299,
+      "offset": 1.347,
+      "similarity": 0.948
+    },
+    {
+      "mediaTime": 31.951,
+      "songTime": 33.297,
+      "offset": 1.347,
+      "similarity": 0.901
+    },
+    {
+      "mediaTime": 32.949,
+      "songTime": 34.296,
+      "offset": 1.347,
+      "similarity": 0.86
+    },
+    {
+      "mediaTime": 33.948,
+      "songTime": 35.294,
+      "offset": 1.347,
+      "similarity": 0.822
+    },
+    {
+      "mediaTime": 34.946,
+      "songTime": 36.293,
+      "offset": 1.347,
+      "similarity": 0.795
+    },
+    {
+      "mediaTime": 35.944,
+      "songTime": 37.291,
+      "offset": 1.347,
+      "similarity": 0.755
+    },
+    {
+      "mediaTime": 36.943,
+      "songTime": 38.29,
+      "offset": 1.347,
+      "similarity": 0.602
+    },
+    {
+      "mediaTime": 37.941,
+      "songTime": 39.288,
+      "offset": 1.347,
+      "similarity": 0.626
+    },
+    {
+      "mediaTime": 38.94,
+      "songTime": 40.287,
+      "offset": 1.347,
+      "similarity": 0.675
+    },
+    {
+      "mediaTime": 39.938,
+      "songTime": 41.285,
+      "offset": 1.347,
+      "similarity": 0.854
+    },
+    {
+      "mediaTime": 40.937,
+      "songTime": 42.284,
+      "offset": 1.347,
+      "similarity": 0.77
+    },
+    {
+      "mediaTime": 41.935,
+      "songTime": 43.282,
+      "offset": 1.347,
+      "similarity": 0.709
+    },
+    {
+      "mediaTime": 42.934,
+      "songTime": 44.28,
+      "offset": 1.347,
+      "similarity": 0.639
+    },
+    {
+      "mediaTime": 43.932,
+      "songTime": 45.279,
+      "offset": 1.347,
+      "similarity": 0.687
+    },
+    {
+      "mediaTime": 44.931,
+      "songTime": 46.277,
+      "offset": 1.347,
+      "similarity": 0.768
+    },
+    {
+      "mediaTime": 45.929,
+      "songTime": 47.276,
+      "offset": 1.347,
+      "similarity": 0.842
+    },
+    {
+      "mediaTime": 46.928,
+      "songTime": 48.274,
+      "offset": 1.347,
+      "similarity": 0.951
+    },
+    {
+      "mediaTime": 47.926,
+      "songTime": 49.273,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 48.924,
+      "songTime": 50.271,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 49.923,
+      "songTime": 51.27,
+      "offset": 1.347,
+      "similarity": 0.953
+    },
+    {
+      "mediaTime": 50.921,
+      "songTime": 52.268,
+      "offset": 1.347,
+      "similarity": 0.949
+    },
+    {
+      "mediaTime": 51.92,
+      "songTime": 53.267,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 52.918,
+      "songTime": 54.265,
+      "offset": 1.347,
+      "similarity": 0.954
+    },
+    {
+      "mediaTime": 53.917,
+      "songTime": 55.263,
+      "offset": 1.347,
+      "similarity": 0.955
+    },
+    {
+      "mediaTime": 54.915,
+      "songTime": 56.262,
+      "offset": 1.347,
+      "similarity": 0.711
+    },
+    {
+      "mediaTime": 55.914,
+      "songTime": 156.526,
+      "offset": 100.612,
+      "similarity": 0.792
+    },
+    {
+      "mediaTime": 56.912,
+      "songTime": 157.501,
+      "offset": 100.589,
+      "similarity": 0.544
+    },
+    {
+      "mediaTime": 57.911,
+      "songTime": 19.226,
+      "offset": -38.684,
+      "similarity": 0.314
+    },
+    {
+      "mediaTime": 58.909,
+      "songTime": 0.0,
+      "offset": -58.909,
+      "similarity": 0.34
+    },
+    {
+      "mediaTime": 59.907,
+      "songTime": 156.201,
+      "offset": 96.293,
+      "similarity": 0.734
+    },
+    {
+      "mediaTime": 60.906,
+      "songTime": 157.106,
+      "offset": 96.2,
+      "similarity": 0.812
+    },
+    {
+      "mediaTime": 61.904,
+      "songTime": 157.501,
+      "offset": 95.597,
+      "similarity": 0.578
+    },
+    {
+      "mediaTime": 62.903,
+      "songTime": 38.058,
+      "offset": -24.845,
+      "similarity": 0.184
+    },
+    {
+      "mediaTime": 63.901,
+      "songTime": 39.265,
+      "offset": -24.636,
+      "similarity": 0.122
+    },
+    {
+      "mediaTime": 64.9,
+      "songTime": 1.115,
+      "offset": -63.785,
+      "similarity": 0.124
+    },
+    {
+      "mediaTime": 65.898,
+      "songTime": 18.831,
+      "offset": -47.067,
+      "similarity": 0.347
+    },
+    {
+      "mediaTime": 66.897,
+      "songTime": 19.807,
+      "offset": -47.09,
+      "similarity": 0.352
+    },
+    {
+      "mediaTime": 67.895,
+      "songTime": 0.255,
+      "offset": -67.64,
+      "similarity": 0.911
+    },
+    {
+      "mediaTime": 68.894,
+      "songTime": 62.973,
+      "offset": -5.921,
+      "similarity": 0.671
+    },
+    {
+      "mediaTime": 69.892,
+      "songTime": 2.252,
+      "offset": -67.64,
+      "similarity": 0.91
+    },
+    {
+      "mediaTime": 70.891,
+      "songTime": 3.251,
+      "offset": -67.64,
+      "similarity": 0.92
+    },
+    {
+      "mediaTime": 71.889,
+      "songTime": 4.249,
+      "offset": -67.64,
+      "similarity": 0.921
+    },
+    {
+      "mediaTime": 72.887,
+      "songTime": 5.248,
+      "offset": -67.64,
+      "similarity": 0.924
+    },
+    {
+      "mediaTime": 73.886,
+      "songTime": 6.246,
+      "offset": -67.64,
+      "similarity": 0.925
+    },
+    {
+      "mediaTime": 74.884,
+      "songTime": 7.245,
+      "offset": -67.64,
+      "similarity": 0.915
+    },
+    {
+      "mediaTime": 75.883,
+      "songTime": 8.243,
+      "offset": -67.64,
+      "similarity": 0.912
+    },
+    {
+      "mediaTime": 76.881,
+      "songTime": 70.96,
+      "offset": -5.921,
+      "similarity": 0.649
+    },
+    {
+      "mediaTime": 77.88,
+      "songTime": 140.527,
+      "offset": 62.647,
+      "similarity": 0.636
+    },
+    {
+      "mediaTime": 78.878,
+      "songTime": 11.238,
+      "offset": -67.64,
+      "similarity": 0.925
+    },
+    {
+      "mediaTime": 79.877,
+      "songTime": 12.237,
+      "offset": -67.64,
+      "similarity": 0.944
+    },
+    {
+      "mediaTime": 80.875,
+      "songTime": 13.235,
+      "offset": -67.64,
+      "similarity": 0.944
+    },
+    {
+      "mediaTime": 81.874,
+      "songTime": 14.234,
+      "offset": -67.64,
+      "similarity": 0.923
+    },
+    {
+      "mediaTime": 82.872,
+      "songTime": 15.232,
+      "offset": -67.64,
+      "similarity": 0.934
+    },
+    {
+      "mediaTime": 83.87,
+      "songTime": 16.231,
+      "offset": -67.64,
+      "similarity": 0.938
+    },
+    {
+      "mediaTime": 84.869,
+      "songTime": 17.229,
+      "offset": -67.64,
+      "similarity": 0.939
+    },
+    {
+      "mediaTime": 85.867,
+      "songTime": 18.228,
+      "offset": -67.64,
+      "similarity": 0.944
+    },
+    {
+      "mediaTime": 86.866,
+      "songTime": 19.226,
+      "offset": -67.64,
+      "similarity": 0.952
+    },
+    {
+      "mediaTime": 87.864,
+      "songTime": 20.225,
+      "offset": -67.64,
+      "similarity": 0.946
+    },
+    {
+      "mediaTime": 88.863,
+      "songTime": 21.223,
+      "offset": -67.64,
+      "similarity": 0.762
+    },
+    {
+      "mediaTime": 89.861,
+      "songTime": 155.992,
+      "offset": 66.13,
+      "similarity": 0.638
+    },
+    {
+      "mediaTime": 90.86,
+      "songTime": 156.99,
+      "offset": 66.13,
+      "similarity": 0.817
+    },
+    {
+      "mediaTime": 91.858,
+      "songTime": 157.501,
+      "offset": 65.643,
+      "similarity": 0.653
+    },
+    {
+      "mediaTime": 92.857,
+      "songTime": 126.526,
+      "offset": 33.669,
+      "similarity": 0.107
+    },
+    {
+      "mediaTime": 93.855,
+      "songTime": 154.041,
+      "offset": 60.186,
+      "similarity": 0.165
+    },
+    {
+      "mediaTime": 94.854,
+      "songTime": 18.251,
+      "offset": -76.603,
+      "similarity": 0.174
+    },
+    {
+      "mediaTime": 95.852,
+      "songTime": 87.377,
+      "offset": -8.475,
+      "similarity": 0.322
+    },
+    {
+      "mediaTime": 96.85,
+      "songTime": 12.934,
+      "offset": -83.917,
+      "similarity": 0.36
+    },
+    {
+      "mediaTime": 97.849,
+      "songTime": 157.338,
+      "offset": 59.49,
+      "similarity": 0.0
+    },
+    {
+      "mediaTime": 98.847,
+      "songTime": 157.338,
+      "offset": 58.491,
+      "similarity": 0.0
+    },
+    {
+      "mediaTime": 99.846,
+      "songTime": 24.172,
+      "offset": -75.674,
+      "similarity": 0.263
+    },
+    {
+      "mediaTime": 100.844,
+      "songTime": 38.058,
+      "offset": -62.787,
+      "similarity": 0.269
+    },
+    {
+      "mediaTime": 101.843,
+      "songTime": 38.615,
+      "offset": -63.228,
+      "similarity": 0.206
+    },
+    {
+      "mediaTime": 102.841,
+      "songTime": 102.4,
+      "offset": -0.441,
+      "similarity": 0.167
+    },
+    {
+      "mediaTime": 103.84,
+      "songTime": 44.489,
+      "offset": -59.35,
+      "similarity": 0.185
+    },
+    {
+      "mediaTime": 104.838,
+      "songTime": 17.995,
+      "offset": -86.843,
+      "similarity": 0.191
+    },
+    {
+      "mediaTime": 105.837,
+      "songTime": 18.994,
+      "offset": -86.843,
+      "similarity": 0.306
+    },
+    {
+      "mediaTime": 106.835,
+      "songTime": 19.969,
+      "offset": -86.866,
+      "similarity": 0.299
+    },
+    {
+      "mediaTime": 107.833,
+      "songTime": 2.229,
+      "offset": -105.604,
+      "similarity": 0.292
+    },
+    {
+      "mediaTime": 108.832,
+      "songTime": 0.0,
+      "offset": -108.832,
+      "similarity": 0.716
+    },
+    {
+      "mediaTime": 109.83,
+      "songTime": 4.226,
+      "offset": -105.604,
+      "similarity": 0.915
+    },
+    {
+      "mediaTime": 110.829,
+      "songTime": 5.224,
+      "offset": -105.604,
+      "similarity": 0.915
+    },
+    {
+      "mediaTime": 111.827,
+      "songTime": 6.223,
+      "offset": -105.604,
+      "similarity": 0.918
+    },
+    {
+      "mediaTime": 112.826,
+      "songTime": 68.917,
+      "offset": -43.909,
+      "similarity": 0.682
+    },
+    {
+      "mediaTime": 113.824,
+      "songTime": 138.484,
+      "offset": 24.66,
+      "similarity": 0.663
+    },
+    {
+      "mediaTime": 114.823,
+      "songTime": 9.218,
+      "offset": -105.604,
+      "similarity": 0.903
+    },
+    {
+      "mediaTime": 115.821,
+      "songTime": 10.217,
+      "offset": -105.604,
+      "similarity": 0.909
+    },
+    {
+      "mediaTime": 116.82,
+      "songTime": 11.215,
+      "offset": -105.604,
+      "similarity": 0.927
+    },
+    {
+      "mediaTime": 117.818,
+      "songTime": 12.214,
+      "offset": -105.604,
+      "similarity": 0.949
+    },
+    {
+      "mediaTime": 118.817,
+      "songTime": 13.212,
+      "offset": -105.604,
+      "similarity": 0.945
+    },
+    {
+      "mediaTime": 119.815,
+      "songTime": 14.211,
+      "offset": -105.604,
+      "similarity": 0.919
+    },
+    {
+      "mediaTime": 120.813,
+      "songTime": 15.209,
+      "offset": -105.604,
+      "similarity": 0.927
+    },
+    {
+      "mediaTime": 121.812,
+      "songTime": 16.208,
+      "offset": -105.604,
+      "similarity": 0.932
+    },
+    {
+      "mediaTime": 122.81,
+      "songTime": 17.206,
+      "offset": -105.604,
+      "similarity": 0.935
+    },
+    {
+      "mediaTime": 123.809,
+      "songTime": 18.204,
+      "offset": -105.604,
+      "similarity": 0.944
+    },
+    {
+      "mediaTime": 124.807,
+      "songTime": 19.203,
+      "offset": -105.604,
+      "similarity": 0.95
+    },
+    {
+      "mediaTime": 125.806,
+      "songTime": 20.201,
+      "offset": -105.604,
+      "similarity": 0.944
+    },
+    {
+      "mediaTime": 126.804,
+      "songTime": 21.2,
+      "offset": -105.604,
+      "similarity": 0.798
+    },
+    {
+      "mediaTime": 127.803,
+      "songTime": 22.198,
+      "offset": -105.604,
+      "similarity": 0.44
+    },
+    {
+      "mediaTime": 128.801,
+      "songTime": 25.287,
+      "offset": -103.515,
+      "similarity": 0.302
+    },
+    {
+      "mediaTime": 129.8,
+      "songTime": 26.285,
+      "offset": -103.515,
+      "similarity": 0.606
+    },
+    {
+      "mediaTime": 130.798,
+      "songTime": 27.283,
+      "offset": -103.515,
+      "similarity": 0.587
+    },
+    {
+      "mediaTime": 131.796,
+      "songTime": 29.211,
+      "offset": -102.586,
+      "similarity": 0.404
+    },
+    {
+      "mediaTime": 132.795,
+      "songTime": 30.232,
+      "offset": -102.563,
+      "similarity": 0.777
+    },
+    {
+      "mediaTime": 133.793,
+      "songTime": 31.231,
+      "offset": -102.563,
+      "similarity": 0.947
+    },
+    {
+      "mediaTime": 134.792,
+      "songTime": 32.229,
+      "offset": -102.563,
+      "similarity": 0.937
+    },
+    {
+      "mediaTime": 135.79,
+      "songTime": 33.228,
+      "offset": -102.563,
+      "similarity": 0.925
+    },
+    {
+      "mediaTime": 136.789,
+      "songTime": 34.226,
+      "offset": -102.563,
+      "similarity": 0.924
+    },
+    {
+      "mediaTime": 137.787,
+      "songTime": 35.225,
+      "offset": -102.563,
+      "similarity": 0.927
+    },
+    {
+      "mediaTime": 138.786,
+      "songTime": 36.223,
+      "offset": -102.563,
+      "similarity": 0.927
+    },
+    {
+      "mediaTime": 139.784,
+      "songTime": 37.222,
+      "offset": -102.563,
+      "similarity": 0.929
+    },
+    {
+      "mediaTime": 140.783,
+      "songTime": 38.22,
+      "offset": -102.563,
+      "similarity": 0.927
+    },
+    {
+      "mediaTime": 141.781,
+      "songTime": 39.219,
+      "offset": -102.563,
+      "similarity": 0.93
+    },
+    {
+      "mediaTime": 142.78,
+      "songTime": 40.217,
+      "offset": -102.563,
+      "similarity": 0.934
+    },
+    {
+      "mediaTime": 143.778,
+      "songTime": 41.215,
+      "offset": -102.563,
+      "similarity": 0.939
+    },
+    {
+      "mediaTime": 144.776,
+      "songTime": 42.214,
+      "offset": -102.563,
+      "similarity": 0.937
+    },
+    {
+      "mediaTime": 145.775,
+      "songTime": 43.212,
+      "offset": -102.563,
+      "similarity": 0.936
+    },
+    {
+      "mediaTime": 146.773,
+      "songTime": 44.211,
+      "offset": -102.563,
+      "similarity": 0.936
+    },
+    {
+      "mediaTime": 147.772,
+      "songTime": 45.209,
+      "offset": -102.563,
+      "similarity": 0.936
+    },
+    {
+      "mediaTime": 148.77,
+      "songTime": 46.208,
+      "offset": -102.563,
+      "similarity": 0.936
+    },
+    {
+      "mediaTime": 149.769,
+      "songTime": 47.206,
+      "offset": -102.563,
+      "similarity": 0.934
+    },
+    {
+      "mediaTime": 150.767,
+      "songTime": 48.205,
+      "offset": -102.563,
+      "similarity": 0.928
+    },
+    {
+      "mediaTime": 151.766,
+      "songTime": 49.203,
+      "offset": -102.563,
+      "similarity": 0.931
+    },
+    {
+      "mediaTime": 152.764,
+      "songTime": 50.202,
+      "offset": -102.563,
+      "similarity": 0.934
+    },
+    {
+      "mediaTime": 153.763,
+      "songTime": 51.2,
+      "offset": -102.563,
+      "similarity": 0.929
+    },
+    {
+      "mediaTime": 154.761,
+      "songTime": 52.198,
+      "offset": -102.563,
+      "similarity": 0.918
+    },
+    {
+      "mediaTime": 155.759,
+      "songTime": 53.174,
+      "offset": -102.586,
+      "similarity": 0.694
+    },
+    {
+      "mediaTime": 156.758,
+      "songTime": 54.172,
+      "offset": -102.586,
+      "similarity": 0.419
+    },
+    {
+      "mediaTime": 157.756,
+      "songTime": 13.189,
+      "offset": -144.567,
+      "similarity": 0.21
+    },
+    {
+      "mediaTime": 158.755,
+      "songTime": 18.622,
+      "offset": -140.132,
+      "similarity": 0.205
+    },
+    {
+      "mediaTime": 159.753,
+      "songTime": 19.644,
+      "offset": -140.109,
+      "similarity": 0.16
+    },
+    {
+      "mediaTime": 160.752,
+      "songTime": 88.05,
+      "offset": -72.702,
+      "similarity": 0.121
+    },
+    {
+      "mediaTime": 161.75,
+      "songTime": 155.992,
+      "offset": -5.759,
+      "similarity": 0.549
+    },
+    {
+      "mediaTime": 162.749,
+      "songTime": 156.967,
+      "offset": -5.782,
+      "similarity": 0.785
+    },
+    {
+      "mediaTime": 163.747,
+      "songTime": 157.501,
+      "offset": -6.246,
+      "similarity": 0.633
+    },
+    {
+      "mediaTime": 164.746,
+      "songTime": 38.313,
+      "offset": -126.433,
+      "similarity": 0.163
+    },
+    {
+      "mediaTime": 165.744,
+      "songTime": 101.541,
+      "offset": -64.203,
+      "similarity": 0.194
+    },
+    {
+      "mediaTime": 166.742,
+      "songTime": 59.954,
+      "offset": -106.789,
+      "similarity": 0.167
+    }
+  ],
+  "segments": [
+    {
+      "mediaStart": 0.998,
+      "mediaEnd": 5.995,
+      "songStart": 2.322,
+      "songEnd": 7.319,
+      "offset": 1.324,
+      "meanSimilarity": 0.944
+    },
+    {
+      "mediaStart": 4.992,
+      "mediaEnd": 9.989,
+      "songStart": 6.316,
+      "songEnd": 11.313,
+      "offset": 1.324,
+      "meanSimilarity": 0.95
+    },
+    {
+      "mediaStart": 8.986,
+      "mediaEnd": 35.949,
+      "songStart": 10.31,
+      "songEnd": 37.273,
+      "offset": 1.324,
+      "meanSimilarity": 0.95
+    },
+    {
+      "mediaStart": 46.928,
+      "mediaEnd": 56.917,
+      "songStart": 48.274,
+      "songEnd": 58.263,
+      "offset": 1.346,
+      "meanSimilarity": 0.953
+    },
+    {
+      "mediaStart": 69.892,
+      "mediaEnd": 78.883,
+      "songStart": 2.229,
+      "songEnd": 11.22,
+      "offset": -67.663,
+      "meanSimilarity": 0.918
+    },
+    {
+      "mediaStart": 78.878,
+      "mediaEnd": 90.864,
+      "songStart": 11.215,
+      "songEnd": 23.201,
+      "offset": -67.663,
+      "meanSimilarity": 0.939
+    },
+    {
+      "mediaStart": 109.83,
+      "mediaEnd": 114.827,
+      "songStart": 4.203,
+      "songEnd": 9.2,
+      "offset": -105.627,
+      "meanSimilarity": 0.916
+    },
+    {
+      "mediaStart": 114.823,
+      "mediaEnd": 128.806,
+      "songStart": 9.218,
+      "songEnd": 23.201,
+      "offset": -105.605,
+      "meanSimilarity": 0.932
+    },
+    {
+      "mediaStart": 133.793,
+      "mediaEnd": 157.761,
+      "songStart": 31.208,
+      "songEnd": 55.176,
+      "offset": -102.585,
+      "meanSimilarity": 0.932
+    }
+  ]
+}

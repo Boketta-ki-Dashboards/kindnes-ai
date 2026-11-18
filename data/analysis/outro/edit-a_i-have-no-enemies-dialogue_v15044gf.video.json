@@ -1,0 +1,1117 @@
+{
+  "schema": "kindness-ai/video-analysis",
+  "path": "assets/outro/edits/edit-a_i-have-no-enemies-dialogue_v15044gf.mov",
+  "info": {
+    "width": 844,
+    "height": 576,
+    "fps": 30.0,
+    "codec": "hevc",
+    "durationSec": 35.267,
+    "rotation": 0,
+    "pixFmt": "yuvj420p",
+    "bitRate": 4301632
+  },
+  "cuts": [
+    {
+      "time": 1.7,
+      "score": 0.507
+    },
+    {
+      "time": 2.733,
+      "score": 1.0
+    },
+    {
+      "time": 3.367,
+      "score": 0.481
+    },
+    {
+      "time": 3.6,
+      "score": 0.584
+    },
+    {
+      "time": 3.867,
+      "score": 0.887
+    },
+    {
+      "time": 4.933,
+      "score": 1.0
+    },
+    {
+      "time": 5.467,
+      "score": 0.369
+    },
+    {
+      "time": 5.8,
+      "score": 0.526
+    },
+    {
+      "time": 6.0,
+      "score": 1.0
+    },
+    {
+      "time": 8.133,
+      "score": 1.0
+    },
+    {
+      "time": 9.233,
+      "score": 0.524
+    },
+    {
+      "time": 9.7,
+      "score": 0.362
+    },
+    {
+      "time": 10.267,
+      "score": 0.867
+    },
+    {
+      "time": 11.333,
+      "score": 0.619
+    },
+    {
+      "time": 12.733,
+      "score": 0.633
+    },
+    {
+      "time": 13.433,
+      "score": 1.0
+    },
+    {
+      "time": 14.5,
+      "score": 1.0
+    },
+    {
+      "time": 15.567,
+      "score": 0.688
+    },
+    {
+      "time": 16.167,
+      "score": 0.364
+    },
+    {
+      "time": 16.433,
+      "score": 0.436
+    },
+    {
+      "time": 16.667,
+      "score": 1.0
+    },
+    {
+      "time": 17.733,
+      "score": 0.872
+    },
+    {
+      "time": 18.6,
+      "score": 0.342
+    },
+    {
+      "time": 18.833,
+      "score": 0.893
+    },
+    {
+      "time": 19.9,
+      "score": 1.0
+    },
+    {
+      "time": 20.967,
+      "score": 1.0
+    },
+    {
+      "time": 22.033,
+      "score": 0.408
+    },
+    {
+      "time": 23.067,
+      "score": 0.365
+    },
+    {
+      "time": 23.967,
+      "score": 1.0
+    }
+  ],
+  "cutsPerMinute": 49.3,
+  "medianShotSec": 0.966,
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 1.7,
+      "duration": 1.7,
+      "meanMotion": 0.0309,
+      "meanBrightness": 0.785,
+      "focusX": 0.454,
+      "warmth": 0.154
+    },
+    {
+      "start": 1.7,
+      "end": 2.733,
+      "duration": 1.033,
+      "meanMotion": 0.0379,
+      "meanBrightness": 0.699,
+      "focusX": 0.448,
+      "warmth": 0.241
+    },
+    {
+      "start": 2.733,
+      "end": 3.367,
+      "duration": 0.634,
+      "meanMotion": 0.1837,
+      "meanBrightness": 0.397,
+      "focusX": 0.431,
+      "warmth": 0.184
+    },
+    {
+      "start": 3.367,
+      "end": 3.6,
+      "duration": 0.233,
+      "meanMotion": 0.0797,
+      "meanBrightness": 0.421,
+      "focusX": 0.416,
+      "warmth": 0.186
+    },
+    {
+      "start": 3.6,
+      "end": 3.867,
+      "duration": 0.267,
+      "meanMotion": 0.1202,
+      "meanBrightness": 0.579,
+      "focusX": 0.395,
+      "warmth": 0.219
+    },
+    {
+      "start": 3.867,
+      "end": 4.933,
+      "duration": 1.066,
+      "meanMotion": 0.0526,
+      "meanBrightness": 0.512,
+      "focusX": 0.47,
+      "warmth": 0.055
+    },
+    {
+      "start": 4.933,
+      "end": 5.467,
+      "duration": 0.534,
+      "meanMotion": 0.1083,
+      "meanBrightness": 0.304,
+      "focusX": 0.439,
+      "warmth": 0.135
+    },
+    {
+      "start": 5.467,
+      "end": 5.8,
+      "duration": 0.333,
+      "meanMotion": 0.0567,
+      "meanBrightness": 0.428,
+      "focusX": 0.478,
+      "warmth": 0.19
+    },
+    {
+      "start": 5.8,
+      "end": 6.0,
+      "duration": 0.2,
+      "meanMotion": 0.127,
+      "meanBrightness": 0.413,
+      "focusX": 0.588,
+      "warmth": 0.233
+    },
+    {
+      "start": 6.0,
+      "end": 8.133,
+      "duration": 2.133,
+      "meanMotion": 0.0639,
+      "meanBrightness": 0.666,
+      "focusX": 0.499,
+      "warmth": 0.151
+    },
+    {
+      "start": 8.133,
+      "end": 9.233,
+      "duration": 1.1,
+      "meanMotion": 0.1163,
+      "meanBrightness": 0.432,
+      "focusX": 0.477,
+      "warmth": 0.081
+    },
+    {
+      "start": 9.233,
+      "end": 9.7,
+      "duration": 0.467,
+      "meanMotion": 0.1012,
+      "meanBrightness": 0.44,
+      "focusX": 0.411,
+      "warmth": 0.303
+    },
+    {
+      "start": 9.7,
+      "end": 10.267,
+      "duration": 0.567,
+      "meanMotion": 0.0757,
+      "meanBrightness": 0.494,
+      "focusX": 0.477,
+      "warmth": 0.273
+    },
+    {
+      "start": 10.267,
+      "end": 11.333,
+      "duration": 1.066,
+      "meanMotion": 0.0825,
+      "meanBrightness": 0.653,
+      "focusX": 0.502,
+      "warmth": 0.187
+    },
+    {
+      "start": 11.333,
+      "end": 12.733,
+      "duration": 1.4,
+      "meanMotion": 0.0527,
+      "meanBrightness": 0.501,
+      "focusX": 0.477,
+      "warmth": 0.167
+    },
+    {
+      "start": 12.733,
+      "end": 13.433,
+      "duration": 0.7,
+      "meanMotion": 0.0613,
+      "meanBrightness": 0.741,
+      "focusX": 0.418,
+      "warmth": 0.241
+    },
+    {
+      "start": 13.433,
+      "end": 14.5,
+      "duration": 1.067,
+      "meanMotion": 0.1361,
+      "meanBrightness": 0.611,
+      "focusX": 0.432,
+      "warmth": 0.108
+    },
+    {
+      "start": 14.5,
+      "end": 15.567,
+      "duration": 1.067,
+      "meanMotion": 0.0342,
+      "meanBrightness": 0.617,
+      "focusX": 0.423,
+      "warmth": 0.193
+    },
+    {
+      "start": 15.567,
+      "end": 16.167,
+      "duration": 0.6,
+      "meanMotion": 0.0628,
+      "meanBrightness": 0.458,
+      "focusX": 0.421,
+      "warmth": 0.179
+    },
+    {
+      "start": 16.167,
+      "end": 16.433,
+      "duration": 0.266,
+      "meanMotion": 0.0664,
+      "meanBrightness": 0.396,
+      "focusX": 0.402,
+      "warmth": 0.152
+    },
+    {
+      "start": 16.433,
+      "end": 16.667,
+      "duration": 0.234,
+      "meanMotion": 0.0999,
+      "meanBrightness": 0.523,
+      "focusX": 0.392,
+      "warmth": 0.179
+    },
+    {
+      "start": 16.667,
+      "end": 17.733,
+      "duration": 1.066,
+      "meanMotion": 0.0456,
+      "meanBrightness": 0.468,
+      "focusX": 0.447,
+      "warmth": 0.048
+    },
+    {
+      "start": 17.733,
+      "end": 18.6,
+      "duration": 0.867,
+      "meanMotion": 0.0929,
+      "meanBrightness": 0.324,
+      "focusX": 0.424,
+      "warmth": 0.117
+    },
+    {
+      "start": 18.6,
+      "end": 18.833,
+      "duration": 0.233,
+      "meanMotion": 0.0986,
+      "meanBrightness": 0.384,
+      "focusX": 0.561,
+      "warmth": 0.189
+    },
+    {
+      "start": 18.833,
+      "end": 19.9,
+      "duration": 1.067,
+      "meanMotion": 0.0606,
+      "meanBrightness": 0.588,
+      "focusX": 0.433,
+      "warmth": 0.139
+    },
+    {
+      "start": 19.9,
+      "end": 20.967,
+      "duration": 1.067,
+      "meanMotion": 0.044,
+      "meanBrightness": 0.581,
+      "focusX": 0.458,
+      "warmth": 0.105
+    },
+    {
+      "start": 20.967,
+      "end": 22.033,
+      "duration": 1.066,
+      "meanMotion": 0.0409,
+      "meanBrightness": 0.45,
+      "focusX": 0.446,
+      "warmth": 0.076
+    },
+    {
+      "start": 22.033,
+      "end": 23.067,
+      "duration": 1.034,
+      "meanMotion": 0.0708,
+      "meanBrightness": 0.427,
+      "focusX": 0.422,
+      "warmth": 0.232
+    },
+    {
+      "start": 23.067,
+      "end": 23.967,
+      "duration": 0.9,
+      "meanMotion": 0.0803,
+      "meanBrightness": 0.633,
+      "focusX": 0.465,
+      "warmth": 0.148
+    },
+    {
+      "start": 23.967,
+      "end": 35.267,
+      "duration": 11.3,
+      "meanMotion": 0.0081,
+      "meanBrightness": 0.039,
+      "focusX": 0.494,
+      "warmth": -0.015
+    }
+  ],
+  "blackSegments": [
+    {
+      "start": 23.967,
+      "end": 31.4
+    },
+    {
+      "start": 31.833,
+      "end": 35.233
+    }
+  ],
+  "perSecond": {
+    "motion": [
+      0.0219,
+      0.0533,
+      0.1208,
+      0.0902,
+      0.0624,
+      0.0602,
+      0.08,
+      0.053,
+      0.1247,
+      0.0765,
+      0.0815,
+      0.0669,
+      0.0637,
+      0.1396,
+      0.0451,
+      0.0473,
+      0.0763,
+      0.0719,
+      0.0828,
+      0.0383,
+      0.0378,
+      0.0433,
+      0.0708,
+      0.0798,
+      0.0518,
+      0.0002,
+      0.0002,
+      0.0002,
+      0.0001,
+      0.0003,
+      0.0002,
+      0.0253,
+      0.0033,
+      0.0011,
+      0.0011,
+      0.0019
+    ],
+    "brightness": [
+      0.8206,
+      0.7294,
+      0.5834,
+      0.4889,
+      0.4834,
+      0.3758,
+      0.6795,
+      0.6449,
+      0.458,
+      0.4612,
+      0.6627,
+      0.4665,
+      0.6144,
+      0.6476,
+      0.6346,
+      0.5332,
+      0.459,
+      0.3922,
+      0.4267,
+      0.5688,
+      0.5957,
+      0.4292,
+      0.4273,
+      0.6212,
+      0.0008,
+      0.0017,
+      0.0023,
+      0.0019,
+      0.0018,
+      0.0021,
+      0.0024,
+      0.0757,
+      0.0953,
+      0.0955,
+      0.0955,
+      0.0955
+    ],
+    "saturation": [
+      0.217,
+      0.2335,
+      0.3572,
+      0.356,
+      0.2226,
+      0.4164,
+      0.277,
+      0.2731,
+      0.3283,
+      0.4652,
+      0.2971,
+      0.3912,
+      0.3789,
+      0.2266,
+      0.2454,
+      0.3343,
+      0.2818,
+      0.2432,
+      0.3385,
+      0.2782,
+      0.2358,
+      0.317,
+      0.4299,
+      0.2825,
+      0.0044,
+      0.008,
+      0.0681,
+      0.0081,
+      0.0159,
+      0.0358,
+      0.0442,
+      0.3423,
+      0.468,
+      0.4674,
+      0.4676,
+      0.4672
+    ],
+    "warmth": [
+      0.1831,
+      0.1552,
+      0.2102,
+      0.1963,
+      0.0426,
+      0.1765,
+      0.1727,
+      0.1338,
+      0.0833,
+      0.2528,
+      0.1856,
+      0.1708,
+      0.2425,
+      0.1403,
+      0.1409,
+      0.181,
+      0.1364,
+      0.0377,
+      0.1477,
+      0.14,
+      0.0997,
+      0.0751,
+      0.2324,
+      0.1582,
+      0.0005,
+      0.0013,
+      0.0011,
+      0.0014,
+      0.0012,
+      0.0013,
+      0.0013,
+      -0.0368,
+      -0.0504,
+      -0.0503,
+      -0.0504,
+      -0.0504
+    ],
+    "focusX": [
+      0.4454,
+      0.4521,
+      0.4451,
+      0.4217,
+      0.4667,
+      0.4855,
+      0.4873,
+      0.5102,
+      0.4734,
+      0.445,
+      0.4972,
+      0.4705,
+      0.4642,
+      0.4236,
+      0.4208,
+      0.4296,
+      0.416,
+      0.4387,
+      0.466,
+      0.4335,
+      0.4563,
+      0.4448,
+      0.4217,
+      0.4699,
+      0.4899,
+      0.5,
+      0.5043,
+      0.4905,
+      0.4848,
+      0.4973,
+      0.5057,
+      0.495,
+      0.494,
+      0.4934,
+      0.4934,
+      0.4932
+    ],
+    "sharpness": [
+      0.0478,
+      0.0532,
+      0.0792,
+      0.0792,
+      0.0806,
+      0.085,
+      0.0444,
+      0.0602,
+      0.0652,
+      0.0877,
+      0.078,
+      0.0643,
+      0.0563,
+      0.0593,
+      0.0632,
+      0.0931,
+      0.0818,
+      0.0795,
+      0.0851,
+      0.0609,
+      0.0706,
+      0.0783,
+      0.0896,
+      0.0866,
+      0.0016,
+      0.0032,
+      0.0041,
+      0.0034,
+      0.0033,
+      0.0037,
+      0.004,
+      0.0166,
+      0.0251,
+      0.0257,
+      0.0257,
+      0.0257
+    ]
+  },
+  "color": {
+    "meanBrightness": 0.385,
+    "meanSaturation": 0.269,
+    "meanWarmth": 0.099
+  },
+  "audio": {
+    "halfSecond": [
+      {
+        "t": 0.0,
+        "rmsDb": -4.41,
+        "onset": 1.001,
+        "flatness": 0.0046
+      },
+      {
+        "t": 0.5,
+        "rmsDb": -5.33,
+        "onset": 1.603,
+        "flatness": 0.0211
+      },
+      {
+        "t": 1.0,
+        "rmsDb": -2.92,
+        "onset": 1.495,
+        "flatness": 0.0075
+      },
+      {
+        "t": 1.5,
+        "rmsDb": -5.96,
+        "onset": 1.871,
+        "flatness": 0.0308
+      },
+      {
+        "t": 2.0,
+        "rmsDb": -4.53,
+        "onset": 1.354,
+        "flatness": 0.0105
+      },
+      {
+        "t": 2.5,
+        "rmsDb": -3.93,
+        "onset": 1.179,
+        "flatness": 0.0076
+      },
+      {
+        "t": 3.0,
+        "rmsDb": -2.25,
+        "onset": 1.221,
+        "flatness": 0.003
+      },
+      {
+        "t": 3.5,
+        "rmsDb": -4.89,
+        "onset": 1.498,
+        "flatness": 0.0129
+      },
+      {
+        "t": 4.0,
+        "rmsDb": -5.41,
+        "onset": 1.301,
+        "flatness": 0.0099
+      },
+      {
+        "t": 4.5,
+        "rmsDb": -4.98,
+        "onset": 1.228,
+        "flatness": 0.0128
+      },
+      {
+        "t": 5.0,
+        "rmsDb": -4.04,
+        "onset": 1.061,
+        "flatness": 0.0072
+      },
+      {
+        "t": 5.5,
+        "rmsDb": -4.59,
+        "onset": 1.782,
+        "flatness": 0.0142
+      },
+      {
+        "t": 6.0,
+        "rmsDb": -4.78,
+        "onset": 1.168,
+        "flatness": 0.0263
+      },
+      {
+        "t": 6.5,
+        "rmsDb": -4.61,
+        "onset": 1.154,
+        "flatness": 0.0049
+      },
+      {
+        "t": 7.0,
+        "rmsDb": -5.16,
+        "onset": 1.259,
+        "flatness": 0.0065
+      },
+      {
+        "t": 7.5,
+        "rmsDb": -3.45,
+        "onset": 1.569,
+        "flatness": 0.0073
+      },
+      {
+        "t": 8.0,
+        "rmsDb": -5.05,
+        "onset": 1.392,
+        "flatness": 0.0166
+      },
+      {
+        "t": 8.5,
+        "rmsDb": -2.57,
+        "onset": 1.136,
+        "flatness": 0.0035
+      },
+      {
+        "t": 9.0,
+        "rmsDb": -3.32,
+        "onset": 1.233,
+        "flatness": 0.007
+      },
+      {
+        "t": 9.5,
+        "rmsDb": -4.16,
+        "onset": 1.309,
+        "flatness": 0.0035
+      },
+      {
+        "t": 10.0,
+        "rmsDb": -5.49,
+        "onset": 1.533,
+        "flatness": 0.0247
+      },
+      {
+        "t": 10.5,
+        "rmsDb": -4.58,
+        "onset": 1.15,
+        "flatness": 0.0076
+      },
+      {
+        "t": 11.0,
+        "rmsDb": -3.88,
+        "onset": 1.114,
+        "flatness": 0.0077
+      },
+      {
+        "t": 11.5,
+        "rmsDb": -4.29,
+        "onset": 1.374,
+        "flatness": 0.0126
+      },
+      {
+        "t": 12.0,
+        "rmsDb": -3.93,
+        "onset": 1.598,
+        "flatness": 0.0158
+      },
+      {
+        "t": 12.5,
+        "rmsDb": -3.81,
+        "onset": 1.25,
+        "flatness": 0.0136
+      },
+      {
+        "t": 13.0,
+        "rmsDb": -4.77,
+        "onset": 1.126,
+        "flatness": 0.0088
+      },
+      {
+        "t": 13.5,
+        "rmsDb": -7.25,
+        "onset": 1.804,
+        "flatness": 0.0567
+      },
+      {
+        "t": 14.0,
+        "rmsDb": -4.22,
+        "onset": 1.515,
+        "flatness": 0.0141
+      },
+      {
+        "t": 14.5,
+        "rmsDb": -7.22,
+        "onset": 1.233,
+        "flatness": 0.0267
+      },
+      {
+        "t": 15.0,
+        "rmsDb": -6.09,
+        "onset": 1.464,
+        "flatness": 0.0095
+      },
+      {
+        "t": 15.5,
+        "rmsDb": -7.32,
+        "onset": 1.284,
+        "flatness": 0.0358
+      },
+      {
+        "t": 16.0,
+        "rmsDb": -3.03,
+        "onset": 1.641,
+        "flatness": 0.0073
+      },
+      {
+        "t": 16.5,
+        "rmsDb": -6.0,
+        "onset": 1.367,
+        "flatness": 0.0587
+      },
+      {
+        "t": 17.0,
+        "rmsDb": -2.68,
+        "onset": 1.035,
+        "flatness": 0.0052
+      },
+      {
+        "t": 17.5,
+        "rmsDb": -3.94,
+        "onset": 1.162,
+        "flatness": 0.0095
+      },
+      {
+        "t": 18.0,
+        "rmsDb": -4.23,
+        "onset": 1.317,
+        "flatness": 0.0101
+      },
+      {
+        "t": 18.5,
+        "rmsDb": -6.15,
+        "onset": 1.762,
+        "flatness": 0.0272
+      },
+      {
+        "t": 19.0,
+        "rmsDb": -5.66,
+        "onset": 1.307,
+        "flatness": 0.0157
+      },
+      {
+        "t": 19.5,
+        "rmsDb": -5.98,
+        "onset": 1.453,
+        "flatness": 0.0134
+      },
+      {
+        "t": 20.0,
+        "rmsDb": -7.0,
+        "onset": 1.593,
+        "flatness": 0.0431
+      },
+      {
+        "t": 20.5,
+        "rmsDb": -4.38,
+        "onset": 1.451,
+        "flatness": 0.0214
+      },
+      {
+        "t": 21.0,
+        "rmsDb": -4.07,
+        "onset": 1.118,
+        "flatness": 0.0154
+      },
+      {
+        "t": 21.5,
+        "rmsDb": -4.41,
+        "onset": 1.29,
+        "flatness": 0.0071
+      },
+      {
+        "t": 22.0,
+        "rmsDb": -6.08,
+        "onset": 1.178,
+        "flatness": 0.0284
+      },
+      {
+        "t": 22.5,
+        "rmsDb": -2.5,
+        "onset": 1.291,
+        "flatness": 0.0034
+      },
+      {
+        "t": 23.0,
+        "rmsDb": -5.97,
+        "onset": 1.376,
+        "flatness": 0.0234
+      },
+      {
+        "t": 23.5,
+        "rmsDb": -4.18,
+        "onset": 1.273,
+        "flatness": 0.0122
+      },
+      {
+        "t": 24.0,
+        "rmsDb": -5.41,
+        "onset": 1.362,
+        "flatness": 0.0331
+      },
+      {
+        "t": 24.5,
+        "rmsDb": -5.16,
+        "onset": 1.211,
+        "flatness": 0.0268
+      },
+      {
+        "t": 25.0,
+        "rmsDb": -4.97,
+        "onset": 1.187,
+        "flatness": 0.0127
+      },
+      {
+        "t": 25.5,
+        "rmsDb": -6.13,
+        "onset": 1.63,
+        "flatness": 0.0229
+      },
+      {
+        "t": 26.0,
+        "rmsDb": -6.67,
+        "onset": 1.172,
+        "flatness": 0.0144
+      },
+      {
+        "t": 26.5,
+        "rmsDb": -5.46,
+        "onset": 1.154,
+        "flatness": 0.0116
+      },
+      {
+        "t": 27.0,
+        "rmsDb": -5.75,
+        "onset": 1.29,
+        "flatness": 0.0176
+      },
+      {
+        "t": 27.5,
+        "rmsDb": -5.81,
+        "onset": 1.263,
+        "flatness": 0.0062
+      },
+      {
+        "t": 28.0,
+        "rmsDb": -5.93,
+        "onset": 1.14,
+        "flatness": 0.009
+      },
+      {
+        "t": 28.5,
+        "rmsDb": -9.3,
+        "onset": 1.128,
+        "flatness": 0.0084
+      },
+      {
+        "t": 29.0,
+        "rmsDb": -9.22,
+        "onset": 1.405,
+        "flatness": 0.0169
+      },
+      {
+        "t": 29.5,
+        "rmsDb": -11.02,
+        "onset": 1.317,
+        "flatness": 0.0112
+      },
+      {
+        "t": 30.0,
+        "rmsDb": -13.14,
+        "onset": 1.136,
+        "flatness": 0.0037
+      },
+      {
+        "t": 30.5,
+        "rmsDb": -17.79,
+        "onset": 1.037,
+        "flatness": 0.0161
+      },
+      {
+        "t": 31.0,
+        "rmsDb": -5.59,
+        "onset": 0.936,
+        "flatness": 0.0021
+      },
+      {
+        "t": 31.5,
+        "rmsDb": -8.79,
+        "onset": 1.375,
+        "flatness": 0.0
+      },
+      {
+        "t": 32.0,
+        "rmsDb": -36.39,
+        "onset": 0.21,
+        "flatness": 0.0001
+      },
+      {
+        "t": 32.5,
+        "rmsDb": -71.16,
+        "onset": 0.011,
+        "flatness": 0.5903
+      },
+      {
+        "t": 33.0,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 33.5,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 34.0,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 34.5,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 35.0,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      }
+    ],
+    "meanRmsDb": -6.05
+  },
+  "highlights": [
+    {
+      "time": 23.5,
+      "score": 1.235,
+      "features": {
+        "loudnessZ": 0.0,
+        "loudnessRiseZ": -0.01,
+        "motionZ": 0.8,
+        "cuts": 2,
+        "positionPrior": 0.98
+      }
+    },
+    {
+      "time": 18.5,
+      "score": 0.923,
+      "features": {
+        "loudnessZ": 0.0,
+        "loudnessRiseZ": -0.01,
+        "motionZ": 0.87,
+        "cuts": 2,
+        "positionPrior": 0.65
+      }
+    },
+    {
+      "time": 13.5,
+      "score": 0.765,
+      "features": {
+        "loudnessZ": -0.02,
+        "loudnessRiseZ": -0.03,
+        "motionZ": 2.35,
+        "cuts": 1,
+        "positionPrior": 0.26
+      }
+    }
+  ]
+}

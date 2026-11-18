@@ -1,0 +1,83 @@
+{
+  "windowSec": 3.0,
+  "stepSec": 1.0,
+  "threshold": 0.85,
+  "windows": [
+    {
+      "mediaTime": 0.0,
+      "songTime": 48.158,
+      "offset": 48.158,
+      "similarity": 0.967
+    },
+    {
+      "mediaTime": 0.998,
+      "songTime": 49.157,
+      "offset": 48.158,
+      "similarity": 0.973
+    },
+    {
+      "mediaTime": 1.997,
+      "songTime": 50.155,
+      "offset": 48.158,
+      "similarity": 0.974
+    },
+    {
+      "mediaTime": 2.995,
+      "songTime": 51.154,
+      "offset": 48.158,
+      "similarity": 0.973
+    },
+    {
+      "mediaTime": 3.994,
+      "songTime": 52.152,
+      "offset": 48.158,
+      "similarity": 0.97
+    },
+    {
+      "mediaTime": 4.992,
+      "songTime": 53.15,
+      "offset": 48.158,
+      "similarity": 0.972
+    },
+    {
+      "mediaTime": 5.991,
+      "songTime": 54.149,
+      "offset": 48.158,
+      "similarity": 0.974
+    },
+    {
+      "mediaTime": 6.989,
+      "songTime": 55.147,
+      "offset": 48.158,
+      "similarity": 0.884
+    },
+    {
+      "mediaTime": 7.988,
+      "songTime": 156.456,
+      "offset": 148.468,
+      "similarity": 0.624
+    },
+    {
+      "mediaTime": 8.986,
+      "songTime": 156.897,
+      "offset": 147.911,
+      "similarity": 0.758
+    },
+    {
+      "mediaTime": 9.985,
+      "songTime": 157.478,
+      "offset": 147.493,
+      "similarity": 0.544
+    }
+  ],
+  "segments": [
+    {
+      "mediaStart": 0.0,
+      "mediaEnd": 9.989,
+      "songStart": 48.158,
+      "songEnd": 58.147,
+      "offset": 48.158,
+      "meanSimilarity": 0.961
+    }
+  ]
+}

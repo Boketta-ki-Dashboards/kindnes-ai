@@ -1,0 +1,18 @@
+{
+  "track": "assets/music/meant-to-be.mp3",
+  "title": "Meant to Be",
+  "beatmap": "data/analysis/music/meant-to-be.beatmap.json",
+  "drop": {
+    "auto": 48.216,
+    "source": "reference-consensus",
+    "evidence": [
+      "ref-02 cuts to the anime outro at song time 48.10 s (cut 29.333 s + song offset 18.762 s)",
+      "ref-03 cuts to the anime outro at song time 48.15 s (cut 47.433 s + song offset 0.720 s)",
+      "ref-04 dissolves into the anime outro around song time 48.2 s (song offset 27.957 s)",
+      "edit-c (outro-only edit) starts at song time 48.16 s",
+      "48.216 s is a detected downbeat with a strong onset (beat map)"
+    ],
+    "manualOverride": null
+  },
+  "earliestSongStart": 0
+}

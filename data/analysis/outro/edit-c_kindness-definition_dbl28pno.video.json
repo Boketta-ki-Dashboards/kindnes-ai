@@ -1,0 +1,398 @@
+{
+  "schema": "kindness-ai/video-analysis",
+  "path": "assets/outro/edits/edit-c_kindness-definition_dbl28pno.mov",
+  "info": {
+    "width": 574,
+    "height": 450,
+    "fps": 30.007,
+    "codec": "hevc",
+    "durationSec": 13.863,
+    "rotation": 0,
+    "pixFmt": "yuvj420p",
+    "bitRate": 4494712
+  },
+  "cuts": [
+    {
+      "time": 4.165,
+      "score": 0.423
+    },
+    {
+      "time": 6.965,
+      "score": 0.497
+    },
+    {
+      "time": 9.165,
+      "score": 0.466
+    },
+    {
+      "time": 9.831,
+      "score": 0.474
+    }
+  ],
+  "cutsPerMinute": 17.3,
+  "medianShotSec": 2.8,
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 4.165,
+      "duration": 4.165,
+      "meanMotion": 0.0661,
+      "meanBrightness": 0.429,
+      "focusX": 0.474,
+      "warmth": 0.272
+    },
+    {
+      "start": 4.165,
+      "end": 6.965,
+      "duration": 2.8,
+      "meanMotion": 0.0623,
+      "meanBrightness": 0.534,
+      "focusX": 0.388,
+      "warmth": 0.21
+    },
+    {
+      "start": 6.965,
+      "end": 9.165,
+      "duration": 2.2,
+      "meanMotion": 0.0431,
+      "meanBrightness": 0.73,
+      "focusX": 0.445,
+      "warmth": 0.162
+    },
+    {
+      "start": 9.165,
+      "end": 9.831,
+      "duration": 0.666,
+      "meanMotion": 0.0937,
+      "meanBrightness": 0.778,
+      "focusX": 0.281,
+      "warmth": 0.063
+    },
+    {
+      "start": 9.831,
+      "end": 13.863,
+      "duration": 4.032,
+      "meanMotion": 0.0377,
+      "meanBrightness": 0.144,
+      "focusX": 0.5,
+      "warmth": -0.05
+    }
+  ],
+  "blackSegments": [
+    {
+      "start": 10.465,
+      "end": 13.831
+    }
+  ],
+  "perSecond": {
+    "motion": [
+      0.0266,
+      0.0477,
+      0.1063,
+      0.0827,
+      0.0834,
+      0.0476,
+      0.0642,
+      0.0516,
+      0.0255,
+      0.1778,
+      0.0335,
+      0.0036,
+      0.0031,
+      0.0041
+    ],
+    "brightness": [
+      0.3774,
+      0.3794,
+      0.5331,
+      0.4275,
+      0.6067,
+      0.5481,
+      0.4307,
+      0.7365,
+      0.7473,
+      0.7228,
+      0.1343,
+      0.1196,
+      0.1196,
+      0.1196
+    ],
+    "saturation": [
+      0.543,
+      0.5096,
+      0.5441,
+      0.5553,
+      0.4182,
+      0.3619,
+      0.3044,
+      0.2413,
+      0.2378,
+      0.1684,
+      0.476,
+      0.4576,
+      0.4575,
+      0.4576
+    ],
+    "warmth": [
+      0.2813,
+      0.2477,
+      0.3045,
+      0.2525,
+      0.2808,
+      0.2236,
+      0.1293,
+      0.1608,
+      0.1606,
+      0.0555,
+      -0.0531,
+      -0.05,
+      -0.05,
+      -0.0499
+    ],
+    "focusX": [
+      0.447,
+      0.5486,
+      0.4586,
+      0.3964,
+      0.3649,
+      0.4294,
+      0.3891,
+      0.4189,
+      0.4678,
+      0.3408,
+      0.4995,
+      0.4995,
+      0.4995,
+      0.4995
+    ],
+    "sharpness": [
+      0.0438,
+      0.0802,
+      0.0423,
+      0.0592,
+      0.0679,
+      0.0679,
+      0.0732,
+      0.0558,
+      0.0579,
+      0.0631,
+      0.0362,
+      0.0412,
+      0.0412,
+      0.0412
+    ]
+  },
+  "color": {
+    "meanBrightness": 0.431,
+    "meanSaturation": 0.409,
+    "meanWarmth": 0.137
+  },
+  "audio": {
+    "halfSecond": [
+      {
+        "t": 0.0,
+        "rmsDb": -10.37,
+        "onset": 1.417,
+        "flatness": 0.0288
+      },
+      {
+        "t": 0.5,
+        "rmsDb": -10.59,
+        "onset": 1.531,
+        "flatness": 0.0292
+      },
+      {
+        "t": 1.0,
+        "rmsDb": -10.9,
+        "onset": 1.492,
+        "flatness": 0.0307
+      },
+      {
+        "t": 1.5,
+        "rmsDb": -10.4,
+        "onset": 1.358,
+        "flatness": 0.0346
+      },
+      {
+        "t": 2.0,
+        "rmsDb": -11.04,
+        "onset": 1.475,
+        "flatness": 0.0313
+      },
+      {
+        "t": 2.5,
+        "rmsDb": -10.69,
+        "onset": 1.459,
+        "flatness": 0.0251
+      },
+      {
+        "t": 3.0,
+        "rmsDb": -10.13,
+        "onset": 1.321,
+        "flatness": 0.0343
+      },
+      {
+        "t": 3.5,
+        "rmsDb": -11.02,
+        "onset": 1.726,
+        "flatness": 0.036
+      },
+      {
+        "t": 4.0,
+        "rmsDb": -12.31,
+        "onset": 1.382,
+        "flatness": 0.0378
+      },
+      {
+        "t": 4.5,
+        "rmsDb": -12.15,
+        "onset": 1.649,
+        "flatness": 0.0552
+      },
+      {
+        "t": 5.0,
+        "rmsDb": -11.61,
+        "onset": 1.301,
+        "flatness": 0.038
+      },
+      {
+        "t": 5.5,
+        "rmsDb": -13.56,
+        "onset": 1.516,
+        "flatness": 0.0723
+      },
+      {
+        "t": 6.0,
+        "rmsDb": -10.76,
+        "onset": 1.855,
+        "flatness": 0.0413
+      },
+      {
+        "t": 6.5,
+        "rmsDb": -11.1,
+        "onset": 1.622,
+        "flatness": 0.04
+      },
+      {
+        "t": 7.0,
+        "rmsDb": -11.04,
+        "onset": 1.562,
+        "flatness": 0.0359
+      },
+      {
+        "t": 7.5,
+        "rmsDb": -12.54,
+        "onset": 1.689,
+        "flatness": 0.0654
+      },
+      {
+        "t": 8.0,
+        "rmsDb": -11.09,
+        "onset": 1.52,
+        "flatness": 0.0414
+      },
+      {
+        "t": 8.5,
+        "rmsDb": -11.29,
+        "onset": 1.298,
+        "flatness": 0.0298
+      },
+      {
+        "t": 9.0,
+        "rmsDb": -11.26,
+        "onset": 1.959,
+        "flatness": 0.0508
+      },
+      {
+        "t": 9.5,
+        "rmsDb": -8.72,
+        "onset": 1.328,
+        "flatness": 0.0386
+      },
+      {
+        "t": 10.0,
+        "rmsDb": -4.8,
+        "onset": 1.293,
+        "flatness": 0.0
+      },
+      {
+        "t": 10.5,
+        "rmsDb": -20.24,
+        "onset": 0.462,
+        "flatness": 0.0
+      },
+      {
+        "t": 11.0,
+        "rmsDb": -55.37,
+        "onset": 0.069,
+        "flatness": 0.2215
+      },
+      {
+        "t": 11.5,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 12.0,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 12.5,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 13.0,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      },
+      {
+        "t": 13.5,
+        "rmsDb": -180.0,
+        "onset": 0.0,
+        "flatness": 1.0
+      }
+    ],
+    "meanRmsDb": -12.92
+  },
+  "highlights": [
+    {
+      "time": 9.5,
+      "score": 1.651,
+      "features": {
+        "loudnessZ": 0.02,
+        "loudnessRiseZ": 0.02,
+        "motionZ": 2.69,
+        "cuts": 2,
+        "positionPrior": 1.0
+      }
+    },
+    {
+      "time": 6.5,
+      "score": 0.592,
+      "features": {
+        "loudnessZ": 0.01,
+        "loudnessRiseZ": 0.01,
+        "motionZ": 0.22,
+        "cuts": 1,
+        "positionPrior": 0.49
+      }
+    },
+    {
+      "time": 2.5,
+      "score": 0.254,
+      "features": {
+        "loudnessZ": 0.01,
+        "loudnessRiseZ": -0.0,
+        "motionZ": 1.14,
+        "cuts": 0,
+        "positionPrior": 0.02
+      }
+    }
+  ]
+}
