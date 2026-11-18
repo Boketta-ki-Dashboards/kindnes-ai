@@ -119,3 +119,5 @@ Befehl: `npm run kai -- outro:v3` · Ergebnis: **40/40 Prüfungen bestanden** (v
 Im ersten V3-Lauf schlug die Safe-Area-Prüfung fehl (Markierungsbalken 1 px über dem linken Rand, x = 59) – korrigiert. Zusätzlich zeigte die Sichtung, dass die Heart-to-Heart-Nahaufnahmen im 9:16-Ausschnitt fast nur Haare zeigten → engerer Ausschnitt, Teenager-Nahaufnahme auf den Drop.
 
 Nicht automatisch prüfbar (manuell anhand der Screenshots bewertet): ob Gesichter „wichtig" angeschnitten sind und ob die Figur wirklich Thorfinn ist – die Zuordnung beruht auf meiner Sichtung der Einzelbilder (Shot-Liste in `docs/VIDEO_STYLE_GUIDE.md`).
+
+**Unabhängig auf GitHub Actions reproduziert:** Workflow „Render outro V3" (Lauf #2, https://github.com/Boketta-ki-Dashboards/kindnes-ai/actions/runs/44406611378) hat alle drei Videos in einer frischen Ubuntu-Umgebung gerendert, die QC bestanden (der Schritt bricht bei einer fehlgeschlagenen Prüfung ab) und das Artifact `kindness-outro-v3` (49 MB, gültig bis 18.12.2026) hochgeladen. CI-Lauf #4 auf demselben Commit: bestanden.
