@@ -14,6 +14,8 @@ on:
       - "config/pipeline.json"
       - "src/remotion/**"
       - "src/outro/**"
+      - "src/render/**"
+      - "src/media/**"
       - "assets/fonts/**"
       - ".github/workflows/outro-v3.yml"
 
