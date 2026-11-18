@@ -86,7 +86,7 @@ Eingabe: Story-Teil der Referenz 4 (Hund führt blinde Katze), aus `ref-04` hera
 | Punkt | Grund |
 |---|---|
 | Vision-Reviewer (`npm run kai -- review <id>`) | **implementiert, nicht getestet** – kostenpflichtige Claude API, ohne deine Zustimmung nicht aufgerufen; standardmäßig deaktiviert. Typen gegen das offizielle SDK geprüft. |
-| GitHub-Actions-Workflows | **implementiert, nicht ausgeführt** – laufen erst, wenn sie im Standard-Branch liegen; manueller Start durch dich. |
+| GitHub-Actions-Workflows | CI läuft bei jedem Push. **Korrektur:** Die CI-Läufe #1 und #2 sind fehlgeschlagen, weil `src/media/ffmpeg.ts` durch die `.gitignore`-Regel `media/` nie committet wurde (lokal fiel das nicht auf). Behoben im Commit „Fix .gitignore…“; danach Typecheck + 49/49 Tests in einem frischen Klon bestanden. Manuell startbare Workflows (Discover, Produce) erscheinen erst im Actions-Tab, wenn sie im Standard-Branch liegen. |
 | YouTube-/Dailymotion-/TikTok-Downloads | bewusst nicht implementiert (Nutzungsbedingungen); YouTube-Einzelseiten liefern aus der Cloud zudem HTTP 429. yt-dlp-Download nur als Opt-in für CC-Videos – nicht getestet. |
 | Reddit | blockiert (HTTP 403 ohne OAuth). |
 | Integrationstest mit einem eigenen, unbearbeiteten Kindness-Clip | `references/raw-examples/` ist noch leer. Sobald dort ein Clip liegt: `npm run kai -- import references/raw-examples/<clip>.mp4` und `produce`. |
