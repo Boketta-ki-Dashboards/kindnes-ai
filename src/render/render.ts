@@ -134,27 +134,66 @@ export interface RenderResult {
 }
 
 /** Render a plan to MP4 (H.264 + AAC, 1080x1920), then loudness-normalise the audio. */
-export async function renderPlan(plan: EditPlan, cfg: PipelineConfig, outFile: string, onProgress?: (p: number) => void): Promise<RenderResult> {
-  const t0 = Date.now();
-  ensureDir(path.dirname(outFile));
+/** Bundled OFL fonts (licence files: assets/fonts/google-sans/OFL.txt, assets/fonts/noto-sans/OFL.txt). */
+export const FONT_FILES = {
+  googleSans: path.join(PATHS.root, 'assets', 'fonts', 'google-sans', 'GoogleSans-latin.woff2'),
+  notoIpa: path.join(PATHS.root, 'assets', 'fonts', 'noto-sans', 'NotoSans-ipa.woff2'),
+};
+
+interface Served {
+  inputProps: Record<string, unknown>;
+  close: () => Promise<void>;
+}
+
+/** Prepare proxies, start the media server and build the Remotion input props. */
+async function serve(plan: EditPlan, cfg: PipelineConfig, extra: Record<string, unknown> = {}): Promise<Served> {
   const prepared = await prepareMedia(plan);
-  const files = prepared.files;
-  const renderedPlan = prepared.plan;
   const keyed = new Map<string, string>();
   const media: Record<string, string> = {};
   let i = 0;
-  for (const [src, file] of files) {
+  for (const [src, file] of prepared.files) {
     const key = `m${i++}${path.extname(file)}`;
     keyed.set(key, file);
-    media[src] = key; // base URL filled in below
+    media[src] = key;
   }
+  keyed.set('font-google-sans.woff2', FONT_FILES.googleSans);
+  keyed.set('font-noto-ipa.woff2', FONT_FILES.notoIpa);
   const server = await startMediaServer(keyed);
+  for (const k of Object.keys(media)) media[k] = server.base + media[k];
+  const fonts = {
+    googleSans: fs.existsSync(FONT_FILES.googleSans) ? server.base + 'font-google-sans.woff2' : undefined,
+    notoIpa: fs.existsSync(FONT_FILES.notoIpa) ? server.base + 'font-noto-ipa.woff2' : undefined,
+  };
+  return {inputProps: {plan: prepared.plan, media, font: cfg.text.font, fonts, ...extra}, close: server.close};
+}
+
+/** Render single frames as PNG (screenshots / overlay-only safe-area measurement). */
+export async function renderStills(plan: EditPlan, cfg: PipelineConfig, frames: {frame: number; out: string}[], extra: Record<string, unknown> = {}): Promise<void> {
+  const s = await serve(plan, cfg, extra);
   try {
-    for (const k of Object.keys(media)) media[k] = server.base + media[k];
+    const {renderStill, selectComposition} = await import('@remotion/renderer');
+    const serveUrl = await getBundle();
+    const browserExecutable = findBrowser(cfg);
+    const composition = await selectComposition({serveUrl, id: 'KindnessEdit', inputProps: s.inputProps, browserExecutable, logLevel: 'error'});
+    for (const f of frames) {
+      ensureDir(path.dirname(f.out));
+      await renderStill({composition, serveUrl, inputProps: s.inputProps, frame: f.frame, output: f.out, imageFormat: 'png', browserExecutable, logLevel: 'error'});
+    }
+  } finally {
+    await s.close();
+  }
+}
+
+export async function renderPlan(plan: EditPlan, cfg: PipelineConfig, outFile: string, onProgress?: (p: number) => void, extra: Record<string, unknown> = {}): Promise<RenderResult> {
+  const t0 = Date.now();
+  ensureDir(path.dirname(outFile));
+  const served = await serve(plan, cfg, extra);
+  const server = {close: served.close};
+  try {
     const {renderMedia, selectComposition} = await import('@remotion/renderer');
     const serveUrl = await getBundle();
     const browserExecutable = findBrowser(cfg);
-    const inputProps = {plan: renderedPlan, media, font: cfg.text.font};
+    const inputProps = served.inputProps;
     const composition = await selectComposition({serveUrl, id: 'KindnessEdit', inputProps, browserExecutable, logLevel: 'error'});
     const rawOutput = outFile.replace(/\.mp4$/, '.raw.mp4');
     let lastLogged = -1;

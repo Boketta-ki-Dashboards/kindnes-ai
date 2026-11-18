@@ -18,6 +18,9 @@ export function buildOutroPreviewPlan(opts: {
   assets: AssetsConfig;
   leadInSec?: number;
   analysisLoader?: (p: string) => VideoAnalysis;
+  /** Text treatment on top of the identical picture: 'caption' = clean "kindness.", 'dictionary' = definition card. */
+  overlay?: 'caption' | 'dictionary' | 'none';
+  jobId?: string;
 }): EditPlan {
   const {config: cfg, music, beatmap, assets} = opts;
   const variant = assets.outroVariants.find((v) => v.id === opts.variantId);
@@ -39,10 +42,17 @@ export function buildOutroPreviewPlan(opts: {
     analysisLoader: opts.analysisLoader,
   });
   const total = songEnd - songStart;
+  const overlay = opts.overlay ?? (variant.overlay === 'dictionary' ? 'dictionary' : variant.overlay === 'definition' ? 'definition' : 'caption');
+  const dict = cfg.text.dictionary;
+  const dictionary =
+    overlay === 'dictionary'
+      ? {anchor: dict.anchor, bodyPx: dict.bodyPx, fadeInAt: Number((beatAfter(beatmap, drop, dict.fadeInBeat) - drop).toFixed(3)), highlightIncludesPeriod: dict.highlightIncludesPeriod}
+      : undefined;
+  const showCaption = overlay === 'caption' && cfg.text.showDropCaption && !variantHasOwnText(assets, variant.sources);
   return {
     schema: 'kindness-ai/edit-plan',
     version: 1,
-    jobId: `outro-preview-${variant.id}`,
+    jobId: opts.jobId ?? `outro-preview-${variant.id}`,
     candidateId: 'outro-preview',
     createdAt: nowIso(),
     fps: cfg.video.fps,
@@ -81,13 +91,11 @@ export function buildOutroPreviewPlan(opts: {
       end: total,
       fadeOutSec: cfg.outro.fadeOutSec,
       grade: variant.grade,
-      overlay: variant.overlay,
+      overlay: overlay === 'caption' ? 'none' : overlay,
+      dictionary,
       shots: shots.map((s) => ({...s, start: Number((s.start + lead).toFixed(3))})),
     },
-    texts:
-      variant.overlay === 'definition' || !cfg.text.showDropCaption || variantHasOwnText(assets, variant.sources)
-        ? []
-        : [{text: cfg.text.dropCaption, start: lead + 0.15, end: lead + (outroEnd - drop), style: 'drop-caption'}],
+    texts: showCaption ? [{text: cfg.text.dropCaption, start: lead + 0.15, end: lead + (outroEnd - drop), style: 'drop-caption'}] : [],
     warnings,
   };
 }

@@ -87,3 +87,58 @@ TikTok-UI verdeckt oben ~220 px, unten ~420 px (Caption, Sound) und rechts ~150 
 ## 8. Qualitätskriterien (automatische QC)
 
 H.264 + AAC, 1080×1920, eingestellte Bildrate, Länge = Plan ± 0,13 s, Audio/Video gleich lang, keine Schwarzbilder und keine Tonlücken vor der Abblende, −16,5 … −11,5 LUFS, True Peak ≤ −0,5 dBTP und – per Audio-Fingerprint nachgemessen – **Musik exakt auf dem geplanten Songstart (± 60 ms)**, damit der Drop auf dem Übergang liegt.
+
+## 9. Outro V3 – kuratierter Thorfinn-Schnitt (Stand 2026-11-18)
+
+Basis ist Variante A (golden, Vollbild, Beat-Cut, Drop 48,216 s). Neu: Jede Einstellung wurde anhand echter Einzelbilder der Quellvideos ausgewählt (`config/assets.json` → Variante `V3` → `curated`). Erkenntnis aus der Sichtung: In „I have no enemies" zeigen die meisten frühen Shots (3–36 s) **Thors** (Thorfinns Vater) und andere Figuren – Thorfinn selbst erscheint dort vor allem ab 37 s. „Heart to Heart" enthält die stärksten Thorfinn-Nahaufnahmen.
+
+| # | Akt | Beats | Quelle @ Zeit | Inhalt | Effekt |
+|---|---|---|---|---|---|
+| 1 | Drop | 2 | No Enemies @ 48,15 s | Thorfinn (Teenager), Nahaufnahme im Profil – Auge, Nase, Mund klar erkennbar | Impact + Lichtakzent |
+| 2 | dynamisch | 1 | Heart to Heart @ 4,30 s | Thorfinn (erwachsen), enge Nahaufnahme, Blick gesenkt | Impact |
+| 3 | dynamisch | 1 | No Enemies @ 40,00 s | Thorfinn steht im Feld, Erinnerung an sich als Kind | Impact |
+| 4 | dynamisch | 2 | No Enemies @ 49,60 s | Thorfinn (Teenager) | Lichtakzent |
+| 5 | dynamisch | 1 | No Enemies @ 43,00 s | Thorfinn im Feld, Tinten-Übergang | Impact |
+| 6 | dynamisch | 1 | No Enemies @ 50,70 s | Thorfinn (Teenager), Thorkell im Hintergrund | Impact |
+| 7 | dynamisch | 2 | Heart to Heart @ 14,90 s | Thorfinn (erwachsen), Nahaufnahme | Motion-Blur |
+| 8 | emotional | 1 | No Enemies @ 44,20 s | Thorfinn, Erinnerung an sein jüngeres Ich | Motion-Blur |
+| 9 | emotional | 1 | No Enemies @ 52,60 s | Thorfinn (Teenager) vor Askeladd | Motion-Blur |
+| 10 | emotional | 2 | No Enemies @ 19,30 s | Thors kniet vor dem kleinen Thorfinn | Lichtakzent |
+| 11 | emotional | 1 | No Enemies @ 45,50 s | Thorfinn, Schatten von Askeladd | Motion-Blur |
+| 12 | emotional | 1 | No Enemies @ 46,60 s | Thorfinn von oben, Erinnerungs-Feuer | Motion-Blur |
+| 13 | emotional | 2 | Heart to Heart @ 5,60 s | Thorfinn Nahaufnahme, 0,9× Tempo | Lichtakzent |
+| 14 | ruhig | 2 | No Enemies @ 53,60 s | Vater und Kind-Thorfinn, Silhouette im Sonnenuntergang, 0,85× | Motion-Blur |
+| 15 | ruhig | 2 | Heart to Heart @ 21,40 s | Goldenes Feld, Figur am Felsen, 0,85× | Motion-Blur |
+| 16 | ruhig | 2 + Abblende | No Enemies @ 55,15 s | Thorfinn (erwachsen) vor Bäumen, nachdenklich, 0,8× | Motion-Blur |
+
+Effekte (alle dezent, nur am Shot-Anfang): **Impact** = 6 Frames Zoom 107 % → 100 % + kurzer Helligkeitsimpuls; **Motion-Blur** = 4 Frames Unschärfe 9 px → 0; **Lichtakzent** = warmes Light-Leak (Screen-Blend), 14 Frames; **Speed-Ramp** = Zeitlupe 0,8–0,9× im ruhigen Schluss; **Beat-Zoom** pro Akt: 2,2 % (Drop/dynamisch), 1,5 % (emotional), 0,6 % (ruhig). Kein Wackeln, keine Kamerafahrten, keine Schwarzbilder (QC).
+
+Nahaufnahmen werden vergrößert (Teenager-Shots 112 %, Heart-to-Heart 122 %) und nach oben verschoben (`focusY`), damit Gesichter weiter oben im Bild sitzen; die Verschiebung ist so begrenzt, dass nie ein Bildrand sichtbar wird. Bei Heart to Heart blickt Thorfinn nach unten und das Gesicht liegt tief im 16:9-Bild – ohne engeren Ausschnitt zeigte der 9:16-Zuschnitt fast nur Haare (erster V3-Render, korrigiert). Deshalb liegt jetzt die Teenager-Nahaufnahme auf dem Drop.
+
+### Zwei Versionen mit identischem Bild
+
+| Version | Datei | Text |
+|---|---|---|
+| A1 Clean | `kindness-outro-v3-clean.mp4` | weißes `kindness.` (wie Variante A) |
+| A2 Dictionary | `kindness-outro-v3-definition.mp4` | Wörterbuch-Karte, nachgebaut nach `references/typography/*.webp` |
+| Vergleich | `kindness-outro-v3-comparison.mp4` | links A1, rechts A2, gemeinsame Tonspur, 2160×1920 |
+
+Rendern: `npm run kai -- outro:v3` (lokal/Cloud) oder GitHub Actions → „Render outro V3" (Artifact `kindness-outro-v3`, 30 Tage).
+
+### Wörterbuch-Karte (Remotion-Komponente `src/remotion/components/DictionaryDefinition.tsx`)
+
+Vermessen am Referenz-Screenshot, alles relativ zur Fließtextgröße (36 px):
+
+| Element | Wert |
+|---|---|
+| Schrift | Google Sans (SIL OFL, `assets/fonts/google-sans`), Lautschrift-Zeichen ʌ/ɪ aus Noto Sans (OFL) |
+| Lautsprecher-Button | Kreis Ø 2,12× (76 px), #ACC7F5, Icon #1F2A37 |
+| Titel `kindness` | 1,24×, Gewicht 700, weiß |
+| Lautschrift `/kʌɪn(d)nɪs/` | 0,75×, gedämpftes Weiß |
+| Fließtext | 36 px, Gewicht 400 (GRAD +40), Zeilenraster 1,5×, linksbündig, 9 Zeilen mit den Umbrüchen der Referenz |
+| Markierung | #203D95, rechteckige Balken 1,05× hoch, nur „the quality … rewards"; „Kindness is" und der Punkt danach unmarkiert (wie im Screenshot) – umschaltbar mit `text.dictionary.highlightIncludesPeriod` |
+| Position | unten links, Unterkante 430 px über dem Bildrand (TikTok-Caption/Nutzername frei), rechts ≥ 150 px Abstand (Buttons); alternativ `text.dictionary.anchor: "top"` |
+| Timing | Einblendung ab Beat 2 nach dem Drop (0,86 s – Thorfinn ist auf dem Drop frei sichtbar), 0,4 s Fade-in, statisch, 0,45 s Fade-out vor der Schlussabblende |
+| Hintergrund | sanfte Abdunklung (max. 42 %) hinter dem Textblock, wie im Referenzbild |
+
+Bekannter Zielkonflikt: Bei Nahaufnahmen liegt Thorfinns Gesicht bei 55–65 % Bildhöhe, also im unteren Drittel, wo die Referenz den Textblock zeigt. Der Block verdeckt dort Teile des Gesichts (die Zeilen 4–9 sind nur Text ohne Fläche, das Gesicht bleibt dazwischen sichtbar). Mit `anchor: "top"` wären die Nahaufnahmen frei, dafür die Köpfe in den Ganzkörper-Shots verdeckt.

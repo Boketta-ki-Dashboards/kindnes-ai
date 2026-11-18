@@ -47,7 +47,8 @@ const HELP = `Kindness AI – commands (npm run kai -- <command>)
   references:analyze [--force]   Analyse reference + outro videos (cuts, colour, song position)
 
   outro:preview [--variant A|B|C|D|all]   Render outro preview videos to output/outro-previews/
-  outro:approve <variant>        Mark an outro variant as the approved production outro
+  outro:v3 [--skip-render]       Render outro V3 clean + definition + side-by-side comparison with QC
+  outro:approve <variant> [--overlay clean|dictionary]   Approved production outro (V3: choose the text version)
 
   discover [--queries "a;b"] [--adapters youtube,dailymotion] [--limit N]
   score [--ids a,b]              (Re-)score candidates; >=75 -> SHORTLISTED, <75 -> ARCHIVED
@@ -182,11 +183,28 @@ async function main(): Promise<void> {
       }
       return;
     }
+    case 'outro:v3': {
+      const {renderOutroV3, V3_FILES} = await import('./outro/v3.js');
+      const {report, pass} = await renderOutroV3({skipRender: !!flags['skip-render']});
+      const checks = report.checks as {name: string; pass: boolean; severity: string; value: unknown}[];
+      for (const c of checks) console.log(`${c.pass ? 'PASS' : c.severity === 'warning' ? 'WARN' : 'FAIL'}  ${c.name}: ${JSON.stringify(c.value).slice(0, 160)}`);
+      console.log(`\nOutro V3 ${pass ? 'PASSED' : 'FAILED'}:\n  ${rel(V3_FILES.clean)}\n  ${rel(V3_FILES.definition)}\n  ${rel(V3_FILES.comparison)}`);
+      if (!pass) process.exitCode = 1;
+      return;
+    }
     case 'outro:approve': {
       const raw = readJson<Record<string, any>>(PATHS.assetsConfig);
       const id = pos[0];
       if (!raw.outroVariants.some((x: {id: string}) => x.id === id)) throw new Error(`unknown variant ${id}`);
-      raw.approvedOutro = {variant: id, approvedAt: new Date().toISOString(), renderedAsset: fs.existsSync(path.join(PATHS.output, 'outro-previews', `outro-${id}.mp4`)) ? `output/outro-previews/outro-${id}.mp4` : null};
+      // optional text treatment for production: --overlay clean | dictionary
+      if (typeof flags.overlay === 'string') {
+        const ov = flags.overlay === 'dictionary' ? 'dictionary' : flags.overlay === 'clean' || flags.overlay === 'caption' ? 'caption' : null;
+        if (!ov) throw new Error('--overlay must be "clean" or "dictionary"');
+        raw.outroVariants.find((x: {id: string}) => x.id === id).overlay = ov;
+      }
+      const v3 = id === 'V3' ? path.join(PATHS.output, 'kindness-outro-v3', `kindness-outro-v3-${raw.outroVariants.find((x: {id: string}) => x.id === id).overlay === 'dictionary' ? 'definition' : 'clean'}.mp4`) : null;
+      const prev = path.join(PATHS.output, 'outro-previews', `outro-${id}.mp4`);
+      raw.approvedOutro = {variant: id, approvedAt: new Date().toISOString(), renderedAsset: v3 && fs.existsSync(v3) ? rel(v3) : fs.existsSync(prev) ? rel(prev) : null};
       AssetsConfigSchema.parse(raw);
       writeJson(PATHS.assetsConfig, raw);
       const cfg = readJson<Record<string, any>>(PATHS.pipelineConfig);

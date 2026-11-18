@@ -1,6 +1,6 @@
 # Testergebnisse
 
-Stand: 2026-11-18, Claude-Code-Cloud-Umgebung (Linux, 4 vCPU, 15 GB RAM, Node 22.23, Python 3.13, FFmpeg 7, Chromium Headless Shell 1243, Remotion 4.0.545).
+Stand: 2026-11-18 (inkl. Outro V3), Claude-Code-Cloud-Umgebung (Linux, 4 vCPU, 15 GB RAM, Node 22.23, Python 3.13, FFmpeg 7, Chromium Headless Shell 1243, Remotion 4.0.545).
 Alle Angaben sind tatsächlich ausgeführte Läufe; nichts davon ist geschätzt.
 
 ## 1. Automatisierte Tests
@@ -8,7 +8,7 @@ Alle Angaben sind tatsächlich ausgeführte Läufe; nichts davon ist geschätzt.
 | Suite | Befehl | Ergebnis |
 |---|---|---|
 | TypeScript-Typecheck | `npx tsc --noEmit` | ✅ fehlerfrei |
-| TypeScript/Vitest (42 Tests, 5 Dateien) | `npm test` | ✅ 42/42 bestanden (~38 s, davon ~34 s echter Render) |
+| TypeScript/Vitest (49 Tests, 6 Dateien) | `npm test` | ✅ 49/49 bestanden (~33 s, davon ~29 s echter Render) |
 | Python/unittest (5 Tests) | `npm run test:py` | ✅ 5/5 bestanden (~5 s) |
 
 Synthetische Testmedien werden von den Tests selbst erzeugt, heißen `TEST_*` / tragen den Bildtext „TEST MEDIA" und liegen nur in `.cache/test-media/` (nicht im Git).
@@ -90,3 +90,32 @@ Eingabe: Story-Teil der Referenz 4 (Hund führt blinde Katze), aus `ref-04` hera
 | YouTube-/Dailymotion-/TikTok-Downloads | bewusst nicht implementiert (Nutzungsbedingungen); YouTube-Einzelseiten liefern aus der Cloud zudem HTTP 429. yt-dlp-Download nur als Opt-in für CC-Videos – nicht getestet. |
 | Reddit | blockiert (HTTP 403 ohne OAuth). |
 | Integrationstest mit einem eigenen, unbearbeiteten Kindness-Clip | `references/raw-examples/` ist noch leer. Sobald dort ein Clip liegt: `npm run kai -- import references/raw-examples/<clip>.mp4` und `produce`. |
+
+## 4. Outro V3 (kuratierter Thorfinn-Schnitt, zwei Textversionen)
+
+Befehl: `npm run kai -- outro:v3` · Ergebnis: **40/40 Prüfungen bestanden** (vollständiger Bericht: [`docs/outro-v3/QC_REPORT.md`](outro-v3/QC_REPORT.md), Screenshots in `docs/outro-v3/`).
+
+| Datei | Format | Größe |
+|---|---|---|
+| `kindness-outro-v3-clean.mp4` | 1080×1920, H.264/AAC, 30 fps, 13,42 s | 14,9 MB |
+| `kindness-outro-v3-definition.mp4` | 1080×1920, H.264/AAC, 30 fps, 13,42 s | 15,4 MB |
+| `kindness-outro-v3-comparison.mp4` | 2160×1920 nebeneinander, eine Tonspur | 23,2 MB |
+
+| Prüfung | Messung |
+|---|---|
+| Thorfinn direkt auf dem Drop | erster Shot = Thorfinn-Nahaufnahme, beginnt exakt am Drop (aus kuratierter Shot-Liste + Sichtprüfung der Screenshots) |
+| erste 6 Beats nur Thorfinn | 5 Shots, alle `thorfinn-*` |
+| keine langen leeren Landschaften | 1 Landschafts-Shot (0,86 s) im ruhigen Schlussakt |
+| emotionales Ende | letzte 3 Shots im Akt „ruhig", Schlussbild Thorfinn |
+| Drop synchron | Drop 48,216 s; Musik-Offset im gerenderten Ton nachgemessen: 45,697 s (Soll 45,716 s, 19 ms) |
+| Schnitte auf dem Beat | alle 15 Schnitte genau 2 Frames (67 ms) vor einem Beat |
+| identischer Bildschnitt | Shot-Listen identisch; Bildvergleich im gemeinsamen Bereich (obere 700 px): PSNR Ø 49,9 dB, min 43,1 dB |
+| Definition wortgetreu | Text aus den 9 Zeilen == Vorgabe (396 Zeichen) |
+| Markierung | genau „the quality … rewards"; „Kindness is" und „. It reduces" unmarkiert |
+| Safe Areas (Pixelmessung) | Definition x 63–874, y 889–1482; Clean x 297–690, y 1091–1156 (erlaubt: x 60–930, y 220–1500) |
+| keine doppelten Texte | Clean: nur „kindness."; Definition: nur Karte |
+| Schwarzbilder / Tonlücken / Lautheit | keine; −14 LUFS; True Peak −6,7 dBTP (beide Versionen) |
+
+Im ersten V3-Lauf schlug die Safe-Area-Prüfung fehl (Markierungsbalken 1 px über dem linken Rand, x = 59) – korrigiert. Zusätzlich zeigte die Sichtung, dass die Heart-to-Heart-Nahaufnahmen im 9:16-Ausschnitt fast nur Haare zeigten → engerer Ausschnitt, Teenager-Nahaufnahme auf den Drop.
+
+Nicht automatisch prüfbar (manuell anhand der Screenshots bewertet): ob Gesichter „wichtig" angeschnitten sind und ob die Figur wirklich Thorfinn ist – die Zuordnung beruht auf meiner Sichtung der Einzelbilder (Shot-Liste in `docs/VIDEO_STYLE_GUIDE.md`).

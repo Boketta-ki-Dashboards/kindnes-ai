@@ -171,6 +171,240 @@
       "grade": "natural",
       "overlay": "none",
       "shotOrder": "chronological"
+    },
+    {
+      "id": "V3",
+      "name": "Thorfinn V3 (kuratiert)",
+      "description": "Kuratierter Thorfinn-Schnitt: sofort Thorfinn auf dem Drop, dynamische Mitte, melancholisches Manga-Finale. Basis: Variante A (Grade, Vollbild, Beat-Cut).",
+      "sources": [
+        "manga-no-enemies",
+        "manga-heart-to-heart"
+      ],
+      "beatsPerShot": [
+        1
+      ],
+      "framing": "cover",
+      "zoom": [
+        1.0,
+        1.1
+      ],
+      "grade": "golden",
+      "overlay": "caption",
+      "shotOrder": "chronological",
+      "curated": [
+        {
+          "source": "manga-no-enemies",
+          "at": 48.15,
+          "beats": 2,
+          "act": "drop",
+          "tag": "thorfinn-face",
+          "focusX": 0.35,
+          "focusY": 0.6,
+          "baseZoom": 1.12,
+          "effects": [
+            "impact",
+            "light"
+          ],
+          "note": "Thorfinn (Teenager), Nahaufnahme"
+        },
+        {
+          "source": "manga-heart-to-heart",
+          "at": 4.3,
+          "beats": 1,
+          "act": "dynamic",
+          "tag": "thorfinn-face",
+          "focusX": 0.71,
+          "focusY": 0.74,
+          "baseZoom": 1.22,
+          "effects": [
+            "impact"
+          ],
+          "note": "Thorfinn (erwachsen) Nahaufnahme, Blick gesenkt, golden"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 40.0,
+          "beats": 1,
+          "act": "dynamic",
+          "tag": "thorfinn-full",
+          "focusX": 0.52,
+          "effects": [
+            "impact"
+          ],
+          "note": "Thorfinn steht im Feld, Erinnerung an sich als Kind"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 49.6,
+          "beats": 2,
+          "act": "dynamic",
+          "tag": "thorfinn-face",
+          "focusX": 0.42,
+          "focusY": 0.6,
+          "baseZoom": 1.12,
+          "effects": [
+            "light"
+          ],
+          "note": "Thorfinn (Teenager), Figur im Hintergrund"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 43.0,
+          "beats": 1,
+          "act": "dynamic",
+          "tag": "thorfinn-full",
+          "focusX": 0.58,
+          "effects": [
+            "impact"
+          ],
+          "note": "Thorfinn im Feld, Tinten-Übergang"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 50.7,
+          "beats": 1,
+          "act": "dynamic",
+          "tag": "thorfinn-face",
+          "focusX": 0.5,
+          "focusY": 0.6,
+          "baseZoom": 1.12,
+          "effects": [
+            "impact"
+          ],
+          "note": "Thorfinn (Teenager), Thorkell im Hintergrund"
+        },
+        {
+          "source": "manga-heart-to-heart",
+          "at": 14.9,
+          "beats": 2,
+          "act": "dynamic",
+          "tag": "thorfinn-face",
+          "focusX": 0.71,
+          "focusY": 0.74,
+          "baseZoom": 1.22,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn (erwachsen) Nahaufnahme"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 44.2,
+          "beats": 1,
+          "act": "emotional",
+          "tag": "thorfinn-full",
+          "focusX": 0.55,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn im Feld, Erinnerung an sein jüngeres Ich"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 52.6,
+          "beats": 1,
+          "act": "emotional",
+          "tag": "thorfinn-face",
+          "focusX": 0.5,
+          "focusY": 0.7,
+          "baseZoom": 1.12,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn (Teenager) vor Askeladd"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 19.3,
+          "beats": 2,
+          "act": "emotional",
+          "tag": "thorfinn-child",
+          "focusX": 0.5,
+          "effects": [
+            "light"
+          ],
+          "note": "Thors kniet vor dem kleinen Thorfinn"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 45.5,
+          "beats": 1,
+          "act": "emotional",
+          "tag": "thorfinn-full",
+          "focusX": 0.45,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn im Feld, Schatten von Askeladd"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 46.6,
+          "beats": 1,
+          "act": "emotional",
+          "tag": "thorfinn-full",
+          "focusX": 0.5,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn von oben, Erinnerungs-Feuer"
+        },
+        {
+          "source": "manga-heart-to-heart",
+          "at": 5.6,
+          "beats": 2,
+          "act": "emotional",
+          "tag": "thorfinn-face",
+          "focusX": 0.71,
+          "focusY": 0.74,
+          "baseZoom": 1.22,
+          "speed": 0.9,
+          "effects": [
+            "light"
+          ],
+          "note": "Thorfinn (erwachsen) Nahaufnahme, langsamer"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 53.6,
+          "beats": 2,
+          "act": "calm",
+          "tag": "thorfinn-child",
+          "focusX": 0.74,
+          "speed": 0.85,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Vater und Kind-Thorfinn als Silhouette im Sonnenuntergang"
+        },
+        {
+          "source": "manga-heart-to-heart",
+          "at": 21.4,
+          "beats": 2,
+          "act": "calm",
+          "tag": "landscape-figure",
+          "focusX": 0.52,
+          "speed": 0.85,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Goldenes Feld, Figur am Felsen (Baum am linken Bildrand)"
+        },
+        {
+          "source": "manga-no-enemies",
+          "at": 55.15,
+          "beats": 2,
+          "act": "calm",
+          "tag": "thorfinn-face",
+          "focusX": 0.58,
+          "focusY": 0.45,
+          "speed": 0.8,
+          "effects": [
+            "blur-in"
+          ],
+          "note": "Thorfinn (erwachsen) vor Bäumen, nachdenklich – Schlussbild"
+        }
+      ]
     }
   ],
   "approvedOutro": null

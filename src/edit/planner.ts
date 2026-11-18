@@ -2,7 +2,7 @@ import type {AssetsConfig, MusicConfig, PipelineConfig} from '../core/config.js'
 import {effectiveDrop} from '../core/config.js';
 import {nowIso} from '../core/fsutil.js';
 import type {BeatMap} from '../music/beatmap.js';
-import {beatsBetween, computeSongWindow, maxStoryBeforeDrop, nearestBeat} from '../music/beatmap.js';
+import {beatAfter, beatsBetween, computeSongWindow, maxStoryBeforeDrop, nearestBeat} from '../music/beatmap.js';
 import {planOutro, variantHasOwnText, type VideoAnalysis} from '../outro/outro.js';
 import type {EditPlan, Framing, StorySegment, TextOverlay} from './plan-types.js';
 
@@ -20,6 +20,8 @@ export interface PlanOverrides {
   dropCaption?: string | null;
   /** Volume of the clip's own audio (0 = mute, e.g. when the clip already contains music). */
   storyAudioGain?: number;
+  /** Outro text treatment: clean caption or dictionary definition (defaults to the variant's overlay). */
+  outroOverlay?: 'caption' | 'dictionary';
 }
 
 export interface PlanInput {
@@ -214,7 +216,8 @@ export function buildEditPlan(input: PlanInput): EditPlan {
     texts.push({text: sub.text, start: round(st), end: round(Math.min(st + (sub.end - sub.start), seg.start + (seg.srcOut - seg.srcIn))), style: 'subtitle'});
   }
   const caption = ov.dropCaption === undefined ? (cfg.text.showDropCaption ? cfg.text.dropCaption : null) : ov.dropCaption;
-  if (caption && variant.overlay !== 'definition' && !variantHasOwnText(assets, variant.sources)) {
+  const outroOverlay = ov.outroOverlay ?? (variant.overlay === 'dictionary' ? 'dictionary' : 'caption');
+  if (caption && outroOverlay !== 'dictionary' && variant.overlay !== 'definition' && !variantHasOwnText(assets, variant.sources)) {
     texts.push({text: caption, start: round(storyDuration + 0.15), end: round(storyDuration + (win.outroEnd - win.drop)), style: 'drop-caption'});
   }
 
@@ -263,7 +266,16 @@ export function buildEditPlan(input: PlanInput): EditPlan {
       end: round(total),
       fadeOutSec: cfg.outro.fadeOutSec,
       grade: variant.grade,
-      overlay: variant.overlay,
+      overlay: outroOverlay === 'dictionary' ? 'dictionary' : variant.overlay === 'definition' ? 'definition' : 'none',
+      dictionary:
+        outroOverlay === 'dictionary'
+          ? {
+              anchor: cfg.text.dictionary.anchor,
+              bodyPx: cfg.text.dictionary.bodyPx,
+              fadeInAt: Number((beatAfter(beatmap, win.drop, cfg.text.dictionary.fadeInBeat) - win.drop).toFixed(3)),
+              highlightIncludesPeriod: cfg.text.dictionary.highlightIncludesPeriod,
+            }
+          : undefined,
       shots,
     },
     texts,

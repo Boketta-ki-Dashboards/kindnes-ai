@@ -26,7 +26,8 @@ npm run kai -- help                     # alle Befehle
 | Link übernehmen (TikTok/YouTube) | `npm run kai -- import-url "<link>"` |
 | Video produzieren | `npm run kai -- produce <id>` → `output/<job>/final.mp4` |
 | Outro-Vorschauen | `npm run kai -- outro:preview` → `output/outro-previews/` |
-| Outro freigeben | `npm run kai -- outro:approve B` |
+| Outro V3 (clean + Definition + Vergleich) | `npm run kai -- outro:v3` → `output/kindness-outro-v3/` |
+| Outro freigeben | `npm run kai -- outro:approve V3` |
 | Drop korrigieren | `npm run kai -- music:drop --set 48.216` |
 | Video freigeben / exportieren | `npm run kai -- approve <id>` · `npm run kai -- export <id>` |
 

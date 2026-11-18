@@ -1,0 +1,52 @@
+name: Render outro V3
+
+# Renders the three outro V3 videos (clean, dictionary definition, side-by-side
+# comparison) plus QC report and screenshots, and keeps them as a downloadable
+# artifact for 30 days (Actions -> this run -> Artifacts -> kindness-outro-v3).
+# Runs automatically when the outro configuration or the renderer changes on a
+# claude/* branch, or manually via "Run workflow".
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+    paths:
+      - "config/assets.json"
+      - "config/pipeline.json"
+      - "src/remotion/**"
+      - "src/outro/**"
+      - "assets/fonts/**"
+      - ".github/workflows/outro-v3.yml"
+
+concurrency:
+  group: outro-v3-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core fonts-inter
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      - name: Render outro V3 (clean, definition, comparison) + QC
+        run: npm run -s kai -- outro:v3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kindness-outro-v3
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/kindness-outro-v3/kindness-outro-v3-clean.mp4
+            output/kindness-outro-v3/kindness-outro-v3-definition.mp4
+            output/kindness-outro-v3/kindness-outro-v3-comparison.mp4
+            output/kindness-outro-v3/QC_REPORT.md
+            output/kindness-outro-v3/qc-report.json
+            output/kindness-outro-v3/screenshots/

@@ -25,6 +25,21 @@ export interface OutroShot {
   zoomFrom: number;
   zoomTo: number;
   sourceId: string;
+  /** Curated outros only. */
+  act?: 'drop' | 'dynamic' | 'emotional' | 'calm';
+  tag?: string;
+  focusY?: number;
+  baseZoom?: number;
+  speed?: number;
+  effects?: ('impact' | 'blur-in' | 'light')[];
+}
+
+export interface DictionaryOptions {
+  anchor: 'bottom' | 'top';
+  bodyPx: number;
+  /** Seconds after the outro start when the fade-in begins. */
+  fadeInAt: number;
+  highlightIncludesPeriod: boolean;
 }
 
 export interface TextOverlay {
@@ -77,7 +92,8 @@ export interface EditPlan {
     end: number;
     fadeOutSec: number;
     grade: Grade;
-    overlay: 'none' | 'definition' | 'caption';
+    overlay: 'none' | 'definition' | 'caption' | 'dictionary';
+    dictionary?: DictionaryOptions;
     shots: OutroShot[];
   };
   texts: TextOverlay[];

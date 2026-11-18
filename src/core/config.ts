@@ -44,6 +44,17 @@ export const PipelineConfigSchema = z.object({
     dropCaption: z.string().default('kindness.'),
     showDropCaption: z.boolean().default(true),
     font: z.string().default('Inter'),
+    /** Dictionary-definition overlay (outro V3, version A2). */
+    dictionary: z
+      .object({
+        anchor: z.enum(['bottom', 'top']).default('bottom'),
+        bodyPx: z.number().default(36),
+        /** Beat (after the drop) at which the definition starts fading in. */
+        fadeInBeat: z.number().default(2),
+        /** The reference highlight ends right after "rewards" (period not highlighted). */
+        highlightIncludesPeriod: z.boolean().default(false),
+      })
+      .default({anchor: 'bottom', bodyPx: 36, fadeInBeat: 2, highlightIncludesPeriod: false}),
   }),
   scoring: z.object({
     threshold: z.number().default(75),
@@ -103,6 +114,25 @@ export const OutroSourceSchema = z.object({
   /** If this clip is already synced to the song: the song time at clip time 0. */
   syncedSongStart: z.number().optional(),
 });
+export const ShotEffect = z.enum(['impact', 'blur-in', 'light']);
+export const CuratedShotSchema = z.object({
+  source: z.string(),
+  /** Source time (s) where the shot starts. */
+  at: z.number(),
+  beats: z.number().int().min(1),
+  act: z.enum(['drop', 'dynamic', 'emotional', 'calm']),
+  tag: z.string(),
+  focusX: z.number().min(0).max(1),
+  /** Vertical point of interest (0..1); lifted towards the upper half when baseZoom > 1. */
+  focusY: z.number().min(0).max(1).optional(),
+  baseZoom: z.number().min(1).max(1.5).optional(),
+  /** Playback speed (< 1 = slow motion, used for the calm ending). */
+  speed: z.number().min(0.5).max(1.5).optional(),
+  effects: z.array(ShotEffect).optional(),
+  note: z.string().optional(),
+});
+export type CuratedShot = z.infer<typeof CuratedShotSchema>;
+
 export const OutroVariantSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -112,8 +142,10 @@ export const OutroVariantSchema = z.object({
   framing: FramingMode,
   zoom: z.tuple([z.number(), z.number()]),
   grade: z.enum(['golden', 'natural', 'warm-soft']),
-  overlay: z.enum(['none', 'definition', 'caption']).default('none'),
+  overlay: z.enum(['none', 'definition', 'caption', 'dictionary']).default('none'),
   shotOrder: z.enum(['score', 'chronological']).default('score'),
+  /** Hand-curated shot list (from viewed frames). Overrides automatic shot selection. */
+  curated: z.array(CuratedShotSchema).optional(),
 });
 export const AssetsConfigSchema = z.object({
   outroSources: z.array(OutroSourceSchema),

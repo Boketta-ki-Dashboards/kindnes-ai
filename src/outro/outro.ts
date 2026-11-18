@@ -133,6 +133,9 @@ export function planOutro(opts: {
   const lead = opts.cutLeadFrames / fps;
   const totalEnd = outroEnd + opts.fadeOutSec;
 
+  // Hand-curated shot list (outro V3): beat-exact slots in the given order.
+  if (variant.curated?.length) return planCuratedOutro({...opts, variant, totalEnd, lead, warnings});
+
   // Already-synced single clip (variant D): play it continuously in sync with the song.
   const synced = sources.length === 1 && sources[0].syncedSongStart !== undefined ? sources[0] : null;
   if (synced) {
@@ -228,4 +231,65 @@ function orderForArc(chosen: ShotCandidate[], sourceOrder: string[]): ShotCandid
 /** Finished third-party edits already carry their own text overlays – no extra caption on top. */
 export function variantHasOwnText(assets: AssetsConfig, sourceIds: string[]): boolean {
   return sourceIds.some((id) => assets.outroSources.find((s) => s.id === id)?.role === 'style-reference');
+}
+
+/**
+ * Curated outro: every shot was chosen by looking at the real frames (see
+ * config/assets.json -> variant V3). Cuts are placed on the beat grid with the same
+ * lead as automatic outros; the last shot carries the fade-out. Source windows are
+ * validated against the usable ranges so no black/logo frames slip in.
+ */
+function planCuratedOutro(o: {
+  assets: AssetsConfig;
+  variant: OutroVariant;
+  map: BeatMap;
+  drop: number;
+  outroEnd: number;
+  fps: number;
+  totalEnd: number;
+  lead: number;
+  warnings: string[];
+}): OutroPlanResult {
+  const {assets, variant, map, drop, outroEnd, totalEnd, lead, warnings} = o;
+  const list = variant.curated!;
+  const totalBeats = list.reduce((s, c) => s + c.beats, 0);
+  const availableBeats = Math.round((outroEnd - drop) / map.beatPeriodSec);
+  if (totalBeats !== availableBeats) warnings.push(`Curated outro has ${totalBeats} beats, the outro window has ${availableBeats}; the last shot absorbs the difference.`);
+  const shots: OutroShot[] = [];
+  let beatPos = 0;
+  list.forEach((c, i) => {
+    const src = assets.outroSources.find((s) => s.id === c.source);
+    if (!src) throw new Error(`Curated shot ${i + 1}: unknown source ${c.source}`);
+    const slotStart = beatAfter(map, drop, beatPos);
+    beatPos += c.beats;
+    const slotEnd = i === list.length - 1 ? totalEnd : beatAfter(map, drop, beatPos);
+    const start = i === 0 ? slotStart : slotStart - lead;
+    const end = i === list.length - 1 ? totalEnd : slotEnd - lead;
+    const duration = end - start;
+    const speed = c.speed ?? 1;
+    const srcOut = c.at + duration * speed;
+    const inRange = src.usableRanges.some(([a, b]) => c.at >= a - 1e-6 && srcOut <= b + 1e-6);
+    const hitsExcluded = src.excludeRanges.some(([a, b]) => c.at < b && srcOut > a);
+    if (!inRange) warnings.push(`Curated shot ${i + 1} (${c.source} ${c.at}s, ${duration.toFixed(2)}s @${speed}x) leaves the usable range.`);
+    if (hitsExcluded) warnings.push(`Curated shot ${i + 1} (${c.source} ${c.at}s) overlaps an excluded range.`);
+    shots.push({
+      src: src.path,
+      srcIn: c.at,
+      srcOut,
+      start: start - drop,
+      duration,
+      framing: variant.framing,
+      focusX: c.focusX,
+      focusY: c.focusY,
+      baseZoom: c.baseZoom,
+      zoomFrom: variant.zoom[0],
+      zoomTo: variant.zoom[1],
+      sourceId: src.id,
+      act: c.act,
+      tag: c.tag,
+      speed: c.speed,
+      effects: c.effects,
+    });
+  });
+  return {shots, warnings};
 }

@@ -36,7 +36,13 @@
   "text": {
     "dropCaption": "kindness.",
     "showDropCaption": true,
-    "font": "Inter"
+    "font": "Inter",
+    "dictionary": {
+      "anchor": "bottom",
+      "bodyPx": 36,
+      "fadeInBeat": 2,
+      "highlightIncludesPeriod": false
+    }
   },
   "scoring": {
     "threshold": 75,

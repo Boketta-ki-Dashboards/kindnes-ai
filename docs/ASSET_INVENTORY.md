@@ -91,3 +91,19 @@ auch für den GitHub-Actions-Render-Workflow erreichbar.
 | `data/analysis/references/*.songmatch.json` | Wo „Meant to Be" in der Referenz läuft (Audio-Fingerprint) |
 | `data/analysis/outro/*.video.json` | Dasselbe für das Outro-Material inkl. 9:16-Zuschnitt-Eignung |
 | `data/analysis/reference-summary.json` | Abgeleitete Struktur aller Referenzen (Drop, Story-/Outro-Länge, Schnittrhythmus) |
+
+## Typografie-Referenzen (`references/typography/`) – neu für Outro V3
+
+| Datei | Größe | Inhalt |
+|---|---|---|
+| `dictionary-ref-1_closeup.webp` | 910×700 | Nahaufnahme der Wörterbuch-Karte (vermessen: Kreis 75 px #ACC7F5, Markierung #203D95, Balkenhöhe 37 px, Zeilenraster 53 px) |
+| `dictionary-ref-2_layout.webp` | 964×952 | Gesamtlayout mit Thorfinn; verbindliche Zeilenumbrüche (9 Zeilen) |
+
+Beide Screenshots stammen von dir (Chat-Upload) und dienen nur als Designvorlage; Bedienelemente (Pfeile, „YouTube +3") werden nicht übernommen.
+
+## Schriften (`assets/fonts/`)
+
+| Datei | Größe | Lizenz | Verwendung |
+|---|---|---|---|
+| `google-sans/GoogleSans-latin.woff2` | 83 KB | SIL Open Font License 1.1 (`google-sans/OFL.txt`) | Wörterbuch-Karte: Titel, Fließtext, Markierung. Untermenge (Latin) der variablen Schrift aus github.com/google/fonts (Achsen wght 400–700, GRAD, opsz) |
+| `noto-sans/NotoSans-ipa.woff2` | 99 KB | SIL Open Font License 1.1 (`noto-sans/OFL.txt`) | nur die Lautschrift-Zeichen ʌ/ɪ (fehlen in Google Sans) |

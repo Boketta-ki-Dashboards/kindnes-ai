@@ -168,3 +168,92 @@
 {"at":"2026-11-18T18:38:40.274Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 80%"}
 {"at":"2026-11-18T18:38:50.228Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 90%"}
 {"at":"2026-11-18T18:38:55.683Z","level":"info","scope":"render","msg":"render 2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A: 100%"}
+{"at":"2026-11-18T21:42:11.347Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:42:11.348Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:42:11.696Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T21:42:26.035Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:42:26.035Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:43:45.563Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:43:45.563Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:43:45.775Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T21:43:50.142Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:43:50.142Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:45:21.355Z","level":"info","scope":"outro-v3","msg":"rendering A1 clean"}
+{"at":"2026-11-18T21:45:21.356Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:45:21.356Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:45:21.609Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T21:45:24.398Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 0%"}
+{"at":"2026-11-18T21:45:26.653Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 10%"}
+{"at":"2026-11-18T21:45:31.716Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 20%"}
+{"at":"2026-11-18T21:45:35.740Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 30%"}
+{"at":"2026-11-18T21:45:41.080Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 40%"}
+{"at":"2026-11-18T21:45:46.325Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 50%"}
+{"at":"2026-11-18T21:45:51.617Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 60%"}
+{"at":"2026-11-18T21:45:57.089Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 70%"}
+{"at":"2026-11-18T21:46:02.314Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 80%"}
+{"at":"2026-11-18T21:46:07.317Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 90%"}
+{"at":"2026-11-18T21:46:09.802Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 100%"}
+{"at":"2026-11-18T21:46:10.710Z","level":"info","scope":"outro-v3","msg":"rendering A2 definition"}
+{"at":"2026-11-18T21:46:10.711Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:46:10.711Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:46:10.994Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 0%"}
+{"at":"2026-11-18T21:46:13.282Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 10%"}
+{"at":"2026-11-18T21:46:18.146Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 20%"}
+{"at":"2026-11-18T21:46:22.697Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 30%"}
+{"at":"2026-11-18T21:46:28.179Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 40%"}
+{"at":"2026-11-18T21:46:33.828Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 50%"}
+{"at":"2026-11-18T21:46:39.432Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 60%"}
+{"at":"2026-11-18T21:46:45.307Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 70%"}
+{"at":"2026-11-18T21:46:50.782Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 80%"}
+{"at":"2026-11-18T21:46:56.100Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 90%"}
+{"at":"2026-11-18T21:46:58.667Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 100%"}
+{"at":"2026-11-18T21:46:59.571Z","level":"info","scope":"outro-v3","msg":"building side-by-side comparison"}
+{"at":"2026-11-18T21:47:53.141Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:47:53.141Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:47:53.700Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:47:53.701Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:47:54.373Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:47:54.373Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:48:00.931Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:48:00.931Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:49:03.448Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:49:03.448Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:49:03.699Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T21:49:23.239Z","level":"info","scope":"outro-v3","msg":"rendering A1 clean"}
+{"at":"2026-11-18T21:49:23.240Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:49:23.240Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:49:23.456Z","level":"info","scope":"render","msg":"bundling Remotion project"}
+{"at":"2026-11-18T21:49:26.189Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 0%"}
+{"at":"2026-11-18T21:49:28.378Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 10%"}
+{"at":"2026-11-18T21:49:33.070Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 20%"}
+{"at":"2026-11-18T21:49:37.317Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 30%"}
+{"at":"2026-11-18T21:49:42.611Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 40%"}
+{"at":"2026-11-18T21:49:48.128Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 50%"}
+{"at":"2026-11-18T21:49:53.653Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 60%"}
+{"at":"2026-11-18T21:49:59.162Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 70%"}
+{"at":"2026-11-18T21:50:04.244Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 80%"}
+{"at":"2026-11-18T21:50:09.416Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 90%"}
+{"at":"2026-11-18T21:50:12.192Z","level":"info","scope":"render","msg":"render kindness-outro-v3-clean: 100%"}
+{"at":"2026-11-18T21:50:13.140Z","level":"info","scope":"outro-v3","msg":"rendering A2 definition"}
+{"at":"2026-11-18T21:50:13.141Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:50:13.141Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:50:13.423Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 0%"}
+{"at":"2026-11-18T21:50:15.738Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 10%"}
+{"at":"2026-11-18T21:50:20.566Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 20%"}
+{"at":"2026-11-18T21:50:25.151Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 30%"}
+{"at":"2026-11-18T21:50:30.954Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 40%"}
+{"at":"2026-11-18T21:50:36.748Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 50%"}
+{"at":"2026-11-18T21:50:42.281Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 60%"}
+{"at":"2026-11-18T21:50:48.177Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 70%"}
+{"at":"2026-11-18T21:50:53.259Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 80%"}
+{"at":"2026-11-18T21:50:58.571Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 90%"}
+{"at":"2026-11-18T21:51:01.089Z","level":"info","scope":"render","msg":"render kindness-outro-v3-definition: 100%"}
+{"at":"2026-11-18T21:51:01.973Z","level":"info","scope":"outro-v3","msg":"building side-by-side comparison"}
+{"at":"2026-11-18T21:51:41.113Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:51:41.114Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:51:41.643Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:51:41.643Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:51:42.322Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:51:42.322Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
+{"at":"2026-11-18T21:51:48.442Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_i-have-no-enemies.mp4"}
+{"at":"2026-11-18T21:51:48.442Z","level":"info","scope":"render","msg":"proxy assets/outro/sources/vs-manga_heart-to-heart.mp4"}
