@@ -1,0 +1,34 @@
+{
+  "name": "kindness-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Automated TikTok video pipeline: kindness story -> 'Meant to Be' drop -> Vinland Saga outro.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "kai": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:py": "PYTHONPATH=python python3 -m unittest discover -s python/tests -v",
+    "dashboard": "tsx src/cli.ts dashboard",
+    "remotion:studio": "remotion studio src/remotion/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.545",
+    "@remotion/cli": "4.0.545",
+    "@remotion/renderer": "4.0.545",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.545",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.0",
+    "@types/react": "19.2.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}

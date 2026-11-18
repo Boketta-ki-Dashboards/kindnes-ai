@@ -1,0 +1,62 @@
+name: Discover candidates
+
+# Manual test run first (Actions tab -> "Discover candidates" -> Run workflow).
+# To run automatically, remove the comment marks in front of `schedule` below
+# (Mon/Wed/Fri 06:17 UTC ≈ 3-4 runs per week). Each run takes ~3-5 minutes of
+# GitHub Actions time; private repositories include 2,000 free minutes/month.
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: 'Optional search terms separated by ";" (empty = next rotating batch)'
+        required: false
+        default: ''
+      adapters:
+        description: 'Optional comma-separated adapters (youtube,youtube-cc,dailymotion,archive_org,wikimedia,reddit)'
+        required: false
+        default: ''
+  # schedule:
+  #   - cron: '17 6 * * 1,3,5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kindness-ai-data
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      - name: Discover + score
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.queries }}" ]; then ARGS="$ARGS --queries \"${{ inputs.queries }}\""; fi
+          if [ -n "${{ inputs.adapters }}" ]; then ARGS="$ARGS --adapters ${{ inputs.adapters }}"; fi
+          eval npm run -s kai -- discover $ARGS
+          npm run -s kai -- run --no-discover
+          npm run -s kai -- dashboard:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-snapshot
+          path: dashboard-dist/index.html
+      - name: Commit candidate data
+        run: |
+          git config user.name "kindness-ai-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data: discovery run $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

@@ -1,0 +1,12 @@
+node_modules/
+.cache/
+media/
+output/**/*
+!output/.gitkeep
+*.log
+.env
+.env.*
+__pycache__/
+*.pyc
+.DS_Store
+dashboard-dist/

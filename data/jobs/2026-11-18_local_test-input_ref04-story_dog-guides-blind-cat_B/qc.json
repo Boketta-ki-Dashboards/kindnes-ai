@@ -1,0 +1,84 @@
+{
+  "file": "/home/user/kindnes-ai/output/2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_B/final.mp4",
+  "checkedAt": "2026-11-18T18:28:43.200Z",
+  "pass": true,
+  "checks": [
+    {
+      "name": "video codec H.264",
+      "pass": true,
+      "severity": "error",
+      "value": "h264",
+      "expected": "h264"
+    },
+    {
+      "name": "audio codec AAC",
+      "pass": true,
+      "severity": "error",
+      "value": "aac",
+      "expected": "aac"
+    },
+    {
+      "name": "resolution 1080x1920",
+      "pass": true,
+      "severity": "error",
+      "value": "1080x1920",
+      "expected": "1080x1920"
+    },
+    {
+      "name": "frame rate",
+      "pass": true,
+      "severity": "error",
+      "value": 30,
+      "expected": "30"
+    },
+    {
+      "name": "duration matches plan",
+      "pass": true,
+      "severity": "error",
+      "value": 27.413,
+      "expected": "27.387 ± 0.13 s"
+    },
+    {
+      "name": "audio/video length in sync",
+      "pass": true,
+      "severity": "error",
+      "value": "v=27.400 a=27.413",
+      "expected": "< 0.1 s difference"
+    },
+    {
+      "name": "no black frames before the final fade",
+      "pass": true,
+      "severity": "error",
+      "value": [],
+      "expected": "none"
+    },
+    {
+      "name": "no audio dropouts before the final fade",
+      "pass": true,
+      "severity": "error",
+      "value": [],
+      "expected": "none"
+    },
+    {
+      "name": "integrated loudness ≈ -14 LUFS",
+      "pass": true,
+      "severity": "warning",
+      "value": -14,
+      "expected": "-16.5 … -11.5 LUFS"
+    },
+    {
+      "name": "true peak below -0.5 dBTP",
+      "pass": true,
+      "severity": "warning",
+      "value": -6.5,
+      "expected": "≤ -0.5 dBTP"
+    },
+    {
+      "name": "music aligned (drop lands on the transition)",
+      "pass": true,
+      "severity": "error",
+      "value": 31.695,
+      "expected": "song offset 31.716 s ± 0.06"
+    }
+  ]
+}

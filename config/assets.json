@@ -1,0 +1,177 @@
+{
+  "outroSources": [
+    {
+      "id": "manga-no-enemies",
+      "path": "assets/outro/sources/vs-manga_i-have-no-enemies.mp4",
+      "role": "source",
+      "description": "Vinland Saga manga animation 'I have no enemies', 1280x720 30fps, 59 s, warm golden grade, 27 hard cuts. CapCut end card from 56.5 s.",
+      "usableRanges": [
+        [
+          0.4,
+          56.4
+        ]
+      ],
+      "excludeRanges": [
+        [
+          15.4,
+          16.2
+        ]
+      ],
+      "useInOutro": true
+    },
+    {
+      "id": "manga-heart-to-heart",
+      "path": "assets/outro/sources/vs-manga_heart-to-heart.mp4",
+      "role": "source",
+      "description": "Vinland Saga manga animation 'Heart to Heart', 1280x720 24fps, 26.7 s, very warm golden field shots. Creator logo intro 0.9-3.5 s, black from 23.8 s.",
+      "usableRanges": [
+        [
+          3.9,
+          23.7
+        ]
+      ],
+      "excludeRanges": [
+        [
+          10.4,
+          11.0
+        ],
+        [
+          16.7,
+          17.3
+        ]
+      ],
+      "useInOutro": true
+    },
+    {
+      "id": "edit-a",
+      "path": "assets/outro/edits/edit-a_i-have-no-enemies-dialogue_v15044gf.mov",
+      "role": "style-reference",
+      "description": "Third-party TikTok edit (creator credit inside the video): dialogue subtitles over ripple-warped golden shots, ~1 s shots, own audio (not 'Meant to Be'). Text cards + TikTok end card from 24 s.",
+      "usableRanges": [
+        [
+          0.0,
+          23.9
+        ]
+      ],
+      "excludeRanges": [],
+      "useInOutro": false
+    },
+    {
+      "id": "edit-b",
+      "path": "assets/outro/edits/edit-b_thorfinn-golden-montage_db0cl8no.mov",
+      "role": "style-reference",
+      "description": "Third-party TikTok edit: Thorfinn golden/blue/forest montage, ~2.5 s shots, own audio. Black + TikTok end card from 23.6 s.",
+      "usableRanges": [
+        [
+          0.0,
+          23.5
+        ]
+      ],
+      "excludeRanges": [],
+      "useInOutro": false
+    },
+    {
+      "id": "edit-c",
+      "path": "assets/outro/edits/edit-c_kindness-definition_dbl28pno.mov",
+      "role": "style-reference",
+      "description": "Third-party TikTok outro already synced to 'Meant to Be' (starts at song 48.16 s): 'kindness' dictionary overlay on golden shots. Low resolution (574x450). TikTok end card from 9.8 s.",
+      "usableRanges": [
+        [
+          0.0,
+          9.75
+        ]
+      ],
+      "excludeRanges": [],
+      "useInOutro": false,
+      "syncedSongStart": 48.158
+    }
+  ],
+  "outroVariants": [
+    {
+      "id": "A",
+      "name": "Golden Beat-Cut",
+      "description": "Full-screen golden shots from 'I have no enemies', cut on the beat (1-2 beats per shot) like ref-03.",
+      "sources": [
+        "manga-no-enemies"
+      ],
+      "beatsPerShot": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "framing": "cover",
+      "zoom": [
+        1.0,
+        1.12
+      ],
+      "grade": "golden",
+      "overlay": "none",
+      "shotOrder": "score"
+    },
+    {
+      "id": "B",
+      "name": "Heart-to-Heart ruhig",
+      "description": "Slower and softer: one shot per bar, mostly 'Heart to Heart' field shots, fitted with blurred background.",
+      "sources": [
+        "manga-heart-to-heart",
+        "manga-no-enemies"
+      ],
+      "beatsPerShot": [
+        4
+      ],
+      "framing": "fit-blur",
+      "zoom": [
+        1.04,
+        1.16
+      ],
+      "grade": "warm-soft",
+      "overlay": "none",
+      "shotOrder": "score"
+    },
+    {
+      "id": "C",
+      "name": "Kindness-Definition",
+      "description": "Own version of the dictionary-overlay style seen in ref-01/ref-04/edit-c: definition card over golden shots, 2 beats per shot.",
+      "sources": [
+        "manga-no-enemies",
+        "manga-heart-to-heart"
+      ],
+      "beatsPerShot": [
+        2
+      ],
+      "framing": "cover",
+      "zoom": [
+        1.0,
+        1.08
+      ],
+      "grade": "golden",
+      "overlay": "definition",
+      "shotOrder": "score"
+    },
+    {
+      "id": "D",
+      "name": "Direktübernahme edit-c (nur mit Erlaubnis)",
+      "description": "Uses the existing third-party synced outro edit-c as-is (only if you have permission). Low resolution.",
+      "sources": [
+        "edit-c"
+      ],
+      "beatsPerShot": [
+        64
+      ],
+      "framing": "fit-blur",
+      "zoom": [
+        1.0,
+        1.0
+      ],
+      "grade": "natural",
+      "overlay": "none",
+      "shotOrder": "chronological"
+    }
+  ],
+  "approvedOutro": null
+}

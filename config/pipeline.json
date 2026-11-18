@@ -1,0 +1,42 @@
+{
+  "video": { "width": 1080, "height": 1920, "fps": 30, "crf": 18, "audioBitrate": "192k", "x264Preset": "medium" },
+  "story": {
+    "minSec": 12,
+    "maxSec": 40,
+    "reactionHoldSec": 2.0,
+    "framing": "fit-blur",
+    "fitZoom": 1.0,
+    "kenBurns": 0.05,
+    "snapCutsToBeats": true
+  },
+  "audio": {
+    "musicGainDb": -7,
+    "storyAudioGain": 0.3,
+    "storyFadeAtDropSec": 0.5,
+    "musicFadeInSec": 0.3,
+    "targetLufs": -14
+  },
+  "outro": { "variant": "A", "bars": 6, "fadeOutSec": 0.6, "cutLeadFrames": 2 },
+  "transition": { "type": "flash", "durationFrames": 8 },
+  "text": { "dropCaption": "kindness.", "showDropCaption": true, "font": "Inter" },
+  "scoring": { "threshold": 75 },
+  "discovery": {
+    "maxResultsPerQuery": 12,
+    "queriesPerRun": 10,
+    "minDurationSec": 8,
+    "maxDurationSec": 600,
+    "adapters": {
+      "youtube": { "enabled": true },
+      "dailymotion": { "enabled": true },
+      "archive_org": { "enabled": true },
+      "wikimedia": { "enabled": true },
+      "reddit": { "enabled": true }
+    }
+  },
+  "acquisition": {
+    "allowLicensedDownloads": true,
+    "ytDlp": { "enabled": false, "requireCreativeCommons": true },
+    "maxDownloadMb": 300
+  },
+  "render": { "browserExecutable": null, "concurrency": null }
+}
