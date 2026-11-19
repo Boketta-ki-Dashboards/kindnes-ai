@@ -179,6 +179,27 @@ Der B2-Build-up liegt mit 3,0 dB größtem Schritt genau an der Grenze: Am Anfan
 
 Einblendung beginnt 0,30 s nach dem Drop und dauert 0,25 s (Werte aus `config/pipeline.json` → `text.dictionary.fadeInDelaySec` / `fadeInDurationSec`). Karte im Endzustand pixelgleich mit V3 (PSNR 99 dB): Schrift, Größe, Position, Markierung, Text und Zeilenumbrüche unverändert.
 
+### Reproduziert auf GitHub Actions
+
+Workflow „Render V4 (outro + full audio test)", **Lauf #3** (https://github.com/Boketta-ki-Dashboards/kindnes-ai/actions/runs/44588411823), Commit `b6e4ea6`, frische Ubuntu-Umgebung: bestanden. Artifact `kindness-v4` (70,6 MB, gültig bis 19.12.2026) mit A, B, C, QC-Bericht, Shot-Übersichten, Musik-Diagrammen und Screenshots. CI-Lauf #8 auf demselben Commit: bestanden.
+
+| Teil | GitHub Actions | Abweichung zum lokalen Lauf |
+|---|---|---|
+| A Outro (23 Prüfungen) | ✅ 23/23 | keine bei Ton, Schnitt, Wiederholungen; Dictionary-Pixelzählung 62 767 / 121 077 statt 61 077 / 119 523 (Schriftglättung unter Ubuntu), Timing identisch: vorher 0, ab 0,55 s voll sichtbar |
+| B Full Audio (21 Prüfungen) | ✅ 21/21 | keine: Gain-Abweichung 0,1 / 0,9 dB, Story-Start −19,2 dB, Build-up +10,1 dB, Drop −7,4 → −7,1 dB, −14 LUFS Outro |
+| B2 Sprache | ⚠️ übersprungen | Wikimedia beantwortet Downloads von GitHub-Servern mit HTTP 429 – Original, 720p und 480p. B2 ist nur lokal geprüft (siehe Tabelle oben) |
+| C Vergleich | ✅ | 2160×1920, V3 13,418 s / V4 13,418 s |
+
+**Korrektur – fehlgeschlagene Läufe:**
+
+- **Lauf #1:** `pillow` fehlte in `requirements.txt` (lokal zufällig installiert), deshalb brachen Wiederholungskontrolle und CI-Lauf #5 ab. Behoben in `014ab0c`, danach in einer frischen Python-Umgebung 8/8 Tests bestanden.
+- **Lauf #2:** B2 brach mit „speech test clip unavailable: undefined" ab.
+  - Ursache: Wikimedia drosselt automatisierte Downloads von Originaldateien (HTTP 429), und die Fehlermeldung ging unterwegs verloren.
+  - Behoben in `b6e4ea6`: Zuerst wird das Original versucht, danach die von Wikimedia empfohlenen Standardgrößen.
+  - Die Ursache steht jetzt im Log.
+  - Ist der Clip trotzdem nicht erreichbar, wird B2 als sichtbare Warnung übersprungen, statt A/B/C zu verhindern.
+  - Der Workflow cached den vorbereiteten Clip, sobald ein Download einmal gelingt.
+
 ### Was nicht automatisch prüfbar ist
 
 - Ob jede Figur Thorfinn ist, beruht auf meiner Sichtung der Einzelbilder; Shot 6 (Kapuzenfigur im Wind) ist nicht eindeutig identifizierbar.
