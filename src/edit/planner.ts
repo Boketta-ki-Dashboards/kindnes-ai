@@ -4,6 +4,7 @@ import {nowIso} from '../core/fsutil.js';
 import type {BeatMap} from '../music/beatmap.js';
 import {beatAfter, beatsBetween, computeSongWindow, maxStoryBeforeDrop, nearestBeat} from '../music/beatmap.js';
 import {planOutro, variantHasOwnText, type VideoAnalysis} from '../outro/outro.js';
+import {buildMusicEnvelope, speechOnTimeline} from '../music/envelope.js';
 import type {EditPlan, Framing, StorySegment, TextOverlay} from './plan-types.js';
 
 export interface PlanOverrides {
@@ -35,6 +36,8 @@ export interface PlanInput {
   assets: AssetsConfig;
   overrides?: PlanOverrides;
   outroAnalysisLoader?: (assetPath: string) => VideoAnalysis;
+  /** Result of locating "Meant to Be" inside the story clip (undefined = not checked). */
+  songInClip?: boolean;
 }
 
 const round = (x: number, d = 3) => Math.round(x * 10 ** d) / 10 ** d;
@@ -222,6 +225,27 @@ export function buildEditPlan(input: PlanInput): EditPlan {
   }
 
   const beatsOnTimeline = beatsBetween(beatmap.beats, win.songStart, win.songEnd).map((b) => round(b - win.songStart));
+
+  // audio: one continuous song under the whole video with a dynamic gain envelope
+  const songInClip = !!input.songInClip;
+  const speechSrcAll = ((a as VideoAnalysis & {speech?: {segments: [number, number][]}}).speech?.segments ?? []) as [number, number][];
+  let storyGain = ov.storyAudioGain ?? autoStoryGain(a, speechSrcAll, cfg);
+  if (songInClip && cfg.audio.muteStoryIfSongDetected && ov.storyAudioGain === undefined) {
+    storyGain = 0;
+    warnings.push('The clip already contains "Meant to Be" – its own audio is muted to avoid double / phase-shifted music.');
+  }
+  const speech = speechOnTimeline(speechSrcAll, segments).map(([x, y]) => [round(x, 2), round(y, 2)] as [number, number]);
+  const envelope = buildMusicEnvelope({
+    fps,
+    totalSec: total,
+    storySec: storyDuration,
+    songStart: win.songStart,
+    drop: win.drop,
+    beatmap,
+    cfg,
+    speech,
+    storyAudible: storyGain > 0.01,
+  });
   if (Math.abs(effectiveDrop(music) - win.drop) > 1e-6) warnings.push('Drop mismatch.');
 
   return {
@@ -244,6 +268,7 @@ export function buildEditPlan(input: PlanInput): EditPlan {
       fadeInSec: win.songStart > 0.5 ? cfg.audio.musicFadeInSec : 0,
       fadeOutSec: cfg.outro.fadeOutSec,
       beatsOnTimeline,
+      envelope,
     },
     story: {
       src: input.storySrc,
@@ -254,9 +279,11 @@ export function buildEditPlan(input: PlanInput): EditPlan {
       focusX: round(focusX),
       fitZoom: cfg.story.fitZoom,
       kenBurns: cfg.story.kenBurns,
-      audioGain: ov.storyAudioGain ?? cfg.audio.storyAudioGain,
+      audioGain: storyGain,
       audioFadeAtDropSec: cfg.audio.storyFadeAtDropSec,
       highlight: {srcTime: round(highlight), timelineTime: round(highlightTimeline), source: ov.highlightTime !== undefined ? 'manual' : 'auto'},
+      songInClip,
+      speech,
     },
     transition: {type: ov.transition ?? cfg.transition.type, at: round(storyDuration), durationSec: round(cfg.transition.durationFrames / fps)},
     outro: {
@@ -272,7 +299,8 @@ export function buildEditPlan(input: PlanInput): EditPlan {
           ? {
               anchor: cfg.text.dictionary.anchor,
               bodyPx: cfg.text.dictionary.bodyPx,
-              fadeInAt: Number((beatAfter(beatmap, win.drop, cfg.text.dictionary.fadeInBeat) - win.drop).toFixed(3)),
+              fadeInAt: cfg.text.dictionary.fadeInDelaySec,
+              fadeInDur: cfg.text.dictionary.fadeInDurationSec,
               highlightIncludesPeriod: cfg.text.dictionary.highlightIncludesPeriod,
             }
           : undefined,
@@ -281,4 +309,24 @@ export function buildEditPlan(input: PlanInput): EditPlan {
     texts,
     warnings,
   };
+}
+
+/**
+ * Level of the clip's own sound. In 'auto' mode the median loudness of the speech
+ * (or, without speech, of the louder half of the clip) is brought to
+ * audio.storyLevel.targetSpeechRmsDb, within min/max gain – quiet recordings are raised
+ * so voices stay clearly above the (ducked) music.
+ */
+export function autoStoryGain(a: VideoAnalysis, speech: [number, number][], cfg: PipelineConfig): number {
+  const lv = cfg.audio.storyLevel;
+  if (lv.mode === 'fixed') return cfg.audio.storyAudioGain;
+  const half = a.audio?.halfSecond ?? [];
+  if (!half.length) return cfg.audio.storyAudioGain;
+  const inSpeech = half.filter((h) => speech.some(([s, e]) => h.t + 0.25 >= s && h.t + 0.25 <= e)).map((h) => h.rmsDb);
+  const pool = inSpeech.length >= 2 ? inSpeech : half.map((h) => h.rmsDb).sort((x, y) => y - x).slice(0, Math.max(1, Math.ceil(half.length * 0.5)));
+  const sorted = [...pool].sort((x, y) => x - y);
+  const level = sorted[Math.floor(sorted.length / 2)];
+  if (!Number.isFinite(level) || level < -70) return cfg.audio.storyAudioGain;
+  const gainDb = Math.max(lv.minGainDb, Math.min(lv.maxGainDb, lv.targetSpeechRmsDb - level));
+  return Math.round(Math.pow(10, gainDb / 20) * 1000) / 1000;
 }

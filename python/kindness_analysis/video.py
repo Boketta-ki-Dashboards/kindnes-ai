@@ -250,4 +250,7 @@ def analyze_video(path: str | Path, with_audio: bool = True, highlight: bool = T
     }
     if highlight:
         result["highlights"] = find_highlights(motion_ps, audio, cuts, duration)
+    if with_audio and audio is not None:
+        from .speech import speech_segments
+        result["speech"] = speech_segments(str(path))
     return result

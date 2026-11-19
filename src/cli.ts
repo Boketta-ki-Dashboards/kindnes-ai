@@ -48,6 +48,8 @@ const HELP = `Kindness AI – commands (npm run kai -- <command>)
 
   outro:preview [--variant A|B|C|D|all]   Render outro preview videos to output/outro-previews/
   outro:v3 [--skip-render]       Render outro V3 clean + definition + side-by-side comparison with QC
+  outro:v4 [--skip outro,full,speech]  Render V4 outro, full audio test, speech test, V3/V4 comparison + QC
+  outro:check [variant]          Visual repetition control with a shot overview image
   outro:approve <variant> [--overlay clean|dictionary]   Approved production outro (V3: choose the text version)
 
   discover [--queries "a;b"] [--adapters youtube,dailymotion] [--limit N]
@@ -190,6 +192,31 @@ async function main(): Promise<void> {
       for (const c of checks) console.log(`${c.pass ? 'PASS' : c.severity === 'warning' ? 'WARN' : 'FAIL'}  ${c.name}: ${JSON.stringify(c.value).slice(0, 160)}`);
       console.log(`\nOutro V3 ${pass ? 'PASSED' : 'FAILED'}:\n  ${rel(V3_FILES.clean)}\n  ${rel(V3_FILES.definition)}\n  ${rel(V3_FILES.comparison)}`);
       if (!pass) process.exitCode = 1;
+      return;
+    }
+    case 'outro:v4': {
+      const {renderV4, V4_FILES} = await import('./outro/v4.js');
+      const skip = typeof flags.skip === 'string' ? (flags.skip.split(',') as ('outro' | 'full' | 'speech')[]) : [];
+      const {report, pass} = await renderV4({skip});
+      const checks = report.checks as {name: string; pass: boolean; severity: string; value: unknown}[];
+      for (const c of checks) console.log(`${c.pass ? 'PASS' : c.severity === 'warning' ? 'WARN' : 'FAIL'}  ${c.name}: ${JSON.stringify(c.value).slice(0, 180)}`);
+      console.log(`\nV4 ${pass ? 'PASSED' : 'FAILED'} (not approved automatically):`);
+      for (const f of Object.values(V4_FILES)) if (fs.existsSync(f)) console.log(`  ${rel(f)}`);
+      if (!pass) process.exitCode = 1;
+      return;
+    }
+    case 'outro:check': {
+      const {checkRepetition, describeViolations} = await import('./outro/repetition.js');
+      const cfg = loadPipelineConfig();
+      const music = loadMusicConfig();
+      const id = pos[0] ?? cfg.outro.variant;
+      const plan = buildOutroPreviewPlan({variantId: id, config: cfg, music, beatmap: await ensureBeatmap(), assets: loadAssetsConfig(), jobId: `check-${id}`});
+      const out = path.join(PATHS.output, 'outro-checks', `${id}-shot-overview.png`);
+      const r = await checkRepetition(plan, cfg, {contactSheet: out, title: `${id} – Shot-Übersicht (Wiederholungskontrolle)`, name: `check-${id}`});
+      for (const p of r.pairs) console.log(`  #${p.a + 1} ~ #${p.b + 1} ${p.level}: ${p.reasons.join('; ')}`);
+      console.log(r.pass ? `${id}: no repetitions` : describeViolations(r).join('\n'));
+      console.log(`overview: ${rel(out)}`);
+      if (!r.pass) process.exitCode = 1;
       return;
     }
     case 'outro:approve': {

@@ -21,6 +21,26 @@
       "renderedAt": "2026-11-18T18:38:57.629Z",
       "status": "rendered",
       "output": "output/2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A/final.mp4"
+    },
+    {
+      "candidateId": "local_test-input_ref04-story_dog-guides-blind-cat",
+      "jobId": "2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4",
+      "mediaSha256": "ea6d95939ebf75be84a8451c0615ee1aa32c979bb1891dd84cf5326a6b5ef0b7",
+      "dHash": "ecfd58f9333d2d00fa7693f1e0f0f400e0f159e0d1f936008004194182070b00356ae6c5c6d3d200cd756d6cf8bc9c00f0f0705019385000ade4c489cd7c0600",
+      "titleFingerprint": "across blind cat dog guides path ref story test",
+      "renderedAt": "2026-11-19T07:47:50.119Z",
+      "status": "rendered",
+      "output": "output/2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4/final.mp4"
+    },
+    {
+      "candidateId": "local_test-speech_cdc-public-domain_classroom",
+      "jobId": "2026-11-19_local_test-speech_cdc-public-domain_classroom_V4",
+      "mediaSha256": "c3c896da693ed587511452f382da6143207bb24b51e17fa7b37df1801cf2e7df",
+      "dHash": "04040404040406c404040400060406c604040000040404c48989898d151d91b98989890d151db1b924d4546f2fbf19888989898c951d0d1d8889898d9d150d1d",
+      "titleFingerprint": "cdc classroom domain ducking kindness not public speech story test",
+      "renderedAt": "2026-11-19T07:49:53.970Z",
+      "status": "rendered",
+      "output": "output/2026-11-19_local_test-speech_cdc-public-domain_classroom_V4/final.mp4"
     }
   ]
 }

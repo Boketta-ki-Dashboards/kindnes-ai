@@ -5,6 +5,7 @@ import type {BeatMap} from '../music/beatmap.js';
 import {beatAfter, beatsBetween} from '../music/beatmap.js';
 import type {EditPlan} from '../edit/plan-types.js';
 import {planOutro, variantHasOwnText, type VideoAnalysis} from './outro.js';
+import {buildMusicEnvelope} from '../music/envelope.js';
 
 /**
  * Outro-only preview: `leadIn` seconds of music with a placeholder card (where the
@@ -46,7 +47,7 @@ export function buildOutroPreviewPlan(opts: {
   const dict = cfg.text.dictionary;
   const dictionary =
     overlay === 'dictionary'
-      ? {anchor: dict.anchor, bodyPx: dict.bodyPx, fadeInAt: Number((beatAfter(beatmap, drop, dict.fadeInBeat) - drop).toFixed(3)), highlightIncludesPeriod: dict.highlightIncludesPeriod}
+      ? {anchor: dict.anchor, bodyPx: dict.bodyPx, fadeInAt: dict.fadeInDelaySec, fadeInDur: dict.fadeInDurationSec, highlightIncludesPeriod: dict.highlightIncludesPeriod}
       : undefined;
   const showCaption = overlay === 'caption' && cfg.text.showDropCaption && !variantHasOwnText(assets, variant.sources);
   return {
@@ -69,6 +70,7 @@ export function buildOutroPreviewPlan(opts: {
       fadeInSec: 0.2,
       fadeOutSec: cfg.outro.fadeOutSec,
       beatsOnTimeline: beatsBetween(beatmap.beats, songStart, songEnd).map((b) => Number((b - songStart).toFixed(3))),
+      envelope: buildMusicEnvelope({fps: cfg.video.fps, totalSec: total, storySec: lead, songStart, drop, beatmap, cfg, speech: [], storyAudible: false}),
     },
     story: {
       src: '',

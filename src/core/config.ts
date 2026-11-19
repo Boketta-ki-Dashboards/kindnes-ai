@@ -24,13 +24,76 @@ export const PipelineConfigSchema = z.object({
     snapCutsToBeats: z.boolean().default(true),
   }),
   audio: z.object({
+    /** Music level in the outro (from the drop on), before loudness normalisation. */
     musicGainDb: z.number().default(-7),
-    storyAudioGain: z.number().min(0).max(2).default(0.3),
+    /** Music under the story: quiet start, slightly higher body, build-up into the drop. */
+    storyMusic: z
+      .object({
+        startDb: z.number().default(-20),
+        bodyDb: z.number().default(-18),
+        /** Seconds from the story start until the body level is reached. */
+        riseSec: z.number().default(4),
+        fadeInSec: z.number().default(0.4),
+        /** Build-up length in beats before the drop (6 beats ≈ 2.6 s at 139.7 BPM). */
+        buildUpBeats: z.number().int().min(1).max(16).default(6),
+      })
+      .default({startDb: -20, bodyDb: -18, riseSec: 4, fadeInSec: 0.4, buildUpBeats: 6}),
+    /** Automatic ducking of the music while people speak in the story. */
+    ducking: z
+      .object({
+        enabled: z.boolean().default(true),
+        depthDb: z.number().default(6),
+        attackSec: z.number().default(0.15),
+        releaseSec: z.number().default(0.45),
+        holdSec: z.number().default(0.15),
+      })
+      .default({enabled: true, depthDb: 6, attackSec: 0.15, releaseSec: 0.45, holdSec: 0.15}),
+    /** Mute the clip's own audio when it already contains "Meant to Be" (avoids double / phase-shifted music). */
+    muteStoryIfSongDetected: z.boolean().default(true),
+    songDetectSimilarity: z.number().default(0.85),
+    storyAudioGain: z.number().min(0).max(2).default(0.9),
+    /** 'auto' levels the clip's own sound so speech sits at targetSpeechRmsDb (quiet recordings are raised). */
+    storyLevel: z
+      .object({
+        mode: z.enum(['auto', 'fixed']).default('auto'),
+        targetSpeechRmsDb: z.number().default(-20),
+        minGainDb: z.number().default(-6),
+        maxGainDb: z.number().default(12),
+      })
+      .default({mode: 'auto', targetSpeechRmsDb: -20, minGainDb: -6, maxGainDb: 12}),
     storyFadeAtDropSec: z.number().default(0.5),
     musicFadeInSec: z.number().default(0.3),
     targetLufs: z.number().default(-14),
+    /** Loudness normalisation measures this part and applies one static gain to the whole video. */
+    normalizeOn: z.enum(['outro', 'whole']).default('outro'),
   }),
   outro: z.object({
+    /** Visual repetition control (python/kindness_analysis/shotsim.py). */
+    repetition: z
+      .object({
+        framesPerShot: z.number().int().min(2).max(12).default(5),
+        /** 'error' blocks a production with duplicate shots, 'warning' only reports. */
+        severity: z.enum(['error', 'warning']).default('warning'),
+        thresholds: z
+          .object({
+            duplicateSsim: z.number().default(0.72),
+            duplicateHash: z.number().default(8),
+            similarSsim: z.number().default(0.55),
+            similarHash: z.number().default(14),
+            similarLayout: z.number().default(0.93),
+            sameTakeSec: z.number().default(4),
+            minGapShots: z.number().default(3),
+            takeSsim: z.number().default(0.4),
+            takeHash: z.number().default(20),
+            takeLayout: z.number().default(0.8),
+          })
+          .default({duplicateSsim: 0.72, duplicateHash: 8, similarSsim: 0.55, similarHash: 14, similarLayout: 0.93, sameTakeSec: 4, minGapShots: 3, takeSsim: 0.4, takeHash: 20, takeLayout: 0.8}),
+      })
+      .default({
+        framesPerShot: 5,
+        severity: 'warning',
+        thresholds: {duplicateSsim: 0.72, duplicateHash: 8, similarSsim: 0.55, similarHash: 14, similarLayout: 0.93, sameTakeSec: 4, minGapShots: 3, takeSsim: 0.4, takeHash: 20, takeLayout: 0.8},
+      }),
     variant: z.string().default('A'),
     bars: z.number().int().min(1).max(16).default(6),
     fadeOutSec: z.number().default(0.6),
@@ -49,12 +112,14 @@ export const PipelineConfigSchema = z.object({
       .object({
         anchor: z.enum(['bottom', 'top']).default('bottom'),
         bodyPx: z.number().default(36),
-        /** Beat (after the drop) at which the definition starts fading in. */
-        fadeInBeat: z.number().default(2),
+        /** Seconds after the drop at which the definition starts fading in (V4: 0.30). */
+        fadeInDelaySec: z.number().min(0.05).default(0.3),
+        /** Fade-in duration in seconds (V4: 0.25). The fade-out is unchanged. */
+        fadeInDurationSec: z.number().min(0.05).default(0.25),
         /** The reference highlight ends right after "rewards" (period not highlighted). */
         highlightIncludesPeriod: z.boolean().default(false),
       })
-      .default({anchor: 'bottom', bodyPx: 36, fadeInBeat: 2, highlightIncludesPeriod: false}),
+      .default({anchor: 'bottom', bodyPx: 36, fadeInDelaySec: 0.3, fadeInDurationSec: 0.25, highlightIncludesPeriod: false}),
   }),
   scoring: z.object({
     threshold: z.number().default(75),
@@ -122,6 +187,8 @@ export const CuratedShotSchema = z.object({
   beats: z.number().int().min(1),
   act: z.enum(['drop', 'dynamic', 'emotional', 'calm']),
   tag: z.string(),
+  /** Motif label from viewing the frames; shots with the same motif count as repetitions. */
+  motif: z.string().optional(),
   focusX: z.number().min(0).max(1),
   /** Vertical point of interest (0..1); lifted towards the upper half when baseZoom > 1. */
   focusY: z.number().min(0).max(1).optional(),

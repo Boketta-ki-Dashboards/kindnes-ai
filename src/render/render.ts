@@ -221,7 +221,8 @@ export async function renderPlan(plan: EditPlan, cfg: PipelineConfig, outFile: s
         }
       },
     });
-    await loudnessNormalize(rawOutput, outFile, cfg.audio.targetLufs);
+    const window = cfg.audio.normalizeOn === 'outro' && plan.outro.shots.length ? {from: plan.outro.start, to: Math.max(plan.outro.start + 1, plan.durationSec - plan.outro.fadeOutSec)} : {};
+    await loudnessNormalize(rawOutput, outFile, cfg.audio.targetLufs, window);
     return {output: outFile, rawOutput, seconds: (Date.now() - t0) / 1000};
   } finally {
     await server.close();
@@ -229,14 +230,47 @@ export async function renderPlan(plan: EditPlan, cfg: PipelineConfig, outFile: s
 }
 
 /** Two-pass EBU R128 loudness normalisation of the audio track (video stream copied untouched). */
-export async function loudnessNormalize(input: string, output: string, targetLufs: number): Promise<void> {
-  const tp = -1.5;
-  const lra = 11;
-  const first = await runFfmpeg(['-i', input, '-vn', '-af', `loudnorm=I=${targetLufs}:TP=${tp}:LRA=${lra}:print_format=json`, '-f', 'null', '-']);
-  const json = first.slice(first.lastIndexOf('{'), first.lastIndexOf('}') + 1);
-  const m = JSON.parse(json) as Record<string, string>;
-  const filter =
-    `loudnorm=I=${targetLufs}:TP=${tp}:LRA=${lra}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:` +
-    `measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true:print_format=summary`;
-  await runFfmpeg(['-y', '-i', input, '-map', '0:v:0', '-map', '0:a:0', '-c:v', 'copy', '-af', `${filter},aresample=48000`, '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', output]);
+/** Integrated loudness (LUFS) of a time window of a file. */
+export async function measureLoudness(input: string, from?: number, to?: number): Promise<{i: number; tp: number}> {
+  const args = [];
+  if (from !== undefined) args.push('-ss', from.toFixed(3));
+  if (to !== undefined) args.push('-to', to.toFixed(3));
+  const err = await runFfmpeg([...args, '-i', input, '-vn', '-af', 'ebur128=peak=true:framelog=quiet', '-f', 'null', '-']);
+  const summary = err.slice(err.lastIndexOf('Summary:'));
+  return {i: Number(/I:\s+(-?[0-9.]+) LUFS/.exec(summary)?.[1]), tp: Number(/Peak:\s+(-?[0-9.]+) dBFS/.exec(summary)?.[1])};
+}
+
+/**
+ * Loudness normalisation with ONE static gain for the whole video, so the intended
+ * dynamics (quiet story, build-up, loud outro) survive unchanged. The gain is derived
+ * from the measured window (default: the outro, from the drop to the start of the final
+ * fade) so the outro keeps its previous level; a peak limiter (no auto-level) only
+ * catches peaks above -1.5 dBFS.
+ */
+export async function loudnessNormalize(input: string, output: string, targetLufs: number, window: {from?: number; to?: number} = {}): Promise<{measuredLufs: number; gainDb: number}> {
+  const m = await measureLoudness(input, window.from, window.to);
+  const gainDb = Number.isFinite(m.i) ? Math.max(-30, Math.min(30, targetLufs - m.i)) : 0;
+  const filter = `volume=${gainDb.toFixed(2)}dB,alimiter=limit=0.84:attack=5:release=50:level=0,aresample=48000`;
+  await runFfmpeg(['-y', '-i', input, '-map', '0:v:0', '-map', '0:a:0', '-c:v', 'copy', '-af', filter, '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', output]);
+  log.info(`loudness: measured ${m.i} LUFS on ${window.from !== undefined ? `${window.from.toFixed(2)}–${window.to?.toFixed(2)} s` : 'whole file'}, static gain ${gainDb.toFixed(2)} dB`);
+  return {measuredLufs: m.i, gainDb};
+}
+
+/**
+ * Render one audio stem (WAV) of a plan: 'music' = song only (clip muted),
+ * 'story' = clip audio only. Used by the QC to measure the mix objectively.
+ */
+export async function renderAudioStem(plan: EditPlan, cfg: PipelineConfig, stem: 'music' | 'story', outFile: string): Promise<string> {
+  ensureDir(path.dirname(outFile));
+  const served = await serve(plan, cfg, {stem});
+  try {
+    const {renderMedia, selectComposition} = await import('@remotion/renderer');
+    const serveUrl = await getBundle();
+    const browserExecutable = findBrowser(cfg);
+    const composition = await selectComposition({serveUrl, id: 'KindnessEdit', inputProps: served.inputProps, browserExecutable, logLevel: 'error'});
+    await renderMedia({composition, serveUrl, codec: 'wav', outputLocation: outFile, inputProps: served.inputProps, browserExecutable, logLevel: 'error'});
+    return outFile;
+  } finally {
+    await served.close();
+  }
 }

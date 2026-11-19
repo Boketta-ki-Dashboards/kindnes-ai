@@ -142,3 +142,25 @@ Vermessen am Referenz-Screenshot, alles relativ zur Fließtextgröße (36 px):
 | Hintergrund | sanfte Abdunklung (max. 42 %) hinter dem Textblock, wie im Referenzbild |
 
 Bekannter Zielkonflikt: Bei Nahaufnahmen liegt Thorfinns Gesicht bei 55–65 % Bildhöhe, also im unteren Drittel, wo die Referenz den Textblock zeigt. Der Block verdeckt dort Teile des Gesichts (die Zeilen 4–9 sind nur Text ohne Fläche, das Gesicht bleibt dazwischen sichtbar). Mit `anchor: "top"` wären die Nahaufnahmen frei, dafür die Köpfe in den Ganzkörper-Shots verdeckt.
+
+## 10. Outro V4 – gleiche Ästhetik, keine Wiederholungen (Stand 2026-11-19)
+
+Messung der V3-Shotliste mit der neuen Wiederholungskontrolle: Heart to Heart 4,3 s und 14,9 s sind **pixelgleich** (SSIM 0,996, pHash-Abstand 0 – die Animation wiederholt sich als Schleife); dazu kamen die Teenager-Nahaufnahme 4× (48,15 / 49,6 / 50,7 / 52,6 s), dieselbe Feld-Komposition 5× (40,0–46,6 s) und Heart-to-Heart-Nahaufnahmen 3×. V4 nutzt stattdessen **11 eigenständige Motive** (16 → 11 Schnitte; wo kein weiteres eigenständiges Motiv existiert, laufen Shots länger statt doppelt):
+
+| # | Akt | Beats | Quelle @ Zeit | Motiv | Bildtyp |
+|---|---|---|---|---|---|
+| 1 | Drop | 2 | No Enemies @ 48,15 s | Thorfinn (Teenager) im Profil | Porträt |
+| 2 | dynamisch | 2 | No Enemies @ 40,00 s | Thorfinn im Feld, Erinnerung an sich als Kind | Halbtotale |
+| 3 | dynamisch | 2 | Heart to Heart @ 4,30 s | Thorfinn (erwachsen), golden | Detail-Nahaufnahme |
+| 4 | dynamisch | 1 | No Enemies @ 14,30 s | junger Thorfinn liegt, Blick nach oben (neu) | Porträt, anderer Ausdruck |
+| 5 | dynamisch | 1 | No Enemies @ 46,60 s | Thorfinn von oben, Erinnerungs-Feuer | Ganzkörper |
+| 6 | emotional | 4 | Heart to Heart @ 8,30 s | Figur mit Kapuze im goldenen Wind (neu) | Halbtotale |
+| 7 | emotional | 1 | No Enemies @ 38,85 s | Thorfinn mit langem Haar, Kopf gesenkt (neu) | Halbnah |
+| 8 | emotional | 4 | No Enemies @ 19,30 s | Thors kniet vor dem kleinen Thorfinn | Totale |
+| 9 | ruhig | 2 | No Enemies @ 53,60 s | Vater & Kind, Silhouette (Ausschnitt korrigiert: Kind jetzt im Bild) | Silhouette |
+| 10 | ruhig | 3 | Heart to Heart @ 21,40 s | goldenes Feld, Figur am Felsen, Baum | Landschaft |
+| 11 | ruhig | 2 + Abblende | No Enemies @ 55,15 s | Thorfinn vor Bäumen, nachdenklich | Schlussporträt |
+
+Bewusst nicht verwendet: weitere Ufer-Silhouetten von Vater & Kind (10,6 / 12,3 s – gleiche Komposition wie #9), die zweite Kapuzen-Einstellung (18,2 s), NE 52,6 s (wieder das Teenager-Profil, endet zudem mit einem weißen Blitz-Frame – von der Kontrolle gefunden), NE 9,97 s und 33,9 s (Figur nicht sicher als Thorfinn erkennbar).
+
+Unverändert gegenüber V3: 1080×1920, 30 fps, goldener Grade, Vollbild-Zuschnitt, Effekte, Drop 48,216 s, Outro-Länge, Wörterbuch-Karte (Schrift, Größe, Position, Markierung, Text, Umbrüche). **Einzige Textänderung:** Einblendung beginnt 0,30 s nach dem Drop und dauert 0,25 s (`text.dictionary.fadeInDelaySec` / `fadeInDurationSec`; V3: 0,86 s / 0,40 s).

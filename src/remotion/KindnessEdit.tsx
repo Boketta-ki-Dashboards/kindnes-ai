@@ -14,6 +14,8 @@ export interface KindnessEditProps {
   fonts?: {googleSans?: string; notoIpa?: string};
   /** QC helper: render only text overlays on black (safe-area measurement). */
   overlayOnly?: boolean;
+  /** QC helper: audio stem – 'music' mutes the clip's own sound, 'story' mutes the song. */
+  stem?: 'music' | 'story';
   [key: string]: unknown;
 }
 
@@ -50,7 +52,7 @@ const dbToGain = (db: number) => Math.pow(10, db / 20);
 
 const url = (media: Record<string, string>, src: string) => media[src] ?? src;
 
-const Story: React.FC<{plan: EditPlan; media: Record<string, string>}> = ({plan, media}) => {
+const Story: React.FC<{plan: EditPlan; media: Record<string, string>; muted?: boolean}> = ({plan, media, muted}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const s = plan.story;
@@ -91,7 +93,7 @@ const Story: React.FC<{plan: EditPlan; media: Record<string, string>}> = ({plan,
               volume={(f) => {
                 const global = from + f;
                 const fade = interpolate(global, [storyFrames - fadeFrames, storyFrames], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-                return s.audioGain * fade;
+                return muted ? 0 : s.audioGain * fade;
               }}
             />
           </Sequence>
@@ -244,7 +246,7 @@ const Flash: React.FC<{plan: EditPlan}> = ({plan}) => {
   return <AbsoluteFill style={{backgroundColor: '#fff6dc', opacity}} />;
 };
 
-export const KindnessEdit: React.FC<KindnessEditProps> = ({plan, media, font = 'Inter', fonts, overlayOnly}) => {
+export const KindnessEdit: React.FC<KindnessEditProps> = ({plan, media, font = 'Inter', fonts, overlayOnly, stem}) => {
   const {fps} = useVideoConfig();
   useBundledFonts(fonts);
   const storyFrames = Math.round(plan.story.duration * fps);
@@ -273,7 +275,7 @@ export const KindnessEdit: React.FC<KindnessEditProps> = ({plan, media, font = '
   return (
     <AbsoluteFill style={{backgroundColor: 'black'}}>
       <Sequence durationInFrames={Math.max(1, storyFrames)}>
-        <Story plan={plan} media={media} />
+        <Story plan={plan} media={media} muted={stem === 'music'} />
       </Sequence>
       <Sequence from={storyFrames} durationInFrames={Math.max(1, totalFrames - storyFrames)}>
         <Outro plan={plan} media={media} font={font} />
@@ -284,8 +286,14 @@ export const KindnessEdit: React.FC<KindnessEditProps> = ({plan, media, font = '
         src={url(media, m.src)}
         trimBefore={Math.round(m.songStart * fps)}
         volume={(f) => {
-          const inGain = fadeIn > 0 ? interpolate(f, [0, fadeIn], [0, 1], {extrapolateRight: 'clamp'}) : 1;
+          if (stem === 'story') return 0;
           const outGain = interpolate(f, [totalFrames - fadeOut, totalFrames], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+          const env = m.envelope;
+          if (env && env.db.length) {
+            // dynamic envelope: quiet story, ducking under speech, build-up into the drop, outro level
+            return dbToGain(env.db[Math.min(env.db.length - 1, Math.max(0, f))]) * outGain;
+          }
+          const inGain = fadeIn > 0 ? interpolate(f, [0, fadeIn], [0, 1], {extrapolateRight: 'clamp'}) : 1;
           return gain * inGain * outGain;
         }}
       />
@@ -294,5 +302,10 @@ export const KindnessEdit: React.FC<KindnessEditProps> = ({plan, media, font = '
 };
 
 /** Dictionary card without the dimming gradient (for the overlay-only QC render). */
-const DictionaryOverlayNoDim: React.FC<{plan: EditPlan; outroFrames: number}> = ({plan}) =>
-  plan.outro.dictionary ? <DictionaryCard opts={plan.outro.dictionary} /> : null;
+const DictionaryOverlayNoDim: React.FC<{plan: EditPlan; outroFrames: number}> = ({plan, outroFrames}) => {
+  const {fps} = useVideoConfig();
+  // same fade-in / fade-out as in the real render, only without the dimming layer
+  return plan.outro.dictionary ? (
+    <DictionaryOverlay opts={plan.outro.dictionary} outroFrames={outroFrames} fadeOutStartFrame={outroFrames - Math.round(plan.outro.fadeOutSec * fps)} dim={false} />
+  ) : null;
+};

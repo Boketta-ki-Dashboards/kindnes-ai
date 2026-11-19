@@ -28,6 +28,8 @@ export interface OutroShot {
   /** Curated outros only. */
   act?: 'drop' | 'dynamic' | 'emotional' | 'calm';
   tag?: string;
+  /** Curated motif label (same label = same picture idea, used by the repetition control). */
+  motif?: string;
   focusY?: number;
   baseZoom?: number;
   speed?: number;
@@ -39,6 +41,8 @@ export interface DictionaryOptions {
   bodyPx: number;
   /** Seconds after the outro start when the fade-in begins. */
   fadeInAt: number;
+  /** Fade-in duration in seconds. */
+  fadeInDur?: number;
   highlightIncludesPeriod: boolean;
 }
 
@@ -70,6 +74,8 @@ export interface EditPlan {
     fadeOutSec: number;
     /** Beat times on the OUTPUT timeline (for beat-reactive effects). */
     beatsOnTimeline: number[];
+    /** Per-frame music gain (dB) for the whole video – one continuous song, see src/music/envelope.ts. */
+    envelope?: {fps: number; db: number[]; buildUpStart: number; drop: number; ducked: [number, number][]};
   };
   story: {
     src: string;
@@ -83,6 +89,10 @@ export interface EditPlan {
     audioGain: number;
     audioFadeAtDropSec: number;
     highlight: {srcTime: number; timelineTime: number; source: 'auto' | 'manual'};
+    /** True when the clip itself already contains "Meant to Be" (its own audio is then muted). */
+    songInClip?: boolean;
+    /** Speech on the output timeline (drives the music ducking). */
+    speech?: [number, number][];
   };
   transition: {type: 'hard-cut' | 'flash' | 'dissolve' | 'zoom-punch'; at: number; durationSec: number};
   outro: {

@@ -110,11 +110,11 @@ export const DictionaryCard: React.FC<{opts: DictionaryOptions; frameWidth?: num
 };
 
 /** The card with a calm fade-in / fade-out and the reference-style dimming behind it. */
-export const DictionaryOverlay: React.FC<{opts: DictionaryOptions; outroFrames: number; fadeOutStartFrame: number}> = ({opts, outroFrames, fadeOutStartFrame}) => {
+export const DictionaryOverlay: React.FC<{opts: DictionaryOptions; outroFrames: number; fadeOutStartFrame: number; dim?: boolean}> = ({opts, outroFrames, fadeOutStartFrame, dim = true}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const inStart = Math.round(opts.fadeInAt * fps);
-  const inEnd = inStart + Math.round(0.4 * fps);
+  const inEnd = inStart + Math.max(1, Math.round((opts.fadeInDur ?? 0.4) * fps));
   const outEnd = Math.min(outroFrames, fadeOutStartFrame);
   const outStart = outEnd - Math.round(0.45 * fps);
   const opacity = interpolate(frame, [inStart, inEnd, outStart, outEnd], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -129,7 +129,7 @@ export const DictionaryOverlay: React.FC<{opts: DictionaryOptions; outroFrames: 
       : `linear-gradient(180deg, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.42) ${top + 30}px, rgba(0,0,0,0.42) ${top + h}px, rgba(0,0,0,0) ${dimBottom + 120}px)`;
   return (
     <AbsoluteFill style={{opacity}}>
-      <AbsoluteFill style={{background: stops}} />
+      {dim ? <AbsoluteFill style={{background: stops}} /> : null}
       <DictionaryCard opts={opts} />
     </AbsoluteFill>
   );

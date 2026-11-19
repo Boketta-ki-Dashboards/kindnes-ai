@@ -4,7 +4,7 @@
   "info": {
     "width": 574,
     "height": 616,
-    "fps": 30.0,
+    "fps": 30,
     "codec": "h264",
     "durationSec": 19.2,
     "rotation": 0,
@@ -29,7 +29,7 @@
   "medianShotSec": 5.434,
   "shots": [
     {
-      "start": 0.0,
+      "start": 0,
       "end": 7.533,
       "duration": 7.533,
       "meanMotion": 0.0162,
@@ -234,7 +234,7 @@
   "audio": {
     "halfSecond": [
       {
-        "t": 0.0,
+        "t": 0,
         "rmsDb": -12.4,
         "onset": 1.421,
         "flatness": 0.0134
@@ -246,7 +246,7 @@
         "flatness": 0.0146
       },
       {
-        "t": 1.0,
+        "t": 1,
         "rmsDb": -11.38,
         "onset": 1.478,
         "flatness": 0.0137
@@ -258,7 +258,7 @@
         "flatness": 0.0116
       },
       {
-        "t": 2.0,
+        "t": 2,
         "rmsDb": -11.72,
         "onset": 1.662,
         "flatness": 0.016
@@ -270,7 +270,7 @@
         "flatness": 0.013
       },
       {
-        "t": 3.0,
+        "t": 3,
         "rmsDb": -11.08,
         "onset": 1.397,
         "flatness": 0.0075
@@ -282,7 +282,7 @@
         "flatness": 0.0091
       },
       {
-        "t": 4.0,
+        "t": 4,
         "rmsDb": -12.67,
         "onset": 1.34,
         "flatness": 0.0083
@@ -294,7 +294,7 @@
         "flatness": 0.0103
       },
       {
-        "t": 5.0,
+        "t": 5,
         "rmsDb": -13.32,
         "onset": 1.402,
         "flatness": 0.0106
@@ -306,7 +306,7 @@
         "flatness": 0.0099
       },
       {
-        "t": 6.0,
+        "t": 6,
         "rmsDb": -13.07,
         "onset": 1.264,
         "flatness": 0.016
@@ -318,7 +318,7 @@
         "flatness": 0.0556
       },
       {
-        "t": 7.0,
+        "t": 7,
         "rmsDb": -12.03,
         "onset": 1.287,
         "flatness": 0.0542
@@ -330,7 +330,7 @@
         "flatness": 0.0456
       },
       {
-        "t": 8.0,
+        "t": 8,
         "rmsDb": -11.19,
         "onset": 1.318,
         "flatness": 0.0361
@@ -342,7 +342,7 @@
         "flatness": 0.0493
       },
       {
-        "t": 9.0,
+        "t": 9,
         "rmsDb": -12.05,
         "onset": 1.176,
         "flatness": 0.0583
@@ -354,7 +354,7 @@
         "flatness": 0.0531
       },
       {
-        "t": 10.0,
+        "t": 10,
         "rmsDb": -11.9,
         "onset": 1.348,
         "flatness": 0.0491
@@ -366,7 +366,7 @@
         "flatness": 0.0602
       },
       {
-        "t": 11.0,
+        "t": 11,
         "rmsDb": -11.57,
         "onset": 1.374,
         "flatness": 0.036
@@ -378,7 +378,7 @@
         "flatness": 0.0348
       },
       {
-        "t": 12.0,
+        "t": 12,
         "rmsDb": -11.85,
         "onset": 1.276,
         "flatness": 0.0477
@@ -390,7 +390,7 @@
         "flatness": 0.0581
       },
       {
-        "t": 13.0,
+        "t": 13,
         "rmsDb": -11.62,
         "onset": 1.248,
         "flatness": 0.0416
@@ -402,7 +402,7 @@
         "flatness": 0.0634
       },
       {
-        "t": 14.0,
+        "t": 14,
         "rmsDb": -10.93,
         "onset": 1.317,
         "flatness": 0.0391
@@ -414,7 +414,7 @@
         "flatness": 0.0381
       },
       {
-        "t": 15.0,
+        "t": 15,
         "rmsDb": -12.08,
         "onset": 1.341,
         "flatness": 0.0453
@@ -426,7 +426,7 @@
         "flatness": 0.0553
       },
       {
-        "t": 16.0,
+        "t": 16,
         "rmsDb": -11.53,
         "onset": 1.224,
         "flatness": 0.0589
@@ -438,7 +438,7 @@
         "flatness": 0.0353
       },
       {
-        "t": 17.0,
+        "t": 17,
         "rmsDb": -12.03,
         "onset": 1.44,
         "flatness": 0.0579
@@ -450,7 +450,7 @@
         "flatness": 0.0322
       },
       {
-        "t": 18.0,
+        "t": 18,
         "rmsDb": -12.88,
         "onset": 1.261,
         "flatness": 0.0459
@@ -462,7 +462,7 @@
         "flatness": 0.0549
       },
       {
-        "t": 19.0,
+        "t": 19,
         "rmsDb": -12.14,
         "onset": 1.208,
         "flatness": 0.0555
@@ -504,5 +504,11 @@
         "positionPrior": 0.83
       }
     }
-  ]
+  ],
+  "speech": {
+    "segments": [],
+    "frameSec": 0.02,
+    "speechRatio": 0,
+    "method": "band-energy + syllabic-modulation heuristic"
+  }
 }

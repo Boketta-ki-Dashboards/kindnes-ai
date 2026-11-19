@@ -1,0 +1,58 @@
+name: Render V4 (outro + full audio test)
+
+# Renders the V4 results and keeps them as a downloadable artifact for 30 days
+# (Actions -> this run -> Artifacts -> kindness-v4):
+#   kindness-outro-v4-definition.mp4, kindness-v4-full-audio-test.mp4,
+#   kindness-v4-speech-ducking-test.mp4, kindness-v3-v4-comparison.mp4,
+#   QC report, shot overviews and screenshots.
+# V4 is NOT approved automatically.
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+    paths:
+      - "config/assets.json"
+      - "config/pipeline.json"
+      - "src/remotion/**"
+      - "src/outro/**"
+      - "src/music/**"
+      - "src/render/**"
+      - "python/kindness_analysis/**"
+      - ".github/workflows/outro-v4.yml"
+
+concurrency:
+  group: outro-v4-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core fonts-inter
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      - name: Render V3 (needed for the side-by-side comparison)
+        run: npm run -s kai -- outro:v3
+      - name: Render V4 + QC
+        run: npm run -s kai -- outro:v4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kindness-v4
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/kindness-v4/*.mp4
+            !output/kindness-v4/*.raw.mp4
+            output/kindness-v4/*.png
+            output/kindness-v4/*.audio-envelope.json
+            output/kindness-v4/QC_REPORT.md
+            output/kindness-v4/qc-report.json
+            output/kindness-v4/screenshots/

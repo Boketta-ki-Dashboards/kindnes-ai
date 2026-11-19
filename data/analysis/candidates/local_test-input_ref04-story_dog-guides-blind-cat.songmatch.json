@@ -1,0 +1,119 @@
+{
+  "windowSec": 3.0,
+  "stepSec": 1.0,
+  "threshold": 0.85,
+  "windows": [
+    {
+      "mediaTime": 0.0,
+      "songTime": 27.957,
+      "offset": 27.957,
+      "similarity": 0.974
+    },
+    {
+      "mediaTime": 0.998,
+      "songTime": 28.955,
+      "offset": 27.957,
+      "similarity": 0.978
+    },
+    {
+      "mediaTime": 1.997,
+      "songTime": 29.954,
+      "offset": 27.957,
+      "similarity": 0.977
+    },
+    {
+      "mediaTime": 2.995,
+      "songTime": 30.952,
+      "offset": 27.957,
+      "similarity": 0.978
+    },
+    {
+      "mediaTime": 3.994,
+      "songTime": 31.951,
+      "offset": 27.957,
+      "similarity": 0.976
+    },
+    {
+      "mediaTime": 4.992,
+      "songTime": 32.949,
+      "offset": 27.957,
+      "similarity": 0.975
+    },
+    {
+      "mediaTime": 5.991,
+      "songTime": 33.948,
+      "offset": 27.957,
+      "similarity": 0.975
+    },
+    {
+      "mediaTime": 6.989,
+      "songTime": 34.946,
+      "offset": 27.957,
+      "similarity": 0.975
+    },
+    {
+      "mediaTime": 7.988,
+      "songTime": 35.944,
+      "offset": 27.957,
+      "similarity": 0.975
+    },
+    {
+      "mediaTime": 8.986,
+      "songTime": 36.943,
+      "offset": 27.957,
+      "similarity": 0.974
+    },
+    {
+      "mediaTime": 9.985,
+      "songTime": 37.941,
+      "offset": 27.957,
+      "similarity": 0.976
+    },
+    {
+      "mediaTime": 10.983,
+      "songTime": 38.94,
+      "offset": 27.957,
+      "similarity": 0.978
+    },
+    {
+      "mediaTime": 11.981,
+      "songTime": 39.938,
+      "offset": 27.957,
+      "similarity": 0.978
+    },
+    {
+      "mediaTime": 12.98,
+      "songTime": 40.937,
+      "offset": 27.957,
+      "similarity": 0.98
+    },
+    {
+      "mediaTime": 13.978,
+      "songTime": 41.935,
+      "offset": 27.957,
+      "similarity": 0.977
+    },
+    {
+      "mediaTime": 14.977,
+      "songTime": 42.934,
+      "offset": 27.957,
+      "similarity": 0.978
+    },
+    {
+      "mediaTime": 15.975,
+      "songTime": 43.932,
+      "offset": 27.957,
+      "similarity": 0.977
+    }
+  ],
+  "segments": [
+    {
+      "mediaStart": 0.0,
+      "mediaEnd": 18.975,
+      "songStart": 27.957,
+      "songEnd": 46.932,
+      "offset": 27.957,
+      "meanSimilarity": 0.977
+    }
+  ]
+}

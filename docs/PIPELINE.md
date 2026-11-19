@@ -108,3 +108,33 @@ Doppelte Produktionen werden verhindert (gleicher Kandidat, gleicher Datei-Hash 
 5. Läuft das stabil: Zeitplan in `discover.yml` aktivieren (3×/Woche).
 
 Für 3–4 Videos/Woche reicht: 3 Suchläufe/Woche + 3–4 Produktionen. Keine Kosten außer ggf. Actions-Minuten bei privaten Repos.
+
+## 7. Musik-Dramaturgie (seit V4, gilt für jede Produktion)
+
+„Meant to Be" läuft als **eine durchgehende Spur** vom ersten Bild bis zum Ende. Der Songstart wird so berechnet, dass Songsekunde 48,216 (Drop) exakt auf den Schnitt ins Outro fällt; am Drop wird nichts neu gestartet und keine zweite Spur eingeblendet. Der Pegel folgt einer Envelope, die pro Bild im Edit-Plan steht (`plan.music.envelope`, Code: `src/music/envelope.ts`):
+
+| Phase | Zeitraum | Musik-Gain (vor Normalisierung) | Konfiguration |
+|---|---|---|---|
+| A Story-Beginn | 0 s, 0,4 s Einblendung | −20 dB | `audio.storyMusic.startDb`, `fadeInSec` |
+| B Story-Verlauf | bis 4 s auf | −18 dB, bei Sprache zusätzlich −6 dB (Attack 0,15 s mit Vorlauf, Hold 0,15 s, Release 0,45 s) | `audio.storyMusic.bodyDb`, `riseSec`, `audio.ducking.*` |
+| C Aufbau | die letzten 6 Beats vor dem Drop (≈ 2,6 s), Start exakt auf einem Beat | weiche S-Kurve hoch auf das Outro-Niveau | `audio.storyMusic.buildUpBeats` |
+| D Drop / Outro | ab Drop | −7 dB (wie bisher), Schlussabblende 0,6 s | `audio.musicGainDb` |
+
+- **Originalton der Story**: 90 % (`audio.storyAudioGain`), blendet in den letzten 0,5 s vor dem Drop aus.
+- **Sprache** wird automatisch erkannt (Energie im Sprachband + Silbenrhythmus 2–8 Hz, `python/kindness_analysis/speech.py`); nur dort wird die Musik abgesenkt.
+- **Clip enthält schon den Song?** Wird per Audio-Fingerprint erkannt (`audio.songDetectSimilarity`); dann wird der Originalton stummgeschaltet, damit der Song nicht doppelt bzw. phasenverschoben läuft (`audio.muteStoryIfSongDetected`).
+- **Lautheit**: gemessen wird nur das Outro (Drop bis Schlussabblende) → ein statischer Gain auf das ganze Video (+ Spitzenlimiter bei −1,5 dBFS, ohne Auto-Level). Das Outro landet bei −14 LUFS wie bisher, die leisere Story bleibt leiser (`audio.normalizeOn: "outro"`). Die frühere `loudnorm`-Zweipass-Methode konnte bei großem Pegelumfang in einen dynamischen Modus wechseln und hätte die Dramaturgie eingeebnet.
+
+QC jeder Produktion (`src/render/audio-qc.ts`): Musik- und Story-Spur werden getrennt gerendert. Gemessen werden der tatsächlich angewendete Gain (Musikspur ÷ Original-Song an derselben Stelle, zeitlich ausgerichtet) gegen den Plan, Lücken, Neustart oder zweite Spur (Fingerprint), leiser Beginn (≥ 10 dB unter dem Outro), gleichmäßiger Aufbau, kein Sprung am Drop, Sprach-zu-Musik-Abstand ≥ 8 dB während Sprache, Stummschaltung bei Song im Clip und Outro-Lautheit −14 LUFS.
+
+## 8. Visuelle Wiederholungskontrolle (seit V4)
+
+`npm run kai -- outro:check V4` bzw. automatisch in der QC jeder Produktion (`src/outro/repetition.ts` → `python/kindness_analysis/shotsim.py`). Pro Shot werden 5 Bilder genau wie im Video zugeschnitten und paarweise verglichen:
+
+1. Herkunft/Zeitbereich (gleiche Quelle, überlappende Fenster, gleiche Einstellung ohne harten Schnitt – nur zusammen mit messbarer Bildnähe),
+2. pHash (63 Bit, kleinster Hamming-Abstand),
+3. SSIM (90×160, bestes Bildpaar),
+4. Komposition (3×4-Raster aus Helligkeit + Kanten) und Gesichtsposition (`focusX/focusY`), dazu das kuratierte Motiv-Label,
+5. Abstand im Schnitt (Shots, Sekunden).
+
+Regeln: keine Dopplungen (SSIM ≥ 0,72 oder pHash ≤ 8), ähnliche Shots mindestens 3 Shots auseinander, kein Motiv dreimal, keine leeren/weißen Frames innerhalb eines Shots. Ergebnis: Bericht + Kontaktübersicht (PNG, auffällige Shots rot markiert). Schwellen in `outro.repetition` (`config/pipeline.json`); `severity: "warning"` meldet nur, `"error"` blockiert die Produktion.

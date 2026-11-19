@@ -4,6 +4,8 @@ import {nowIso, writeJson} from '../core/fsutil.js';
 import {runAnalysis} from '../core/python.js';
 import type {EditPlan} from '../edit/plan-types.js';
 import {ffprobe, runFfmpeg} from '../media/ffmpeg.js';
+import type {PipelineConfig} from '../core/config.js';
+import {measureLoudness} from './render.js';
 
 export interface QcCheck {
   name: string;
@@ -49,7 +51,7 @@ async function loudness(file: string): Promise<{i: number; tp: number}> {
  * frames, audio gaps, loudness and – by re-locating the song inside the rendered
  * audio – that the music is really aligned so the drop hits the transition.
  */
-export async function qualityCheck(file: string, plan: EditPlan, opts: {syncCheck?: boolean} = {}): Promise<QcReport> {
+export async function qualityCheck(file: string, plan: EditPlan, opts: {syncCheck?: boolean; cfg?: PipelineConfig; audioDramaturgy?: boolean; repetition?: boolean} = {}): Promise<QcReport> {
   const checks: QcCheck[] = [];
   const p = ffprobe(file);
   const v = p.streams.find((s) => s.codec_type === 'video');
@@ -72,7 +74,14 @@ export async function qualityCheck(file: string, plan: EditPlan, opts: {syncChec
   const sil = (await silences(file)).filter((s) => s.start < tailStart);
   checks.push(check('no audio dropouts before the final fade', sil.length === 0, sil, 'none'));
   const loud = await loudness(file);
-  checks.push(check('integrated loudness ≈ -14 LUFS', loud.i >= -16.5 && loud.i <= -11.5, loud.i, '-16.5 … -11.5 LUFS', 'warning'));
+  if (plan.music.envelope && plan.outro.shots.length) {
+    // the loudness target applies to the outro; the quieter story is intentional
+    const outro = await measureLoudness(file, plan.outro.start, Math.max(plan.outro.start + 1, plan.durationSec - plan.outro.fadeOutSec));
+    checks.push(check('outro loudness ≈ -14 LUFS (previous outro level)', outro.i >= -15.5 && outro.i <= -12.5, outro.i, '-15.5 … -12.5 LUFS'));
+    checks.push(check('whole-video loudness (info: story is intentionally quieter)', true, loud.i, 'info', 'warning'));
+  } else {
+    checks.push(check('integrated loudness ≈ -14 LUFS', loud.i >= -16.5 && loud.i <= -11.5, loud.i, '-16.5 … -11.5 LUFS', 'warning'));
+  }
   checks.push(check('true peak below -0.5 dBTP', loud.tp <= -0.5, loud.tp, '≤ -0.5 dBTP', 'warning'));
 
   if (opts.syncCheck !== false) {
@@ -98,6 +107,39 @@ export async function qualityCheck(file: string, plan: EditPlan, opts: {syncChec
     }
   }
 
+  if (opts.cfg && opts.audioDramaturgy !== false && plan.music.envelope) {
+    const {audioDramaturgyChecks} = await import('./audio-qc.js');
+    try {
+      const a = await audioDramaturgyChecks(plan, opts.cfg);
+      checks.push(...a.checks);
+      const envSpec = {
+        title: `Musik-Gain – ${plan.jobId}`,
+        planned: a.plannedGainDb,
+        measured: a.measuredGainDb,
+        windowSec: 0.2,
+        speech: plan.story.speech ?? [],
+        buildUpStart: plan.music.envelope.buildUpStart,
+        drop: plan.outro.start,
+        fadeOutStart: plan.durationSec - plan.music.fadeOutSec,
+        out: file.replace(/\.mp4$/, '.audio-envelope.png'),
+      };
+      const envJson = file.replace(/\.mp4$/, '.audio-envelope.json');
+      writeJson(envJson, envSpec);
+      // chart: planned vs measured gain (best effort – never fails the QC)
+      await runAnalysis(['envplot', envJson], path.join(PATHS.cache, 'qc', `${plan.jobId}-envplot.json`)).catch(() => undefined);
+    } catch (e) {
+      checks.push(check('audio dramaturgy analysis ran', false, String(e).slice(0, 300), 'stems rendered and measured', 'warning'));
+    }
+  }
+  if (opts.cfg && opts.repetition !== false && plan.outro.shots.length > 1) {
+    const {checkRepetition, describeViolations} = await import('../outro/repetition.js');
+    try {
+      const r = await checkRepetition(plan, opts.cfg, {contactSheet: file.replace(/\.mp4$/, '.shots.png'), title: `Shot-Übersicht – ${plan.jobId}`});
+      checks.push(check('no visible shot repetitions in the outro', r.pass, r.pass ? `${plan.outro.shots.length} shots, all distinct` : describeViolations(r), 'no duplicates, similar shots ≥ 3 apart, no motif 3×', opts.cfg.outro.repetition.severity));
+    } catch (e) {
+      checks.push(check('repetition control ran', false, String(e).slice(0, 300), 'shot similarity measured', 'warning'));
+    }
+  }
   const report: QcReport = {file, checkedAt: nowIso(), pass: checks.every((c) => c.pass || c.severity === 'warning'), checks};
   writeJson(file.replace(/\.mp4$/, '.qc.json'), report);
   return report;

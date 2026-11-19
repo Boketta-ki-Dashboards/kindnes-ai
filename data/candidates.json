@@ -1,7 +1,7 @@
 {
   "schema": "kindness-ai/candidates",
   "version": 1,
-  "updatedAt": "2026-11-18T18:39:04.863Z",
+  "updatedAt": "2026-11-19T07:50:31.325Z",
   "candidates": [
     {
       "id": "yt_V0Kx0Ne3D4w",
@@ -32725,7 +32725,7 @@
         "disability"
       ],
       "discoveredAt": "2026-11-18T18:25:49.802Z",
-      "updatedAt": "2026-11-18T18:39:04.863Z",
+      "updatedAt": "2026-11-19T07:48:20.658Z",
       "state": "REVIEW",
       "history": [
         {
@@ -32834,6 +32834,66 @@
           "from": "QUALITY_CHECKED",
           "to": "REVIEW",
           "note": "waiting for your approval"
+        },
+        {
+          "at": "2026-11-19T07:39:12.210Z",
+          "from": "REVIEW",
+          "to": "SELECTED",
+          "note": "start production"
+        },
+        {
+          "at": "2026-11-19T07:39:15.562Z",
+          "from": "SELECTED",
+          "to": "EDITING",
+          "note": "2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4"
+        },
+        {
+          "at": "2026-11-19T07:40:45.779Z",
+          "from": "EDITING",
+          "to": "RENDERED",
+          "note": "output/2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4/final.mp4"
+        },
+        {
+          "at": "2026-11-19T07:41:15.414Z",
+          "from": "RENDERED",
+          "to": "QUALITY_CHECKED",
+          "note": "21/21 checks passed"
+        },
+        {
+          "at": "2026-11-19T07:41:15.414Z",
+          "from": "QUALITY_CHECKED",
+          "to": "REVIEW",
+          "note": "waiting for your approval"
+        },
+        {
+          "at": "2026-11-19T07:46:20.515Z",
+          "from": "REVIEW",
+          "to": "SELECTED",
+          "note": "start production"
+        },
+        {
+          "at": "2026-11-19T07:46:20.522Z",
+          "from": "SELECTED",
+          "to": "EDITING",
+          "note": "2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4"
+        },
+        {
+          "at": "2026-11-19T07:47:50.119Z",
+          "from": "EDITING",
+          "to": "RENDERED",
+          "note": "output/2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4/final.mp4"
+        },
+        {
+          "at": "2026-11-19T07:48:20.658Z",
+          "from": "RENDERED",
+          "to": "QUALITY_CHECKED",
+          "note": "21/21 checks passed"
+        },
+        {
+          "at": "2026-11-19T07:48:20.658Z",
+          "from": "QUALITY_CHECKED",
+          "to": "REVIEW",
+          "note": "waiting for your approval"
         }
       ],
       "media": {
@@ -32909,7 +32969,198 @@
         "qualifies": false
       },
       "contentAnalysisPath": "data/analysis/candidates/local_test-input_ref04-story_dog-guides-blind-cat.video.json",
-      "jobId": "2026-11-18_local_test-input_ref04-story_dog-guides-blind-cat_A"
+      "jobId": "2026-11-19_local_test-input_ref04-story_dog-guides-blind-cat_V4"
+    },
+    {
+      "id": "local_test-speech_cdc-public-domain_classroom",
+      "platform": "local",
+      "platformId": "test-speech_cdc-public-domain_classroom",
+      "url": "file://media/test-inputs/TEST-SPEECH_cdc-public-domain_classroom.mp4",
+      "title": "TEST (speech ducking): CDC public-domain classroom clip – not a kindness story",
+      "durationSec": 20.02,
+      "width": 1920,
+      "height": 1080,
+      "categories": [],
+      "discoveredAt": "2026-11-19T07:41:21.183Z",
+      "updatedAt": "2026-11-19T07:50:31.325Z",
+      "state": "REVIEW",
+      "history": [
+        {
+          "at": "2026-11-19T07:41:21.183Z",
+          "from": null,
+          "to": "DISCOVERED"
+        },
+        {
+          "at": "2026-11-19T07:41:21.186Z",
+          "from": "DISCOVERED",
+          "to": "METADATA_ANALYZED",
+          "note": "local import"
+        },
+        {
+          "at": "2026-11-19T07:41:21.204Z",
+          "from": "METADATA_ANALYZED",
+          "to": "SCORED",
+          "note": "53.5 pts"
+        },
+        {
+          "at": "2026-11-19T07:41:21.204Z",
+          "from": "SCORED",
+          "to": "SHORTLISTED",
+          "note": "manual"
+        },
+        {
+          "at": "2026-11-19T07:41:21.204Z",
+          "from": "SHORTLISTED",
+          "to": "SELECTED",
+          "note": "start production"
+        },
+        {
+          "at": "2026-11-19T07:41:25.618Z",
+          "from": "SELECTED",
+          "to": "CONTENT_ANALYZED",
+          "note": "1920x1080, 20.02s, 3 cuts"
+        },
+        {
+          "at": "2026-11-19T07:41:25.620Z",
+          "from": "CONTENT_ANALYZED",
+          "to": "SCORED",
+          "note": "57.1 pts (CONTENT_SIGNALS)"
+        },
+        {
+          "at": "2026-11-19T07:41:25.620Z",
+          "from": "SCORED",
+          "to": "SHORTLISTED",
+          "note": "content analysed"
+        },
+        {
+          "at": "2026-11-19T07:41:25.620Z",
+          "from": "SHORTLISTED",
+          "to": "SELECTED",
+          "note": "keep selection after analysis"
+        },
+        {
+          "at": "2026-11-19T07:41:28.888Z",
+          "from": "SELECTED",
+          "to": "EDITING",
+          "note": "2026-11-19_local_test-speech_cdc-public-domain_classroom_V4"
+        },
+        {
+          "at": "2026-11-19T07:43:07.539Z",
+          "from": "EDITING",
+          "to": "RENDERED",
+          "note": "output/2026-11-19_local_test-speech_cdc-public-domain_classroom_V4/final.mp4"
+        },
+        {
+          "at": "2026-11-19T07:43:46.651Z",
+          "from": "RENDERED",
+          "to": "QC_FAILED",
+          "note": "speech clearly above the music (speech-to-music ratio)"
+        },
+        {
+          "at": "2026-11-19T07:48:22.245Z",
+          "from": "QC_FAILED",
+          "to": "SELECTED",
+          "note": "start production"
+        },
+        {
+          "at": "2026-11-19T07:48:22.270Z",
+          "from": "SELECTED",
+          "to": "EDITING",
+          "note": "2026-11-19_local_test-speech_cdc-public-domain_classroom_V4"
+        },
+        {
+          "at": "2026-11-19T07:49:53.970Z",
+          "from": "EDITING",
+          "to": "RENDERED",
+          "note": "output/2026-11-19_local_test-speech_cdc-public-domain_classroom_V4/final.mp4"
+        },
+        {
+          "at": "2026-11-19T07:50:31.325Z",
+          "from": "RENDERED",
+          "to": "QUALITY_CHECKED",
+          "note": "21/21 checks passed"
+        },
+        {
+          "at": "2026-11-19T07:50:31.325Z",
+          "from": "QUALITY_CHECKED",
+          "to": "REVIEW",
+          "note": "waiting for your approval"
+        }
+      ],
+      "media": {
+        "status": "available",
+        "local": {
+          "path": "media/test-inputs/TEST-SPEECH_cdc-public-domain_classroom.mp4",
+          "durationSec": 20.02,
+          "width": 1920,
+          "height": 1080,
+          "fps": 23.976023976023978,
+          "videoCodec": "h264",
+          "audioCodec": "aac",
+          "sizeBytes": 7325017,
+          "sha256": "c3c896da693ed587511452f382da6143207bb24b51e17fa7b37df1801cf2e7df",
+          "dHash": "04040404040406c404040400060406c604040000040404c48989898d151d91b98989890d151db1b924d4546f2fbf19888989898c951d0d1d8889898d9d150d1d"
+        },
+        "reason": "imported local file"
+      },
+      "favorite": false,
+      "isCompilation": false,
+      "titleFingerprint": "cdc classroom domain ducking kindness not public speech story test",
+      "score": {
+        "total": 57.1,
+        "emotional": {
+          "points": 13,
+          "max": 35,
+          "reasons": [
+            "1 kindness keyword group(s)",
+            "no view count – neutral",
+            "content signals only – emotional meaning not judged by a reviewer yet"
+          ]
+        },
+        "clarity": {
+          "points": 19,
+          "max": 25,
+          "reasons": [
+            "descriptive title"
+          ]
+        },
+        "dropPotential": {
+          "points": 10.2,
+          "max": 20,
+          "reasons": [
+            "length fits a story before the 48 s drop",
+            "measured peak at 15.5 s (77 %), strength +3.4",
+            "peak in the second half – good build-up"
+          ]
+        },
+        "visualQuality": {
+          "points": 8.9,
+          "max": 10,
+          "reasons": [
+            "measured 1920x1080 @ 23.976 fps",
+            "detail/sharpness 0.057 → +1.9",
+            "stability (motion jitter 0.012) → +1.5",
+            "landscape source (fit with blurred background)"
+          ]
+        },
+        "originality": {
+          "points": 6,
+          "max": 10,
+          "reasons": []
+        },
+        "analysisLevel": "CONTENT_SIGNALS",
+        "provisional": false,
+        "scoredAt": "2026-11-19T07:41:25.620Z",
+        "scorer": "content-signals-v1",
+        "qualifies": false
+      },
+      "contentAnalysisPath": "data/analysis/candidates/local_test-speech_cdc-public-domain_classroom.video.json",
+      "jobId": "2026-11-19_local_test-speech_cdc-public-domain_classroom_V4",
+      "lastError": {
+        "step": "qc",
+        "message": "speech clearly above the music (speech-to-music ratio)",
+        "at": "2026-11-19T07:43:46.651Z"
+      }
     }
   ]
 }

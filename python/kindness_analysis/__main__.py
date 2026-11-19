@@ -4,6 +4,9 @@ Commands (all print JSON to stdout, or write to --out):
   music   <audio>                 beat map / drop candidates
   locate  <media> --song <audio>  where does the song play inside <media>
   video   <video>                 cuts, black frames, motion, colour, highlights
+  speech  <media>                 speech segments (for music ducking)
+  shotsim <spec.json>             visual repetition control of an outro shot list
+  envplot <spec.json>             chart: planned vs measured music gain
   probe   <media>                 ffprobe JSON
 """
 from __future__ import annotations
@@ -42,6 +45,15 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("path")
     v.add_argument("--no-audio", action="store_true")
     v.add_argument("--out")
+    sp = sub.add_parser("speech")
+    sp.add_argument("path")
+    sp.add_argument("--out")
+    ss = sub.add_parser("shotsim")
+    ss.add_argument("spec", help="JSON file with the shot list (see shotsim.py)")
+    ss.add_argument("--out")
+    ep = sub.add_parser("envplot")
+    ep.add_argument("spec", help="JSON file: planned/measured gain + phases (see envplot.py)")
+    ep.add_argument("--out")
     pr = sub.add_parser("probe")
     pr.add_argument("path")
     pr.add_argument("--out")
@@ -57,6 +69,15 @@ def main(argv: list[str] | None = None) -> int:
         elif args.cmd == "video":
             from .video import analyze_video
             _emit(analyze_video(args.path, with_audio=not args.no_audio), args.out)
+        elif args.cmd == "speech":
+            from .speech import speech_segments
+            _emit(speech_segments(args.path), args.out)
+        elif args.cmd == "shotsim":
+            from .shotsim import analyse_shots
+            _emit(analyse_shots(json.loads(Path(args.spec).read_text(encoding="utf-8"))), args.out)
+        elif args.cmd == "envplot":
+            from .envplot import plot_envelope
+            _emit(plot_envelope(json.loads(Path(args.spec).read_text(encoding="utf-8"))), args.out)
         elif args.cmd == "probe":
             from .mediaio import probe
             _emit(probe(args.path), args.out)

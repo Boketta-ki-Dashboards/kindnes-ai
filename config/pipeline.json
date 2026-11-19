@@ -18,10 +18,33 @@
   },
   "audio": {
     "musicGainDb": -7,
-    "storyAudioGain": 0.3,
+    "storyMusic": {
+      "startDb": -20,
+      "bodyDb": -18,
+      "riseSec": 4,
+      "fadeInSec": 0.4,
+      "buildUpBeats": 6
+    },
+    "ducking": {
+      "enabled": true,
+      "depthDb": 6,
+      "attackSec": 0.15,
+      "releaseSec": 0.45,
+      "holdSec": 0.15
+    },
+    "muteStoryIfSongDetected": true,
+    "songDetectSimilarity": 0.85,
+    "storyAudioGain": 0.9,
+    "storyLevel": {
+      "mode": "auto",
+      "targetSpeechRmsDb": -20,
+      "minGainDb": -6,
+      "maxGainDb": 12
+    },
     "storyFadeAtDropSec": 0.5,
     "musicFadeInSec": 0.3,
-    "targetLufs": -14
+    "targetLufs": -14,
+    "normalizeOn": "outro"
   },
   "outro": {
     "variant": "A",
@@ -40,7 +63,8 @@
     "dictionary": {
       "anchor": "bottom",
       "bodyPx": 36,
-      "fadeInBeat": 2,
+      "fadeInDelaySec": 0.3,
+      "fadeInDurationSec": 0.25,
       "highlightIncludesPeriod": false
     }
   },

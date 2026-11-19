@@ -1,0 +1,179 @@
+{
+  "file": "/home/user/kindnes-ai/output/2026-11-19_local_test-speech_cdc-public-domain_classroom_V4/final.mp4",
+  "checkedAt": "2026-11-19T07:50:31.324Z",
+  "pass": true,
+  "checks": [
+    {
+      "name": "video codec H.264",
+      "pass": true,
+      "severity": "error",
+      "value": "h264",
+      "expected": "h264"
+    },
+    {
+      "name": "audio codec AAC",
+      "pass": true,
+      "severity": "error",
+      "value": "aac",
+      "expected": "aac"
+    },
+    {
+      "name": "resolution 1080x1920",
+      "pass": true,
+      "severity": "error",
+      "value": "1080x1920",
+      "expected": "1080x1920"
+    },
+    {
+      "name": "frame rate",
+      "pass": true,
+      "severity": "error",
+      "value": 30,
+      "expected": "30"
+    },
+    {
+      "name": "duration matches plan",
+      "pass": true,
+      "severity": "error",
+      "value": 28.906,
+      "expected": "28.887 ± 0.13 s"
+    },
+    {
+      "name": "audio/video length in sync",
+      "pass": true,
+      "severity": "error",
+      "value": "v=28.900 a=28.906",
+      "expected": "< 0.1 s difference"
+    },
+    {
+      "name": "no black frames before the final fade",
+      "pass": true,
+      "severity": "error",
+      "value": [],
+      "expected": "none"
+    },
+    {
+      "name": "no audio dropouts before the final fade",
+      "pass": true,
+      "severity": "error",
+      "value": [],
+      "expected": "none"
+    },
+    {
+      "name": "outro loudness ≈ -14 LUFS (previous outro level)",
+      "pass": true,
+      "severity": "error",
+      "value": -14,
+      "expected": "-15.5 … -12.5 LUFS"
+    },
+    {
+      "name": "whole-video loudness (info: story is intentionally quieter)",
+      "pass": true,
+      "severity": "warning",
+      "value": -16.6,
+      "expected": "info"
+    },
+    {
+      "name": "true peak below -0.5 dBTP",
+      "pass": true,
+      "severity": "warning",
+      "value": -3.3,
+      "expected": "≤ -0.5 dBTP"
+    },
+    {
+      "name": "music aligned (drop lands on the transition)",
+      "pass": true,
+      "severity": "error",
+      "value": 30.186,
+      "expected": "song offset 30.216 s ± 0.06"
+    },
+    {
+      "name": "music gain follows the planned envelope",
+      "pass": true,
+      "value": {
+        "medianDevDb": 0.1,
+        "maxDevDb": 1
+      },
+      "expected": "median ≤ 1 dB, max ≤ 3 dB",
+      "severity": "error"
+    },
+    {
+      "name": "music plays without interruption from the start to the end",
+      "pass": true,
+      "value": "0 silent windows",
+      "expected": "0 windows below -60 dBFS",
+      "severity": "error"
+    },
+    {
+      "name": "single continuous song (no restart at the drop, no second track)",
+      "pass": true,
+      "value": {
+        "offsets": [
+          30.2
+        ],
+        "coveredSec": 28
+      },
+      "expected": "every match at song offset 30.22 s, ≥ 85 % covered",
+      "severity": "error"
+    },
+    {
+      "name": "story starts with quiet music (≥ 10 dB below the outro)",
+      "pass": true,
+      "value": {
+        "storyStartDb": -25.1,
+        "outroDb": -7.1
+      },
+      "expected": "≥ 10 dB difference",
+      "severity": "error"
+    },
+    {
+      "name": "smooth build-up before the drop (rising, no jumps)",
+      "pass": true,
+      "value": {
+        "buildUpSec": 2.6,
+        "riseDb": 9.9,
+        "maxStepDb": 3,
+        "minStepDb": -0.2
+      },
+      "expected": "rise ≥ 6 dB, steps between −1.5 and +3 dB per 0.2 s",
+      "severity": "error"
+    },
+    {
+      "name": "no audio jump at the drop (music already at outro level)",
+      "pass": true,
+      "value": {
+        "beforeDb": -7.2,
+        "afterDb": -7.2
+      },
+      "expected": "|after − before| ≤ 2 dB",
+      "severity": "error"
+    },
+    {
+      "name": "speech clearly above the music (speech-to-music ratio)",
+      "pass": true,
+      "value": {
+        "medianSmrDb": 10.9,
+        "windows": 61
+      },
+      "expected": "median ≥ 8 dB",
+      "severity": "error"
+    },
+    {
+      "name": "no double music (clip containing the song is muted)",
+      "pass": true,
+      "value": {
+        "songInClip": false,
+        "storyAudioGain": 1.866
+      },
+      "expected": "gain 0 when the song is in the clip",
+      "severity": "error"
+    },
+    {
+      "name": "no visible shot repetitions in the outro",
+      "pass": true,
+      "severity": "warning",
+      "value": "11 shots, all distinct",
+      "expected": "no duplicates, similar shots ≥ 3 apart, no motif 3×"
+    }
+  ]
+}

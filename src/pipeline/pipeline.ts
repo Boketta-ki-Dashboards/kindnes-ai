@@ -289,6 +289,8 @@ export async function produce(store: CandidateStore, c: Candidate, opts: {overri
   if (!analysis) analysis = await analyzeContent(store, cfg, c);
   if (!analysis) throw new Error(`content analysis failed: ${c.lastError?.message}`);
   if (c.state !== 'SELECTED') select(store, c, 'continue production');
+  analysis = await ensureSpeech(c, analysis);
+  const songInClip = await detectSongInClip(c, cfg);
 
   const overrides: PlanOverrides = {...(c.editOverrides as PlanOverrides | undefined), ...opts.overrides};
   const variant = overrides.variant ?? cfg.outro.variant;
@@ -302,7 +304,7 @@ export async function produce(store: CandidateStore, c: Candidate, opts: {overri
 
   let plan: EditPlan;
   try {
-    plan = buildEditPlan({jobId, candidateId: c.id, storySrc: c.media.local!.path, analysis, config: cfg, music, beatmap, assets, overrides});
+    plan = buildEditPlan({jobId, candidateId: c.id, storySrc: c.media.local!.path, analysis, config: cfg, music, beatmap, assets, overrides, songInClip});
     writeJson(path.join(jobDir, 'plan.json'), plan);
     for (const w of plan.warnings) log.warn(w, {candidateId: c.id});
   } catch (e) {
@@ -328,7 +330,7 @@ export async function produce(store: CandidateStore, c: Candidate, opts: {overri
     throw e;
   }
 
-  const qc = await qualityCheck(outFile, plan);
+  const qc = await qualityCheck(outFile, plan, {cfg, audioDramaturgy: true, repetition: true});
   writeJson(path.join(jobDir, 'qc.json'), qc);
   if (!qc.pass) {
     c.lastError = {step: 'qc', message: qc.checks.filter((x) => !x.pass && x.severity === 'error').map((x) => x.name).join(', '), at: nowIso()};
@@ -389,4 +391,30 @@ export function summary(store: CandidateStore): Record<string, number> {
   const out: Record<string, number> = {};
   for (const c of store.all()) out[c.state] = (out[c.state] ?? 0) + 1;
   return out;
+}
+
+/** Older analyses have no speech detection yet – add it once (cached in the analysis file). */
+export async function ensureSpeech(c: Candidate, analysis: VideoAnalysis): Promise<VideoAnalysis> {
+  const a = analysis as VideoAnalysis & {speech?: unknown};
+  if (a.speech || !c.media.local?.path || !c.contentAnalysisPath) return analysis;
+  const speech = await runAnalysis<{segments: [number, number][]}>(['speech', abs(c.media.local.path)], path.join(PATHS.cache, 'speech', `${c.id}.json`));
+  const merged = {...analysis, speech};
+  writeJson(abs(c.contentAnalysisPath), merged);
+  return merged;
+}
+
+/**
+ * Does the clip itself already contain "Meant to Be"? (e.g. a clip taken from a finished
+ * TikTok). Then its own audio is muted, otherwise the song would play twice, shifted.
+ */
+export async function detectSongInClip(c: Candidate, cfg: PipelineConfig): Promise<boolean> {
+  if (!c.media.local?.path) return false;
+  const out = path.join(PATHS.analysis, 'candidates', `${c.id}.songmatch.json`);
+  const music = loadMusicConfig();
+  const r = fs.existsSync(out)
+    ? readJson<{segments: {mediaStart: number; mediaEnd: number; meanSimilarity: number}[]}>(out)
+    : await runAnalysis<{segments: {mediaStart: number; mediaEnd: number; meanSimilarity: number}[]}>(['locate', abs(c.media.local.path), '--song', abs(music.track)], out);
+  const found = r.segments.filter((s) => s.meanSimilarity >= cfg.audio.songDetectSimilarity && s.mediaEnd - s.mediaStart >= 3);
+  if (found.length) log.info(`song detected inside the clip (${found.length} segment(s)) – clip audio will be muted`, {candidateId: c.id});
+  return found.length > 0;
 }

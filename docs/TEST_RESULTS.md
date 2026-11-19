@@ -1,6 +1,6 @@
 # Testergebnisse
 
-Stand: 2026-11-18 (inkl. Outro V3), Claude-Code-Cloud-Umgebung (Linux, 4 vCPU, 15 GB RAM, Node 22.23, Python 3.13, FFmpeg 7, Chromium Headless Shell 1243, Remotion 4.0.545).
+Stand: 2026-11-19 (inkl. Outro V3 und V4), Claude-Code-Cloud-Umgebung (Linux, 4 vCPU, 15 GB RAM, Node 22.23, Python 3.13, FFmpeg 7, Chromium Headless Shell 1243, Remotion 4.0.545).
 Alle Angaben sind tatsächlich ausgeführte Läufe; nichts davon ist geschätzt.
 
 ## 1. Automatisierte Tests
@@ -8,8 +8,8 @@ Alle Angaben sind tatsächlich ausgeführte Läufe; nichts davon ist geschätzt.
 | Suite | Befehl | Ergebnis |
 |---|---|---|
 | TypeScript-Typecheck | `npx tsc --noEmit` | ✅ fehlerfrei |
-| TypeScript/Vitest (49 Tests, 6 Dateien) | `npm test` | ✅ 49/49 bestanden (~33 s, davon ~29 s echter Render) |
-| Python/unittest (5 Tests) | `npm run test:py` | ✅ 5/5 bestanden (~5 s) |
+| TypeScript/Vitest (62 Tests, 7 Dateien) | `npm test` | ✅ 62/62 bestanden (~28 s, davon ~25 s echter Render) |
+| Python/unittest (8 Tests) | `npm run test:py` | ✅ 8/8 bestanden (~7 s) |
 
 Synthetische Testmedien werden von den Tests selbst erzeugt, heißen `TEST_*` / tragen den Bildtext „TEST MEDIA" und liegen nur in `.cache/test-media/` (nicht im Git).
 
@@ -121,3 +121,67 @@ Im ersten V3-Lauf schlug die Safe-Area-Prüfung fehl (Markierungsbalken 1 px üb
 Nicht automatisch prüfbar (manuell anhand der Screenshots bewertet): ob Gesichter „wichtig" angeschnitten sind und ob die Figur wirklich Thorfinn ist – die Zuordnung beruht auf meiner Sichtung der Einzelbilder (Shot-Liste in `docs/VIDEO_STYLE_GUIDE.md`).
 
 **Unabhängig auf GitHub Actions reproduziert:** Workflow „Render outro V3" (Lauf #2, https://github.com/Boketta-ki-Dashboards/kindnes-ai/actions/runs/44406611378) hat alle drei Videos in einer frischen Ubuntu-Umgebung gerendert, die QC bestanden (der Schritt bricht bei einer fehlgeschlagenen Prüfung ab) und das Artifact `kindness-outro-v3` (49 MB, gültig bis 18.12.2026) hochgeladen. CI-Lauf #4 auf demselben Commit: bestanden.
+
+## 5. V4 (Wiederholungskontrolle, durchgehende Musik, früheres Dictionary)
+
+Befehl: `npm run kai -- outro:v4` · Ergebnis: **66/66 Prüfungen bestanden** (vollständiger Bericht: [`docs/v4/QC_REPORT.md`](v4/QC_REPORT.md), Bilder in `docs/v4/`). **V4 ist nicht freigegeben** (`approved: false`, `outro.variant` unverändert).
+
+| Datei | Inhalt | Format | Größe |
+|---|---|---|---|
+| A `kindness-outro-v4-definition.mp4` | Outro V4 mit Dictionary (2,5 s Vorlauf + Outro) | 1080×1920, H.264/AAC, 30 fps, 13,42 s | 14,0 MB |
+| B `kindness-v4-full-audio-test.mp4` | ganze Timeline: TEST-Story + durchgehender Song + V4-Outro | 1080×1920, 27,41 s | 25,7 MB |
+| B2 `kindness-v4-speech-ducking-test.mp4` | TEST mit Sprache (Ducking/Verständlichkeit) | 1080×1920, 28,91 s | 23,1 MB |
+| C `kindness-v3-v4-comparison.mp4` | V3 links, V4 rechts, synchron, Ton von V4 | 2160×1920, 13,42 s | 23,1 MB |
+
+**Testmaterial (klar gekennzeichnet):** Es liegt kein rechtlich nutzbarer Kindness-Clip mit Sprache vor. B nutzt den Story-Teil der Referenz 4 (`TEST-INPUT_ref04-story_…`), der den Song bereits enthält → dieser Fall testet „keine doppelte Musik". B2 nutzt einen gemeinfreien CDC-Clip mit Sprache (`TEST-SPEECH_cdc-public-domain_classroom.mp4`, keine Kindness-Story) → testet Ducking und Sprachverständlichkeit.
+
+### Visuelle Wiederholungen (gemessen)
+
+| | V3 | V4 |
+|---|---|---|
+| Shots | 16 | 11 |
+| Duplikate | 1 (#2 = #7, SSIM 1,00, pHash-Abstand 0 – derselbe Heart-to-Heart-Loop) | 0 |
+| zu nah beieinander (< 3 Shots Abstand) | 3 Paare (#3/#5, #4/#6, #11/#12) | 0 |
+| Motiv ≥ 3× | 3 Gruppen (Teen-Profil 4×, Heart-to-Heart 3×, Feld-Erwachsener 5×) | 0 |
+| Ergebnis Wiederholungskontrolle | ❌ 7 Verstöße | ✅ alle 11 Shots verschieden |
+
+Methode: 5 Frames pro Shot, ausgeschnitten wie im Render (9:16-Cover, Fokus, Zoom), 63-bit-DCT-pHash, SSIM, 3×4-Layout-Deskriptor (Bildaufbau/Gesichtsposition), Herkunft (Quelle + Zeitfenster, gleiche Einstellung), kuratiertes Motiv-Label, Leerbild-Erkennung. Übersichten: `docs/v4/v3-shot-overview.jpg`, `docs/v4/v4-shot-overview.jpg`.
+
+### Musik (aus getrennt gerenderten Stems gemessen, nicht geschätzt)
+
+Der Musik-Stem wird gegen den Original-Song an derselben Songposition verglichen → tatsächlich angewendeter Gain je 0,2 s. Diagramme: `docs/v4/*.audio-envelope.png`.
+
+| Prüfung | A Outro | B Full Audio | B2 Sprache |
+|---|---|---|---|
+| Gain folgt dem Plan (Median / Max. Abweichung) | 0,1 / 0,9 dB | 0,1 / 0,9 dB | 0,1 / 1,0 dB |
+| Song durchgehend, ein Track, kein Neustart | ✅ ein Offset 45,7 s | ✅ ein Offset 31,7 s, 27 s abgedeckt | ✅ ein Offset 30,2 s, 28 s abgedeckt |
+| Lücken (< −60 dBFS) | 0 | 0 | 0 |
+| Leiser Start (Story) vs. Outro | – (nur 2,5 s Vorlauf) | −19,2 dB vs. −7,1 dB | −25,1 dB (geduckt) vs. −7,1 dB |
+| Build-up (Dauer / Anstieg / größter Schritt pro 0,2 s) | 2,5 s / +9,5 dB / 2,0 dB | 2,6 s / +10,1 dB / 1,7 dB | 2,6 s / +9,9 dB / 3,0 dB (Grenzwert 3,0) |
+| Sprung am Drop (vorher → nachher) | −7,2 → −7,1 dB | −7,4 → −7,1 dB | −7,2 → −7,2 dB |
+| Sprache über Musik (Median) | – | Clip stumm (enthält den Song) | **10,9 dB** (Ziel ≥ 8 dB) |
+| Keine doppelte Musik | – | ✅ Song im Clip erkannt → Clip-Ton 0 | ✅ kein Song im Clip, Story-Gain automatisch 1,87 (+5,4 dB) |
+| Lautheit Outro / ganzes Video | −14,0 / −14,5 LUFS | −14,0 / −17,2 LUFS | −14,0 / −16,6 LUFS |
+| True Peak | −6,1 dBTP | −6,8 dBTP | −3,3 dBTP |
+
+Die Normalisierung misst nur das Outro-Fenster und wendet **einen festen Gain** an (plus Limiter) – die leisere Story bleibt leiser, die Dramaturgie wird nicht eingeebnet. Das Ganze-Video-Ergebnis ist deshalb bewusst leiser als −14 LUFS.
+
+Der B2-Build-up liegt mit 3,0 dB größtem Schritt genau an der Grenze: Am Anfang des Build-ups spricht noch jemand (16,8–18 s), die Ducking-Absenkung wird während des Build-ups gleichmäßig aufgelöst – das ergibt den steileren Schritt. Hörbar ist das als zügiger, aber stetiger Anstieg.
+
+### Dictionary-Timing (Pixelmessung an Einzelbildern)
+
+| Zeit nach dem Drop | sichtbare Karten-Pixel |
+|---|---|
+| 0,00 s | 0 (noch unsichtbar) |
+| 0,42 s (Mitte der Einblendung) | 61 077 |
+| 0,55 s (voll sichtbar) | 119 523 |
+| später | 119 523 |
+
+Einblendung beginnt 0,30 s nach dem Drop und dauert 0,25 s (Werte aus `config/pipeline.json` → `text.dictionary.fadeInDelaySec` / `fadeInDurationSec`). Karte im Endzustand pixelgleich mit V3 (PSNR 99 dB): Schrift, Größe, Position, Markierung, Text und Zeilenumbrüche unverändert.
+
+### Was nicht automatisch prüfbar ist
+
+- Ob jede Figur Thorfinn ist, beruht auf meiner Sichtung der Einzelbilder; Shot 6 (Kapuzenfigur im Wind) ist nicht eindeutig identifizierbar.
+- Ob der Ton „gut klingt", ersetzt keine Messung – bitte A, B und B2 selbst anhören.
+- Bei 0,00 s nach dem Drop ist das Bild hell: das ist der bestehende Übergangs-Blitz aus V3, kein Fehler.
+

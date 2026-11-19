@@ -287,6 +287,7 @@ function planCuratedOutro(o: {
       sourceId: src.id,
       act: c.act,
       tag: c.tag,
+      motif: c.motif,
       speed: c.speed,
       effects: c.effects,
     });
