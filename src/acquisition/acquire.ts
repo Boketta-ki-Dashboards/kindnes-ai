@@ -52,6 +52,19 @@ async function download(url: string, dest: string, maxMb: number): Promise<void>
   fs.renameSync(tmp, dest);
 }
 
+/**
+ * Original file first, then Wikimedia's standard transcodes (the sizes Wikimedia asks
+ * automated clients to use when originals are rate-limited).
+ */
+export function wikimediaVideoUrls(mediaUrl: string): string[] {
+  const u = new URL(mediaUrl);
+  const m = u.pathname.match(/^\/wikipedia\/commons\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+\.(?:webm|ogv))$/i);
+  const original = `${u.origin}${u.pathname}`;
+  if (!m) return [original];
+  const [, a, ab, name] = m;
+  return [original, ...['720p', '480p'].map((q) => `${u.origin}/wikipedia/commons/transcoded/${a}/${ab}/${name}/${name}.${q}.vp9.webm`)];
+}
+
 /** archive.org: pick the best MP4 derivative of a free-licensed item. */
 async function archiveMediaUrl(identifier: string): Promise<string | null> {
   const meta = await fetchJson<{files?: {name: string; format?: string; size?: string; height?: string}[]}>(`https://archive.org/metadata/${encodeURIComponent(identifier)}`);
@@ -97,10 +110,21 @@ export async function acquireMedia(c: Candidate, cfg: PipelineConfig): Promise<A
       return {ok: true, media: describeMedia(dest), method: 'archive_org'};
     }
     if (c.platform === 'wikimedia' && c.mediaUrl) {
-      const ext = path.extname(new URL(c.mediaUrl).pathname) || '.webm';
-      const file = dest.replace(/\.mp4$/, ext);
-      await download(c.mediaUrl, file, cfg.acquisition.maxDownloadMb);
-      return {ok: true, media: describeMedia(file), method: 'wikimedia'};
+      // Wikimedia rate-limits original files for automated clients (HTTP 429) and asks them
+      // to use its standard transcoded sizes instead – fall back to those, never hammer.
+      const errors: string[] = [];
+      for (const url of wikimediaVideoUrls(c.mediaUrl)) {
+        const ext = path.extname(new URL(url).pathname) || '.webm';
+        const file = dest.replace(/\.mp4$/, ext);
+        try {
+          await download(url, file, cfg.acquisition.maxDownloadMb);
+          return {ok: true, media: describeMedia(file), method: 'wikimedia'};
+        } catch (e) {
+          errors.push(`${url.includes('/transcoded/') ? path.basename(new URL(url).pathname).split('.').slice(-3, -1).join('.') : 'original'}: ${(e as Error).message}`);
+          if (!/HTTP (429|403|404)/.test((e as Error).message)) break; // only fall back on rate limit / missing size
+        }
+      }
+      return {ok: false, reason: `Wikimedia download failed (${errors.join('; ')})`};
     }
   }
   if (cfg.acquisition.ytDlp.enabled && (c.platform === 'youtube' || c.platform === 'dailymotion')) {

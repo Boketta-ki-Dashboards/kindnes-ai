@@ -154,6 +154,7 @@ export async function acquire(store: CandidateStore, cfg: PipelineConfig, c: Can
     store.save();
     return false;
   } catch (e) {
+    c.media = {...c.media, reason: (e as Error).message};
     c.lastError = {step: 'acquire', message: (e as Error).message, at: nowIso()};
     store.setState(c, 'MEDIA_UNAVAILABLE', (e as Error).message.slice(0, 200));
     store.save();

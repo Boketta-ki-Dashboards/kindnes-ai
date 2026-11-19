@@ -39,6 +39,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core fonts-inter
       - run: pip install -r requirements.txt
       - run: npm ci
+      # the public-domain speech test clip comes from Wikimedia, which rate-limits automated
+      # downloads – keep the prepared 20 s test input between runs instead of re-downloading
+      - uses: actions/cache@v4
+        with:
+          path: media/test-inputs/TEST-SPEECH_cdc-public-domain_classroom.mp4
+          key: speech-test-input-v1
       - name: Render V3 (needed for the side-by-side comparison)
         run: npm run -s kai -- outro:v3
       - name: Render V4 + QC

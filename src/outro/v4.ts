@@ -35,7 +35,8 @@ export const V4_FILES = {
 };
 
 export const STORY_TEST_ID = 'local_test-input_ref04-story_dog-guides-blind-cat';
-const SPEECH_TEST_SRC = 'media/downloads/wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm.webm';
+const SPEECH_TEST_CANDIDATE = 'wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm';
+const SPEECH_TEST_SRC = `media/downloads/${SPEECH_TEST_CANDIDATE}.webm`;
 const SPEECH_TEST_FILE = 'media/test-inputs/TEST-SPEECH_cdc-public-domain_classroom.mp4';
 
 export function buildV4OutroPlan(): EditPlan {
@@ -135,28 +136,26 @@ export async function renderV4(opts: {skip?: ('outro' | 'full' | 'speech')[]} = 
 
   // ---------- B2: speech / ducking test (public-domain clip with speech) ----------
   if (!opts.skip?.includes('speech')) {
-    if (!fs.existsSync(abs(SPEECH_TEST_FILE))) {
-      if (!fs.existsSync(abs(SPEECH_TEST_SRC))) {
-        // fresh checkout (e.g. GitHub Actions): fetch the public-domain clip via the permitted Wikimedia route
-        const src = store.require('wm_Youth_Programs_Interception_-1-_Bad_Sportsmanship_AD_webm');
-        src.media = {status: 'downloadable'};
-        if (!(await P.acquire(store, cfg, src))) throw new Error(`speech test clip unavailable: ${src.media.reason}`);
+    const missing = await ensureSpeechTestInput(store);
+    if (missing) {
+      // external, rate-limited source: report clearly instead of aborting A/B/C
+      log.warn(`speech test skipped: ${missing}`);
+      checks.push(check('[B2 speech] public-domain speech test clip available', false, missing, 'clip downloaded (Wikimedia)', 'warning'));
+      sections.speech = {skipped: missing};
+    } else {
+      const sc = await P.importLocal(store, SPEECH_TEST_FILE, 'TEST (speech ducking): CDC public-domain classroom clip – not a kindness story');
+      const st = new CandidateStore();
+      const c2 = st.require(sc.id);
+      const r2 = await P.produce(st, c2, {overrides: {variant: 'V4', outroOverlay: 'dictionary', highlightTime: 16}, force: true, allowDuplicate: true});
+      fs.copyFileSync(r2.output, V4_FILES.speech);
+      for (const ext of ['.qc.json', '.audio-envelope.json', '.audio-envelope.png']) {
+        const src = r2.output.replace(/\.mp4$/, ext);
+        if (fs.existsSync(src)) fs.copyFileSync(src, V4_FILES.speech.replace(/\.mp4$/, ext));
       }
-      ensureDir(path.dirname(abs(SPEECH_TEST_FILE)));
-      await runFfmpeg(['-y', '-ss', '2.2', '-i', abs(SPEECH_TEST_SRC), '-t', '20', '-c:v', 'libx264', '-crf', '17', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', abs(SPEECH_TEST_FILE)]);
+      writeJson(path.join(V4_DIR, 'plan-speech-test.json'), r2.plan);
+      checks.push(...r2.qc.checks.map((x) => ({...x, name: `[B2 speech] ${x.name}`})));
+      sections.speech = {jobId: r2.jobId, speechSegments: r2.plan.story.speech, ducked: r2.plan.music.envelope?.ducked};
     }
-    const sc = await P.importLocal(store, SPEECH_TEST_FILE, 'TEST (speech ducking): CDC public-domain classroom clip – not a kindness story');
-    const st = new CandidateStore();
-    const c2 = st.require(sc.id);
-    const r2 = await P.produce(st, c2, {overrides: {variant: 'V4', outroOverlay: 'dictionary', highlightTime: 16}, force: true, allowDuplicate: true});
-    fs.copyFileSync(r2.output, V4_FILES.speech);
-    for (const ext of ['.qc.json', '.audio-envelope.json', '.audio-envelope.png']) {
-      const src = r2.output.replace(/\.mp4$/, ext);
-      if (fs.existsSync(src)) fs.copyFileSync(src, V4_FILES.speech.replace(/\.mp4$/, ext));
-    }
-    writeJson(path.join(V4_DIR, 'plan-speech-test.json'), r2.plan);
-    checks.push(...r2.qc.checks.map((x) => ({...x, name: `[B2 speech] ${x.name}`})));
-    sections.speech = {jobId: r2.jobId, speechSegments: r2.plan.story.speech, ducked: r2.plan.music.envelope?.ducked};
   }
 
   // ---------- C: V3 vs V4 side by side ----------
@@ -201,6 +200,25 @@ export async function renderV4(opts: {skip?: ('outro' | 'full' | 'speech')[]} = 
       '\n',
   );
   return {pass, report};
+}
+
+/**
+ * The TEST speech clip (CDC, public domain, 20 s from 2.2 s). Downloaded via the permitted
+ * Wikimedia route if missing (fresh checkout). Returns null when ready, otherwise the reason.
+ */
+export async function ensureSpeechTestInput(store: CandidateStore): Promise<string | null> {
+  if (fs.existsSync(abs(SPEECH_TEST_FILE))) return null;
+  let srcFile = abs(SPEECH_TEST_SRC);
+  if (!fs.existsSync(srcFile)) {
+    const src = store.require(SPEECH_TEST_CANDIDATE);
+    src.media = {status: 'downloadable'};
+    const ok = await P.acquire(store, loadPipelineConfig(), src);
+    if (!ok || !src.media.local?.path) return `speech test clip unavailable: ${src.media.reason ?? src.lastError?.message ?? 'unknown reason'}`;
+    srcFile = abs(src.media.local.path);
+  }
+  ensureDir(path.dirname(abs(SPEECH_TEST_FILE)));
+  await runFfmpeg(['-y', '-ss', '2.2', '-i', srcFile, '-t', '20', '-c:v', 'libx264', '-crf', '17', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', abs(SPEECH_TEST_FILE)]);
+  return null;
 }
 
 /**
