@@ -18,6 +18,7 @@ on:
       - "src/music/**"
       - "src/render/**"
       - "python/kindness_analysis/**"
+      - "requirements.txt"
       - ".github/workflows/outro-v4.yml"
 
 concurrency:
