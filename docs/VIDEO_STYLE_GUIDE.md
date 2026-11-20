@@ -161,6 +161,24 @@ Messung der V3-Shotliste mit der neuen Wiederholungskontrolle: Heart to Heart 4,
 | 10 | ruhig | 3 | Heart to Heart @ 21,40 s | goldenes Feld, Figur am Felsen, Baum | Landschaft |
 | 11 | ruhig | 2 + Abblende | No Enemies @ 55,15 s | Thorfinn vor Bäumen, nachdenklich | Schlussporträt |
 
+**Deine Beispiele, einzeln an echten Frames gemessen** (5 Frames pro Shot, so ausgeschnitten wie im Render; SSIM 1 = identisch, pHash-Abstand 0 = identisch; „Aufbau" = Ähnlichkeit der Bildkomposition):
+
+| Beispiel (V3-Shot #) | SSIM | pHash | Aufbau | Ergebnis | in V4 |
+|---|---|---|---|---|---|
+| HH 4,3 (#2) ↔ 14,9 (#7) | 0,996 | 0 | 0,98 | **Duplikat** – die Animation wiederholt sich als Schleife | nur 4,3 |
+| HH 4,3 (#2) ↔ 5,6 (#13) | 0,28 | 16 | 0,95 | ähnlich – gleiche Nahaufnahme, gleiche Gesichtsposition | 5,6 entfällt |
+| HH 14,9 (#7) ↔ 5,6 (#13) | 0,29 | 16 | 0,94 | ähnlich – gleiche Komposition | 14,9 entfällt |
+| NE 48,15 (#1) ↔ 49,6 (#4) | 0,31 | 20 | 0,84 | ähnlich – dasselbe Teenager-Profil, gleiche Einstellung | nur 48,15 (auf dem Drop) |
+| NE 48,15 (#1) ↔ 50,7 (#6) | 0,29 | 24 | 0,71 | ähnlich – gleiches Motiv | 50,7 entfällt |
+| NE 49,6 (#4) ↔ 50,7 (#6) | 0,28 | 22 | 0,85 | ähnlich – nur 2 Shots Abstand | 49,6 entfällt |
+| NE 43,0 (#5) ↔ 44,2 (#8) | 0,45 | 20 | 0,91 | ähnlich – gleiche Feld-Komposition | beide entfallen |
+| NE 43,0 (#5) ↔ 45,5 (#11) | 0,39 | 26 | 0,35 | ähnlich – gleiches Motiv (Erwachsener im Feld) | – |
+| NE 44,2 (#8) ↔ 45,5 (#11) | 0,43 | 24 | 0,31 | ähnlich – gleiche Einstellung | – |
+| NE 45,5 (#11) ↔ 46,6 (#12) | 0,55 | 26 | 0,77 | ähnlich – direkt hintereinander, gleiche Einstellung | nur 46,6 (Blick von oben) |
+| NE 43,0 / 44,2 ↔ 46,6 | – | – | – | nicht ähnlich (eigenes Motiv) | – |
+
+Ergebnis: Unterschiedliche Zeitstempel waren in V3 tatsächlich keine neuen Motive. Aus jeder Gruppe bleibt in V4 genau ein Shot; die frei gewordenen Beats gehen an neue Motive (#4, #6, #7) oder an längere Shots.
+
 Bewusst nicht verwendet: weitere Ufer-Silhouetten von Vater & Kind (10,6 / 12,3 s – gleiche Komposition wie #9), die zweite Kapuzen-Einstellung (18,2 s), NE 52,6 s (wieder das Teenager-Profil, endet zudem mit einem weißen Blitz-Frame – von der Kontrolle gefunden), NE 9,97 s und 33,9 s (Figur nicht sicher als Thorfinn erkennbar).
 
 Unverändert gegenüber V3: 1080×1920, 30 fps, goldener Grade, Vollbild-Zuschnitt, Effekte, Drop 48,216 s, Outro-Länge, Wörterbuch-Karte (Schrift, Größe, Position, Markierung, Text, Umbrüche). **Einzige Textänderung:** Einblendung beginnt 0,30 s nach dem Drop und dauert 0,25 s (`text.dictionary.fadeInDelaySec` / `fadeInDurationSec`; V3: 0,86 s / 0,40 s).
